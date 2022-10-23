@@ -1,0 +1,7 @@
+// Vitest Snapshot v1
+
+exports[`MyComponente > should render 1`] = `
+<DocumentFragment>
+  MyComponente
+</DocumentFragment>
+`;
