@@ -11,8 +11,8 @@
 		"test:once": "vitest --watch=false",
 		"prepare": "husky install",
 		"format": "prettier --write .",
-		"lint": "echo hola & eslint --ext .js,.jsx,.ts,.tsx",
-		"lint:fix": "eslint --ext .ts,.tsx --fix"
+		"lint": "eslint . --ext .ts,.tsx",
+		"lint:fix": "eslint . --ext .ts,.tsx --fix"
 	},
 	"dependencies": {
 		"react": "^18.2.0",
@@ -23,9 +23,10 @@
 		"@types/node": "^18.11.3",
 		"@types/react": "^18.0.17",
 		"@types/react-dom": "^18.0.6",
-		"@typescript-eslint/eslint-plugin": "^5.0.0",
+		"@typescript-eslint/eslint-plugin": "^5.40.1",
+		"@typescript-eslint/parser": "^5.40.1",
 		"@vitejs/plugin-react": "^2.1.0",
-		"eslint": "^8.0.1",
+		"eslint": "^8.26.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-config-standard-with-typescript": "^23.0.0",
 		"eslint-plugin-import": "^2.25.2",

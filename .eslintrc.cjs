@@ -8,18 +8,22 @@ module.exports = {
 			version: 'detect',
 		},
 	},
+	// parser: '@typescript-eslint/parser',
 	extends: [
 		'plugin:react/recommended',
+		'plugin:@typescript-eslint/recommended',
 		'plugin:react/jsx-runtime',
 		'standard-with-typescript',
 		'eslint-config-prettier',
 	],
 	overrides: [],
 	parserOptions: {
-		project: './tsconfig.json',
 		ecmaVersion: 'latest',
 		sourceType: 'module',
+		project: './tsconfig.json',
 	},
-	plugins: ['react'],
-	rules: {},
+	plugins: ['react', '@typescript-eslint'],
+	rules: {
+		'@typescript-eslint/triple-slash-reference': 'off',
+	},
 };
