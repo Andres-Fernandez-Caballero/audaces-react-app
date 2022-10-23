@@ -1,9 +1,5 @@
-import React from 'react';
-
-export interface MyComponenteProps {}
-
-const MyComponente: React.FunctionComponent<MyComponenteProps> = ({}) => {
+function MyComponente(): JSX.Element {
 	return <>MyComponente</>;
-};
+}
 
 export default MyComponente;

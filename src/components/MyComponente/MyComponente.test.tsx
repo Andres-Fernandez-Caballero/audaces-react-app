@@ -1,14 +1,11 @@
 import { cleanup, render } from '@testing-library/react';
-import React from 'react';
-import MyComponente, { MyComponenteProps } from './MyComponente';
+import MyComponentefrom from './MyComponente';
 
 describe('MyComponente', () => {
 	afterEach(cleanup);
-	const defaultProps: MyComponenteProps = {};
 
 	it('should render', () => {
-		const props = { ...defaultProps };
-		const { asFragment, queryByText } = render(<MyComponente {...props} />);
+		const { asFragment, queryByText } = render(<MyComponentefrom />);
 
 		expect(asFragment()).toMatchSnapshot();
 		expect(queryByText('MyComponente')).toBeTruthy();

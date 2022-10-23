@@ -1,8 +1,4 @@
-import React from 'react';
-
-export interface CounterProps {}
-
-function Counter({}: CounterProps) {
+function Counter(): JSX.Element {
 	return <>Counter</>;
 }
 
