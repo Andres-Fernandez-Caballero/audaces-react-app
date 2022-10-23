@@ -8,6 +8,7 @@
 		"build": "tsc && vite build",
 		"preview": "vite preview",
 		"test": "vitest",
+		"test:once": "vitest --watch=false",
 		"prepare": "husky install",
 		"format": "prettier --write .",
 		"lint": "echo hola & eslint --ext .js,.jsx,.ts,.tsx",
