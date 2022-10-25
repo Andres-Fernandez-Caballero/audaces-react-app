@@ -1,4 +1,4 @@
-import { ILink } from '../../interfaces/ILink';
+import { ILink } from '../../../interfaces/ILink';
 
 export interface NavbarProps {
 	navLinks: ILink[];
