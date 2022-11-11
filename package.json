@@ -9,6 +9,7 @@
 		"preview": "vite preview",
 		"test": "vitest",
 		"test:once": "vitest --watch=false",
+		"test:update-snapshots": "vitest -u",
 		"prepare": "husky install",
 		"format": "prettier --write .",
 		"lint": "eslint . --ext .ts,.tsx",

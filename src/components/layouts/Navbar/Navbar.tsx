@@ -26,16 +26,13 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 				</button>
 				<div className='collapse navbar-collapse' id='navbarSupportedContent'>
 					<ul className='navbar-nav me-auto mb-2 mb-lg-0'>
-						<li className='nav-item'>
-							<a className='nav-link active' aria-current='page' href='#'>
-								Home
-							</a>
-						</li>
-						<li className='nav-item'>
-							<a className='nav-link' href='#'>
-								Link
-							</a>
-						</li>
+						{navLinks.map(link => (
+							<li className='nav-item' key={link.name}>
+								<a className='nav-link' href={link.url}>
+									{link.name}
+								</a>
+							</li>
+						))}
 						<li className='nav-item dropdown'>
 							<a
 								className='nav-link dropdown-toggle'

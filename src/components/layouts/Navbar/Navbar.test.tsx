@@ -16,6 +16,6 @@ describe('Navbar', () => {
 		const { asFragment, queryByText } = render(<Navbar {...props} />);
 
 		expect(asFragment()).toMatchSnapshot();
-		expect(queryByText('Navbar')).toBeTruthy();
+		expect(queryByText('Audaces')).toBeTruthy();
 	});
 });
