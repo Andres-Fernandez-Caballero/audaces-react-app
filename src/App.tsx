@@ -1,15 +1,7 @@
-import Navbar from './components/Layouts/Navbar';
-import { navBarLinks } from './constants/routes';
+import AppRouter from './routes/AppRouter';
 
 function App(): JSX.Element {
-	return (
-		<div className='App'>
-			<Navbar navLinks={navBarLinks} />
-			<a href='#' className='btn btn-primary'>
-				Soy un boton!!!
-			</a>
-		</div>
-	);
+	return <AppRouter />;
 }
 
 export default App;
