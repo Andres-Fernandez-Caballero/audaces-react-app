@@ -1,9 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
+import { Home } from '../../pages/Home';
 
 const AppRouter: React.FC = () => {
 	return (
 		<Routes>
-			<Route path='/' element={<h1>Dashboard</h1>}>
+			<Route path='/' element={<Home />}>
 				<Route path='dashboard' index element={<h1>Dashboard</h1>} />
 				<Route path='settings' element={<h1>Settings</h1>} />
 			</Route>
