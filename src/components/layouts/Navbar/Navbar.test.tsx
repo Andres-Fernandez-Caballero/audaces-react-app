@@ -1,6 +1,7 @@
 import { cleanup, render } from '@testing-library/react';
 import Navbar, { NavbarProps } from './Navbar';
 import { expect } from 'vitest';
+import { BrowserRouter } from 'react-router-dom';
 
 describe('Navbar', () => {
 	afterEach(cleanup);
@@ -13,9 +14,13 @@ describe('Navbar', () => {
 
 	it('should render', () => {
 		const props = { ...defaultProps };
-		const { asFragment, queryByText } = render(<Navbar {...props} />);
+		const { asFragment, queryByAltText } = render(
+			<BrowserRouter>
+				<Navbar {...props} />
+			</BrowserRouter>
+		);
 
 		expect(asFragment()).toMatchSnapshot();
-		expect(queryByText('Audaces')).toBeTruthy();
+		expect(queryByAltText('hidra logo')).toBeTruthy();
 	});
 });

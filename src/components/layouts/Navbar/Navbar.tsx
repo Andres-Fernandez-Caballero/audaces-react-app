@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom';
 import { ILink } from '../../../interfaces/ILink';
+import hidraLogo from '../../../assets/hidraLogo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export interface NavbarProps {
 	navLinks: ILink[];
@@ -8,11 +11,11 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 	navLinks,
 }: NavbarProps) => {
 	return (
-		<nav className='navbar navbar-expand-lg navbar-light bg-light'>
+		<nav className='navbar navbar-expand-lg bg-ligth'>
 			<div className='container-fluid'>
-				<a className='navbar-brand' href='#'>
-					Audaces
-				</a>
+				<Link className='navbar-brand' to='#'>
+					<img src={hidraLogo} height={100} alt='hidra logo' />
+				</Link>
 				<button
 					className='navbar-toggler'
 					type='button'
@@ -26,60 +29,59 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 				</button>
 				<div className='collapse navbar-collapse' id='navbarSupportedContent'>
 					<ul className='navbar-nav me-auto mb-2 mb-lg-0'>
-						{navLinks.map(link => (
-							<li className='nav-item' key={link.name}>
-								<a className='nav-link' href={link.url}>
-									{link.name}
-								</a>
-							</li>
-						))}
+						<li className='nav-item'>
+							<Link className='nav-link text-dark' aria-current='page' to='#'>
+								Home
+							</Link>
+						</li>
+						<li className='nav-item'>
+							<Link className='nav-link text-dark' to='#'>
+								Link
+							</Link>
+						</li>
 						<li className='nav-item dropdown'>
-							<a
-								className='nav-link dropdown-toggle'
-								href='#'
-								id='navbarDropdown'
+							<Link
+								className='nav-link dropdown-toggle text-dark'
+								to='#'
 								role='button'
 								data-bs-toggle='dropdown'
 								aria-expanded='false'
 							>
 								Dropdown
-							</a>
-							<ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
+							</Link>
+							<ul className='dropdown-menu'>
 								<li>
-									<a className='dropdown-item' href='#'>
+									<Link className='dropdown-item text-dark' to='#'>
 										Action
-									</a>
+									</Link>
 								</li>
 								<li>
-									<a className='dropdown-item' href='#'>
+									<Link className='dropdown-item text-dark' to='#'>
 										Another action
-									</a>
+									</Link>
 								</li>
-								<li className='dropdown-divider'></li>
+
 								<li>
-									<a className='dropdown-item' href='#'>
+									<Link className='dropdown-item text-dark' to='#'>
 										Something else here
-									</a>
+									</Link>
 								</li>
 							</ul>
 						</li>
-						<li className='nav-item'>
-							<a className='nav-link disabled' href='#' aria-disabled='true'>
-								Disabled
-							</a>
-						</li>
 					</ul>
-					<form className='d-flex'>
-						<input
-							className='form-control me-2'
-							type='search'
-							placeholder='Search'
-							aria-label='Search'
-						/>
-						<button className='btn btn-outline-success' type='submit'>
-							Search
-						</button>
-					</form>
+					<div className='d-flex'>
+						<div
+							style={{
+								fontSize: '1.5rem',
+								margin: '1rem',
+								border: '2px solid #ccc',
+								borderRadius: '10%',
+								padding: '0.5rem',
+							}}
+						>
+							<FontAwesomeIcon icon='cart-shopping' />
+						</div>
+					</div>
 				</div>
 			</div>
 		</nav>
