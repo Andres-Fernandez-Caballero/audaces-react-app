@@ -1,31 +1,39 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import BlackLabelBar from '../../components/audaces/BlackLaberBar';
+import FeatureProductsCarousel from '../../components/audaces/FeatureProductsCarousel';
+import GridSection from '../../components/audaces/GridSection';
+import ItemsSwiper from '../../components/audaces/ItemsSwiper';
+import OverNavBar from '../../components/audaces/OverNavBar';
+import Footer from '../../components/layouts/Footer';
 import Navbar from '../../components/layouts/Navbar';
-import { navBarLinks, URL } from '../../constants/routes';
+import { navBarLinks } from '../../constants/routes';
 import styles from './styles/Home.module.scss';
 // export interface HomeInterface {}
 
 const Home: React.FC = () => {
 	return (
 		<div className={styles.home}>
-			<nav className='navbar justify-content-center bg-dark'>
-				<div className='d-flex'>
-					<h2 className='navbar-brand'>Bienvenido user</h2>
-					<ul className='navbar-nav' style={{ flexDirection: 'row' }}>
-						<li className='nav-item'>
-							<Link className='nav-link' to={URL.TOOLS}>
-								Herramientas
-							</Link>
-						</li>
-						<li className='nav-item mx-2'>
-							<Link className='nav-link' to={URL.TOOLS}>
-								Salir
-							</Link>
-						</li>
-					</ul>
-				</div>
-			</nav>
+			<OverNavBar />
 			<Navbar navLinks={navBarLinks} />
+			<ItemsSwiper items={[]} />
+			<BlackLabelBar>
+				<nav
+					style={{ display: 'flex', margin: 'auto', verticalAlign: 'baseline' }}
+				>
+					<h2
+						style={{
+							fontSize: 'medium',
+							color: 'whitesmoke',
+							fontWeight: 'bolder',
+						}}
+					>
+						De atletas para atletas
+					</h2>
+				</nav>
+			</BlackLabelBar>
+			<GridSection />
+			<FeatureProductsCarousel />
+			<Footer />
 		</div>
 	);
 };

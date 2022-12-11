@@ -1,2 +1,3 @@
-export { default } from './Footer';
-export * from './Footer';
+import { ContainedFooter } from './Footer';
+
+export default ContainedFooter;

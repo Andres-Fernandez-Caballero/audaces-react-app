@@ -8,6 +8,8 @@ describe('Footer', () => {
 	it('should render', () => {
 		const { asFragment, queryByText } = render(<Footer />);
 		expect(asFragment()).toMatchSnapshot();
-		expect(queryByText('Footer')).toBeTruthy();
+		expect(queryByText('Contactenos')).toBeTruthy();
+		expect(queryByText('Atencion Al Cliente')).toBeTruthy();
+		expect(queryByText('REDES SOCIALES')).toBeTruthy();
 	});
 });

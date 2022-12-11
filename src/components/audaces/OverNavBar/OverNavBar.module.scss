@@ -1,0 +1,31 @@
+.container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 8px;
+    margin: auto;
+    align-items: center;
+}
+
+.container h2 {
+    color: whitesmoke;
+    font-size: medium;
+    font-weight: bolder;
+    margin: 0;
+}
+
+.container ul{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    margin:0
+}
+
+.container ul li {
+    margin: 8px;
+}
+
+.container ul li a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
