@@ -4,10 +4,12 @@ import AppRouter from './AppRouter';
 
 describe('AppRouter', () => {
 	it('should render', () => {
-		render(
+		const { asFragment, queryAllByAltText } = render(
 			<BrowserRouter>
 				<AppRouter />
 			</BrowserRouter>
 		);
+		expect(asFragment()).toMatchSnapshot();
+		expect(queryAllByAltText('hidra logo')).toBeTruthy();
 	});
 });
