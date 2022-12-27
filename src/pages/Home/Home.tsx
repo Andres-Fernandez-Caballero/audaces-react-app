@@ -19,6 +19,9 @@ const Home: React.FC = () => {
 							fontSize: 'medium',
 							color: 'whitesmoke',
 							fontWeight: 'bolder',
+							display: 'flex',
+							justifyContent: 'center',
+							padding: '1rem',
 						}}
 					>
 						De atletas para atletas

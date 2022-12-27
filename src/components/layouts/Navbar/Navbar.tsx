@@ -3,7 +3,7 @@ import { ILink } from '../../../interfaces/ILink';
 import hidraLogo from '../../../assets/hidraLogo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { URL } from '../../../constants/routes';
-
+import styles from '../Navbar/styles/Navbar.module.scss';
 export interface NavbarProps {
 	navLinks: ILink[];
 }
@@ -22,10 +22,15 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 	};
 
 	return (
-		<nav className='navbar navbar-expand-lg bg-ligth'>
-			<div className='container-fluid'>
+		<div className={styles.navbar}>
+			<nav className='navbar navbar-expand-lg'>
 				<Link className='navbar-brand' to={URL.HOME}>
-					<img src={hidraLogo} height={100} alt='hidra logo' />
+					<img
+						className={styles.logo}
+						src={hidraLogo}
+						height={100}
+						alt='hidra logo'
+					/>
 				</Link>
 				<button
 					className='navbar-toggler'
@@ -46,7 +51,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 									style={({ isActive }) =>
 										isActive ? activeLinkStyle : inactiveLinkStyle
 									}
-									className='nav-link'
+									className={styles.navbar__item}
 									to={link.url}
 								>
 									{link.name}
@@ -55,21 +60,13 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 						))}
 					</ul>
 					<div className='d-flex'>
-						<div
-							style={{
-								fontSize: '1.5rem',
-								margin: '1rem',
-								border: '2px solid #ccc',
-								borderRadius: '10%',
-								padding: '0.5rem',
-							}}
-						>
+						<div className={styles.navbar__cartshop}>
 							<FontAwesomeIcon icon='cart-shopping' />
 						</div>
 					</div>
 				</div>
-			</div>
-		</nav>
+			</nav>
+		</div>
 	);
 };
 
