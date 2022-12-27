@@ -1,56 +1,97 @@
 @import "../../../../sass/theme/variables";
 @import "../../../../sass/core/typography";
 
-.navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0.625rem 0.688rem;
-    gap: 35.688rem;
-    width: 100%;
-    height: 6.75rem;
-    background: $navbarcolor ;
-    flex: none;
-    order: 1;
-    flex-grow: 0;
 
 
-    nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 2rem;
-        width: 80%;
-        height: 5.5rem;
-        background-color: $navbarcolor;
 
+@mixin dipositives ($breakpoint) {
+    @if $breakpoint ==mobile {
+        @media only screen and (max-device-width: 480px) {
+            @content;
+        }
     }
 
-    &__item {
-        display: flex;
-        text-decoration: none;
-        padding-inline-start: 10px;
-    }
-
-    &__cartshop {
-        font-size: 1.5rem;
-        margin: 1rem;
-        border: 2px solid $text;
-        color: $text;
-        border-radius: 10%;
-        padding: 0.5rem
+    @if $breakpoint ==md {
+        @media only screen and (max-width: 1920px) {
+            @content
+        }
     }
 
 
 
 }
 
-.logo {
-    width: 252.34px;
-    height: 88px;
-    align-items: center;
-    display: flex;
+
+
+.navbar {
+    @include dipositives(md) {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0.625rem 0.688rem;
+        gap: 35.688rem;
+        width: 100%;
+        height: 6.75rem;
+        background: $navbarcolor ;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 2rem;
+            width: 80%;
+            height: 5.5rem;
+            background-color: $navbarcolor;
+
+        }
+
+        &__item {
+            display: flex;
+            text-decoration: none;
+            padding-inline-start: 10px;
+            font-family: $tipografy;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        &__cartshop {
+            font-size: 1.5rem;
+            margin: 1rem;
+            border: 2px solid $text;
+            color: $text;
+            border-radius: 10%;
+            padding: 0.5rem
+        }
+
+        &__logo {
+            width: 252.34px;
+            height: 88px;
+            align-items: center;
+            display: flex;
+
+        }
+
+        &__cartPosition {
+            display: flex;
+        }
+
+        &__toggler {
+            display: none;
+          }
+
+
+
+    }
+
+    
+   
+
 
 }

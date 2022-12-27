@@ -26,7 +26,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 			<nav className='navbar navbar-expand-lg'>
 				<Link className='navbar-brand' to={URL.HOME}>
 					<img
-						className={styles.logo}
+						className={styles.navbar__logo}
 						src={hidraLogo}
 						height={100}
 						alt='hidra logo'
@@ -59,7 +59,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 							</li>
 						))}
 					</ul>
-					<div className='d-flex'>
+					<div className={styles.navbar__cartPosition}>
 						<div className={styles.navbar__cartshop}>
 							<FontAwesomeIcon icon='cart-shopping' />
 						</div>
