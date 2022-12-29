@@ -26,12 +26,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 			<nav className='navbar navbar-expand-lg'>
 				<div className='container-fluid'>
 					<Link className='navbar-brand' to={URL.HOME}>
-						<img
-							// className={styles.navbar__logo}
-							src={hidraLogo}
-							height={100}
-							alt='hidra logo'
-						/>
+						<img src={hidraLogo} height={100} alt='hidra logo' />
 					</Link>
 					<button
 						className='navbar-toggler'
