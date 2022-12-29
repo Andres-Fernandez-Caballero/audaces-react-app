@@ -1,30 +1,22 @@
-@import "../../../../sass/theme/variables";
-@import "../../../../sass/core/typography";
+@import '../../../../sass/theme/variables';
+@import '../../../../sass/core/typography';
 
-
-
-
-@mixin dipositives ($breakpoint) {
+@mixin dipositives($breakpoint) {
     @if $breakpoint ==mobile {
-        @media only screen and (max-device-width: 480px) {
+        @media only screen and (max-device-width: 600px) {
             @content;
         }
     }
 
-    @if $breakpoint ==md {
+    @if $breakpoint ==webside {
         @media only screen and (max-width: 1920px) {
-            @content
+            @content;
         }
     }
-
-
-
 }
 
-
-
 .navbar {
-    @include dipositives(md) {
+    @include dipositives(webside) {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -33,11 +25,10 @@
         gap: 35.688rem;
         width: 100%;
         height: 6.75rem;
-        background: $navbarcolor ;
+        background: $navbarcolor;
         flex: none;
         order: 1;
         flex-grow: 0;
-
 
         nav {
             display: flex;
@@ -46,9 +37,8 @@
             align-items: center;
             gap: 2rem;
             width: 80%;
-            height: 5.5rem;
+            height: 4.491rem;
             background-color: $navbarcolor;
-
         }
 
         &__item {
@@ -64,13 +54,26 @@
         &__cartshop {
             font-size: 1.5rem;
             margin: 1rem;
-            border: 2px solid $text;
+            padding: '0.5rem';
             color: $text;
-            border-radius: 10%;
-            padding: 0.5rem
         }
 
-        &__logo {
+        // &__logo {
+        //     width: 252.34px;
+        //     height: 88px;
+        //     align-items: center;
+        //     display: flex;
+        // }
+
+        &__cartPosition {
+            display: flex;
+        }
+
+        &__toggleMenu {
+            display: none;
+        }
+
+        img {
             width: 252.34px;
             height: 88px;
             align-items: center;
@@ -78,20 +81,59 @@
 
         }
 
-        &__cartPosition {
-            display: flex;
-        }
-
-        &__toggler {
-            display: none;
-          }
-
-
-
     }
 
-    
-   
 
+    @include dipositives(mobile) {
+        .navbar {
+            nav {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+                flex: none;
+                order: 1;
+                align-self: stretch;
+                flex-grow: 0;
+            }
+
+            // &__logo {
+            //     display: inline;
+            //     width: 120px;
+            //     height: 41.85px;
+            // }
+
+            &__cartPosition &__cartshop {
+                position: absolute;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+
+                position: absolute;
+                left: 10.42%;
+                right: 10.42%;
+                top: 14.58%;
+                bottom: 50%;
+
+            }
+
+
+        }
+    }
+
+    button {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    img {
+        display: inline;
+        width: 120px;
+        height: 41.85px;
+
+    }
 
 }
