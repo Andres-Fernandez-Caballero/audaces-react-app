@@ -16,7 +16,6 @@ export const JumboBanner: React.FunctionComponent<JumboBannerProps> = ({
 			gap: '10px',
 			width: '1850px',
 			height: '1100px',
-			// background: '#D9D9D9',
 		}}
 	>
 		<img

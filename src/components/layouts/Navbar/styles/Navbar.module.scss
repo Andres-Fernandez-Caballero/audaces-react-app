@@ -1,5 +1,6 @@
-@import '../../../../sass/theme/variables';
-@import '../../../../sass/core/typography';
+@import '@sass/theme/variables';
+@import '@sass/core/typography';
+@import '@sass/animations/zoomIn';
 
 @mixin dipositives($breakpoint) {
 	@if $breakpoint == mobile {
@@ -16,6 +17,10 @@
 }
 
 .navbar {
+	&__cartshop {
+		color: $info;
+		animation: zoomIn 1s;
+	}
 	@include dipositives(webside) {
 		justify-content: center;
 		align-items: center;
@@ -43,7 +48,6 @@
 			font-size: 1.5rem;
 			margin: 1rem;
 			padding: '0.5rem';
-			color: $text;
 		}
 	}
 

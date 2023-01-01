@@ -1,5 +1,5 @@
 import styles from './Footer.module.scss';
-import BlackLabelBar from '../../audaces/BlackLaberBar';
+import BlackLabelBar from '@components/audaces/BlackLaberBar';
 
 const Footer: React.FC = () => (
 	<nav>
