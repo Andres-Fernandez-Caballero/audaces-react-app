@@ -9,5 +9,6 @@ describe('Detail', () => {
 
 		expect(asFragment()).toMatchSnapshot();
 		expect(queryByText('Detail')).toBeTruthy();
+		expect(queryByText('Descripcion')).toBeTruthy();
 	});
 });

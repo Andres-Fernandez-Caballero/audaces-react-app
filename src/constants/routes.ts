@@ -8,10 +8,13 @@ export const PATH_NAME = {
 	DETAIL: 'Detalle',
 };
 
+const root = '/';
+
 export const URL = {
-	HOME: '/',
-	ABOUT: '/' + PATH_NAME.ABOUT,
-	PRODUCTS: '/' + PATH_NAME.PRODUCTS,
+	HOME: root,
+	ABOUT: root + PATH_NAME.ABOUT,
+	PRODUCTS: root + PATH_NAME.PRODUCTS,
+	PRODUCTS_DETAIL: root + PATH_NAME.PRODUCTS + '/' + PATH_NAME.DETAIL,
 };
 export const navBarLinks: ILink[] = [
 	{ name: PATH_NAME.HOME, url: URL.HOME },

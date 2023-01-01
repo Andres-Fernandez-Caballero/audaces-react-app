@@ -15,7 +15,7 @@ const AppRouter: React.FC = () => {
 
 				<Route path={PATH_NAME.PRODUCTS}>
 					<Route index element={<ProductList />} />
-					<Route path={PATH_NAME.DETAIL} element={<ProductDetail />} />
+					<Route path={`${PATH_NAME.DETAIL}/:id`} element={<ProductDetail />} />
 				</Route>
 				<Route path='*' element={<h1>404</h1>} />
 			</Route>
