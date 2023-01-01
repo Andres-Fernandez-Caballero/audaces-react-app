@@ -1,8 +1,7 @@
-import React from 'react';
-import BlackLabelBar from '../../components/audaces/BlackLaberBar';
-import FeatureProductsCarousel from '../../components/audaces/FeatureProductsCarousel';
-import GridSection from '../../components/audaces/GridSection';
-import ItemsSwiper from '../../components/audaces/ItemsSwiper';
+import BlackLabelBar from '@components/audaces/BlackLaberBar';
+import FeatureProductsCarousel from '@components/audaces/FeatureProductsCarousel';
+import GridSection from '@components/audaces/GridSection';
+import ItemsSwiper from '@components/audaces/ItemsSwiper';
 import styles from './styles/Home.module.scss';
 // export interface HomeInterface {}
 

@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import { NavigableLayout } from '../../components/layers/NavigableLayout/NavigableLayout';
-import { PATH_NAME } from '../../constants/routes';
-import About from '../../pages/About';
-import { Home } from '../../pages/Home';
-import ProductDetail from '../../pages/Products/ProductDetail';
-import ProductList from '../../pages/Products/ProductList';
+import { NavigableLayout } from '@components/layers/NavigableLayout/NavigableLayout';
+import { PATH_NAME } from '@constants/routes';
+import About from '@pages/About';
+import Home from '@pages/Home';
+import ProductDetail from '@pages/Products/ProductDetail';
+import ProductList from '@pages/Products/ProductList';
 
 const AppRouter: React.FC = () => {
 	return (
@@ -15,7 +15,13 @@ const AppRouter: React.FC = () => {
 
 				<Route path={PATH_NAME.PRODUCTS}>
 					<Route index element={<ProductList />} />
-					<Route path={`${PATH_NAME.DETAIL}/:id`} element={<ProductDetail />} />
+					<Route
+						path={
+							// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+							`${PATH_NAME.DETAIL}/:id`
+						}
+						element={<ProductDetail />}
+					/>
 				</Route>
 				<Route path='*' element={<h1>404</h1>} />
 			</Route>

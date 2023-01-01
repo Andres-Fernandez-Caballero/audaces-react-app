@@ -1,11 +1,12 @@
-import JumboBanner from '../../../components/layouts/JumboBanner';
-import banner from '../../../assets/imgs/banners/bermuda.banner.png';
-import api from '../../../tests/api/products.mock.json';
 import { useEffect, useState } from 'react';
-import { IProduct } from '../../../interfaces/IProduct';
-import tshirt from '../../../assets/imgs/remera_frente.png';
 import { Link } from 'react-router-dom';
-import { URL } from '../../../constants/routes';
+import { URL } from '@constants/routes';
+import { IProduct } from '@interfaces/IProduct';
+import JumboBanner from '@components/layouts/JumboBanner';
+import banner from '@assets/imgs/banners/bermuda.banner.png';
+import api from '@tests/api/products.mock.json';
+import tshirt from '@assets/imgs/remera_frente.png';
+
 const List: React.FunctionComponent = () => {
 	const [products, setProducts] = useState([] as IProduct[]);
 	useEffect(() => {

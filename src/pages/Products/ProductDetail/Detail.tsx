@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { IProduct } from '../../../interfaces/IProduct';
-import api from '../../../tests/api/products.mock.json';
-import tshirt from '../../../assets/imgs/remera_frente.png';
+import { IProduct } from '@interfaces/IProduct';
+import api from '@tests/api/products.mock.json';
+import tshirt from '@assets/imgs/remera_frente.png';
 
 const Detail: React.FunctionComponent = () => {
 	const initProduct: IProduct = {

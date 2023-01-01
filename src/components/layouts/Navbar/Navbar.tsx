@@ -1,9 +1,10 @@
-import { Link, NavLink } from 'react-router-dom';
-import { ILink } from '../../../interfaces/ILink';
-import hidraLogo from '../../../assets/hidraLogo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { URL } from '../../../constants/routes';
-import styles from '../Navbar/styles/Navbar.module.scss';
+import { Link, NavLink } from 'react-router-dom';
+import { ILink } from '@interfaces/ILink';
+import { URL } from '@constants/routes';
+import hidraLogo from '@assets/hidraLogo.png';
+import styles from './styles/Navbar.module.scss';
+
 export interface NavbarProps {
 	navLinks: ILink[];
 }
@@ -39,11 +40,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 					>
 						<span className='navbar-toggler-icon'></span>
 					</button>
-					<div className={styles.navbar__cartPosition}>
-						<div className={styles.navbar__cartshop}>
-							<FontAwesomeIcon icon='cart-shopping' />
-						</div>
-					</div>
+
 					<div className='collapse navbar-collapse' id='navbarSupportedContent'>
 						<ul className='navbar-nav me-auto mb-2 mb-lg-0'>
 							{navLinks.map(link => (
@@ -60,6 +57,11 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 								</li>
 							))}
 						</ul>
+					</div>
+					<div className={styles.navbar__cartPosition}>
+						<div className={styles.navbar__cartshop}>
+							<FontAwesomeIcon icon='cart-shopping' />
+						</div>
 					</div>
 				</div>
 			</nav>

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const PageNotFound: React.FunctionComponent = () => {
 	return (
 		<>

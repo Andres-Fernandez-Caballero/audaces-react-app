@@ -15,7 +15,23 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
-		"jsx": "react-jsx"
+		"jsx": "react-jsx",
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["src/*"],
+			"@routes/*": ["src/routes/*"],
+			"@pages/*": ["src/pages/*"],
+			"@interceptors/*": ["src/interceptors/*"],
+			"@interfaces/*": ["src/interfaces/*"],
+			"@constants/*": ["src/constants/*"],
+			"@sass/*": ["src/sass/*"],
+			"@assets/*": ["src/assets/*"],
+			"@components/*": ["src/components/*"],
+			"@services/*": ["src/services/*"],
+			"@tests/*": ["src/tests/*"],
+
+			"~/*": ["src/*"]
+		}
 	},
 	"include": ["src", "vitest/setupTests.ts"],
 	"references": [{ "path": "./tsconfig.node.json" }]

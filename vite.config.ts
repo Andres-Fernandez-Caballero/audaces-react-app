@@ -11,4 +11,19 @@ export default defineConfig({
 		globals: true,
 		environment: 'jsdom',
 	},
+	resolve: {
+		alias: {
+			'@': `${__dirname}/src`,
+			'@routes': `${__dirname}/src/routes`,
+			'@pages': `${__dirname}/src/pages`,
+			'@interfaces': `${__dirname}/src/interfaces`,
+			'@interceptors': `${__dirname}/src/interceptors`,
+			'@constants': `${__dirname}/src/constants`,
+			'@sass': `${__dirname}/src/sass`,
+			'@assets': `${__dirname}/src/assets`,
+			'@components': `${__dirname}/src/components`,
+			'@services': `${__dirname}/src/services`,
+			'@tests': `${__dirname}/src/tests`,
+		},
+	},
 });
