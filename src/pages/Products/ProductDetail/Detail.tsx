@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { IProduct } from '@interfaces/IProduct';
 import api from '@tests/api/products.mock.json';
 import tshirt from '@assets/imgs/remera_frente.png';
+import styles from './Detail.module.scss';
 
 const Detail: React.FunctionComponent = () => {
 	const initProduct: IProduct = {
@@ -42,6 +43,7 @@ const Detail: React.FunctionComponent = () => {
 		);
 		if (productFind !== null && productFind !== undefined) {
 			setProduct(productFind);
+			console.log(product);
 		}
 	});
 
@@ -49,12 +51,14 @@ const Detail: React.FunctionComponent = () => {
 		<div className='container'>
 			<main className='row'>
 				<aside className='col-md-8'>
-					<img src={tshirt} alt='tshirt' />
+					<figure className='d-flex justify-content-center'>
+						<img className={styles.image} src={tshirt} alt='tshirt' />
+					</figure>
 				</aside>
 				<section className='col-md-4'>
 					<article>
 						<h2>{product.title.titulo}</h2>
-						<p>
+						<p className='badge text-bg-primary' style={{ fontSize: '1.1rem' }}>
 							<span>$</span>
 							{product.price}
 						</p>
