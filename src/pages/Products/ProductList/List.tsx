@@ -17,7 +17,7 @@ const List: React.FunctionComponent = () => {
 	return (
 		<>
 			<JumboBanner src={banner} />
-			<section>
+			<section className='card-deck'>
 				<ul
 					style={{
 						display: 'grid',

@@ -14,16 +14,20 @@ export const JumboBanner: React.FunctionComponent<JumboBannerProps> = ({
 			alignItems: 'center',
 			padding: '10px',
 			gap: '10px',
-			width: '1850px',
-			height: '1100px',
+			maxWidth: '100%',
+			maxHeight: '100%',
 		}}
 	>
 		<img
+			className='img-fluid'
 			style={{
 				flex: 'none',
 				order: 2,
 				alignSelf: 'stretch',
 				flexGrow: 0,
+				width: '100%',
+				height: 'auto',
+				padding: '0',
 			}}
 			src={src}
 			alt='persona en malla en el mar'
