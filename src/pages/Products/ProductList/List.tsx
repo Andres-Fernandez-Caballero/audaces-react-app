@@ -17,38 +17,57 @@ const List: React.FunctionComponent = () => {
 	return (
 		<>
 			<JumboBanner src={banner} />
-			<section>
-				<ul
-					style={{
-						display: 'grid',
-						gridTemplateColumns: 'auto auto auto auto auto',
-					}}
-				>
+			<section className='container h-100 d-flex justify-content-center align-items-center'>
+				<ul className='row row-cols-1 row-cols-md-2 g-4'>
 					{products.map((product: IProduct) => (
-						<li key={product.id}>
-							<Link
-								to={
-									// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-									`${URL.PRODUCTS_DETAIL}/${product.id}`
-								}
-							>
-								<img src={tshirt} alt={product.title.titulo} />
-							</Link>
-							<h3>{product.title.titulo}</h3>
-							<p
+						<div key={product.id} className='col-12 col-6 col-lg-3 mb-3'>
+							<div
+								className='card border border-secondary'
 								style={{
-									borderRadius: '10px',
-									backgroundColor: 'lightgreen',
-									display: 'inline-block',
-									padding: '0.5rem',
+									width: '100%',
+									height: 'auto',
 								}}
 							>
-								<span style={{ fontWeight: 'bolder', fontSize: '1.1rem' }}>
-									$
-								</span>
-								{product.price}
-							</p>
-						</li>
+								<Link
+									to={
+										// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+										`${URL.PRODUCTS_DETAIL}/${product.id}`
+									}
+								>
+									<img
+										className='card-img-top'
+										src={tshirt}
+										alt={product.title.titulo}
+									/>
+								</Link>
+								<div className='card-body'>
+									<h4
+										className='card-title'
+										style={{
+											fontSize: '1.2rem',
+											fontWeight: 'bolder',
+											display: 'inline-block',
+											alignItems: 'initial',
+										}}
+									>
+										{product.title.titulo}
+									</h4>
+									<p
+										className='text-info'
+										style={{
+											display: 'inline-block',
+											justifyItems: 'flex-end',
+											padding: '0.5rem',
+										}}
+									>
+										<span style={{ fontWeight: 'bolder', fontSize: '1rem' }}>
+											$
+										</span>
+										{product.price}
+									</p>
+								</div>
+							</div>
+						</div>
 					))}
 				</ul>
 			</section>
