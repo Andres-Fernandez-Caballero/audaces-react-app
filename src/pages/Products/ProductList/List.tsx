@@ -20,13 +20,12 @@ const List: React.FunctionComponent = () => {
 			<section className='container h-100 d-flex justify-content-center align-items-center'>
 				<ul className='row row-cols-1 row-cols-md-2 g-4'>
 					{products.map((product: IProduct) => (
-						<div className='col-12 col-md-6 col-lg-3 mb-3' key={product.id}>
+						<div key={product.id} className='col-12 col-6 col-lg-3 mb-3'>
 							<div
-								className='card'
+								className='card border border-secondary'
 								style={{
-									border: '1px solid #000',
 									width: '100%',
-									height: '300px',
+									height: 'auto',
 								}}
 							>
 								<Link
@@ -41,24 +40,27 @@ const List: React.FunctionComponent = () => {
 										alt={product.title.titulo}
 									/>
 								</Link>
-								<div className='card-body text-center'>
+								<div className='card-body'>
 									<h4
 										className='card-title'
 										style={{
-											fontSize: '1rem',
+											fontSize: '1.2rem',
+											fontWeight: 'bolder',
+											display: 'inline-block',
+											alignItems: 'initial',
 										}}
 									>
 										{product.title.titulo}
 									</h4>
 									<p
+										className='text-info'
 										style={{
-											borderRadius: '10px',
-											backgroundColor: 'lightgreen',
 											display: 'inline-block',
+											justifyItems: 'flex-end',
 											padding: '0.5rem',
 										}}
 									>
-										<span style={{ fontWeight: 'bolder', fontSize: '1.1rem' }}>
+										<span style={{ fontWeight: 'bolder', fontSize: '1rem' }}>
 											$
 										</span>
 										{product.price}
