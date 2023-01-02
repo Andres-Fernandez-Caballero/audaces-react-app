@@ -17,38 +17,55 @@ const List: React.FunctionComponent = () => {
 	return (
 		<>
 			<JumboBanner src={banner} />
-			<section className='card-deck'>
-				<ul
-					style={{
-						display: 'grid',
-						gridTemplateColumns: 'auto auto auto auto auto',
-					}}
-				>
+			<section className='container h-100 d-flex justify-content-center align-items-center'>
+				<ul className='row row-cols-1 row-cols-md-2 g-4'>
 					{products.map((product: IProduct) => (
-						<li key={product.id}>
-							<Link
-								to={
-									// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-									`${URL.PRODUCTS_DETAIL}/${product.id}`
-								}
-							>
-								<img src={tshirt} alt={product.title.titulo} />
-							</Link>
-							<h3>{product.title.titulo}</h3>
-							<p
+						<div className='col-12 col-md-6 col-lg-3 mb-3' key={product.id}>
+							<div
+								className='card'
 								style={{
-									borderRadius: '10px',
-									backgroundColor: 'lightgreen',
-									display: 'inline-block',
-									padding: '0.5rem',
+									border: '1px solid #000',
+									width: '100%',
+									height: '300px',
 								}}
 							>
-								<span style={{ fontWeight: 'bolder', fontSize: '1.1rem' }}>
-									$
-								</span>
-								{product.price}
-							</p>
-						</li>
+								<Link
+									to={
+										// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+										`${URL.PRODUCTS_DETAIL}/${product.id}`
+									}
+								>
+									<img
+										className='card-img-top'
+										src={tshirt}
+										alt={product.title.titulo}
+									/>
+								</Link>
+								<div className='card-body text-center'>
+									<h4
+										className='card-title'
+										style={{
+											fontSize: '1rem',
+										}}
+									>
+										{product.title.titulo}
+									</h4>
+									<p
+										style={{
+											borderRadius: '10px',
+											backgroundColor: 'lightgreen',
+											display: 'inline-block',
+											padding: '0.5rem',
+										}}
+									>
+										<span style={{ fontWeight: 'bolder', fontSize: '1.1rem' }}>
+											$
+										</span>
+										{product.price}
+									</p>
+								</div>
+							</div>
+						</div>
 					))}
 				</ul>
 			</section>

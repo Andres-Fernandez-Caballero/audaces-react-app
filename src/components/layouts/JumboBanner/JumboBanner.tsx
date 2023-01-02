@@ -12,7 +12,6 @@ export const JumboBanner: React.FunctionComponent<JumboBannerProps> = ({
 			flexDirection: 'row',
 			justifyContent: 'space-between',
 			alignItems: 'center',
-			padding: '10px',
 			gap: '10px',
 			maxWidth: '100%',
 			maxHeight: '100%',
