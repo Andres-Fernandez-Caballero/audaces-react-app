@@ -8,7 +8,6 @@ describe('Detail', () => {
 		const { asFragment, queryByText } = render(<Detail />);
 
 		expect(asFragment()).toMatchSnapshot();
-		expect(queryByText('Detail')).toBeTruthy();
-		expect(queryByText('Descripcion')).toBeTruthy();
+		expect(queryByText('$')).toBeTruthy();
 	});
 });

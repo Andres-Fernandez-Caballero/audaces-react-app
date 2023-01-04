@@ -6,10 +6,20 @@ import JumboBanner from '@components/layouts/JumboBanner';
 import banner from '@assets/imgs/banners/bermuda.banner.png';
 import api from '@tests/api/products.mock.json';
 import tshirt from '@assets/imgs/remera_frente.png';
+import { consultaProducto } from '@/interceptors/product.interceptor';
 
 const List: React.FunctionComponent = () => {
 	const [products, setProducts] = useState([] as IProduct[]);
 	useEffect(() => {
+		// TODO: Get products from API
+		consultaProducto()
+			.then(res => {
+				console.log(res); // lista de productos
+			})
+			.catch(err => {
+				console.error(err);
+			});
+
 		const apiProducts: IProduct[] = api.results;
 		setProducts(apiProducts);
 	}, []);
