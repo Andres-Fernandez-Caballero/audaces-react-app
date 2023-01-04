@@ -1,27 +1,23 @@
+// import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { URL } from '@constants/routes';
 import { IProduct } from '@interfaces/IProduct';
 import JumboBanner from '@components/layouts/JumboBanner';
 import banner from '@assets/imgs/banners/bermuda.banner.png';
-import api from '@tests/api/products.mock.json';
 import tshirt from '@assets/imgs/remera_frente.png';
-import { consultaProducto } from '@/interceptors/product.interceptor';
+import { getAllProducts } from '@/services/product.service';
 
 const List: React.FunctionComponent = () => {
 	const [products, setProducts] = useState([] as IProduct[]);
 	useEffect(() => {
-		// TODO: Get products from API
-		consultaProducto()
-			.then(res => {
-				console.log(res); // lista de productos
+		getAllProducts()
+			.then(productsFromServer => {
+				setProducts(productsFromServer);
 			})
 			.catch(err => {
 				console.error(err);
 			});
-
-		const apiProducts: IProduct[] = api.results;
-		setProducts(apiProducts);
 	}, []);
 
 	return (
