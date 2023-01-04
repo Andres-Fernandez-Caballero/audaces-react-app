@@ -1,29 +1,28 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from 'axios';
-import { API_URL } from '../constants/api.routes';
+import { IApiAllProductsResponse } from '@/interfaces/IAPI';
+import { API_URL, ENDPOINTS } from '../constants/api.routes';
 import { logerInterceptor } from './basics.Interceptor';
+import { IProduct } from '@/interfaces/IProduct';
 
 const APIKit = axios.create({
 	baseURL: API_URL,
 	timeout: 10000,
-	withCredentials: true,
+	headers: {
+		'Content-Type': 'application/json',
+		Accept: 'application/json',
+	},
 });
 
 APIKit.interceptors.request.use(logerInterceptor);
 
-APIKit.interceptors.request.use(request => {
-	console.log('agregado control origenes');
-	request.headers = {
-		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-		'Access-Control-Allow-Origin': `${API_URL}/*`,
-		'Access-Control-Allow-Methods': 'GET, POST, PUT',
-		'Access-Control-Allow-Headers': 'Content-Type',
-	};
-	return request;
-});
+export async function allProducts(): Promise<IApiAllProductsResponse> {
+	const response = await APIKit.get(ENDPOINTS.PRODUCTS);
+	return response.data as IApiAllProductsResponse;
+}
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const consultaProducto = async () => {
-	const response = await APIKit.get('');
+export async function productById(id: number): Promise<IProduct> {
+	const response = await APIKit.get(`${ENDPOINTS.PRODUCTS}${id}/`);
+	console.log('response get by id ', response);
+
 	return response.data;
-};
+}

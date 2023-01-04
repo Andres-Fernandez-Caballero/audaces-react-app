@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { IProduct } from '@interfaces/IProduct';
-import api from '@tests/api/products.mock.json';
 import tshirt from '@assets/imgs/remera_frente.png';
 import styles from './Detail.module.scss';
+import { getProductById } from '@/services/product.service';
 
 const Detail: React.FunctionComponent = () => {
 	const initProduct: IProduct = {
@@ -34,18 +34,20 @@ const Detail: React.FunctionComponent = () => {
 		categories: [],
 	};
 	const [product, setProduct] = useState(initProduct);
-
 	const { id } = useParams();
 
 	useEffect(() => {
-		const productFind = api.results.find(
-			(product: IProduct) => product.id === Number(id)
-		);
-		if (productFind !== null && productFind !== undefined) {
-			setProduct(productFind);
-			console.log(product);
-		}
-	});
+		if (id !== undefined)
+			getProductById(Number(id))
+				.then((productFromServer: IProduct) => {
+					setProduct(productFromServer);
+				})
+				.catch(error => {
+					alert('producto no encontrado');
+					console.log(error);
+				});
+		// else throw new Error('No se encontró el producto');
+	}, []);
 
 	return (
 		<div className='container'>
