@@ -1,4 +1,2 @@
-import Login from './Login';
-
-export * from './Login';
+import Login from '@pages/Login/Login';
 export default Login;

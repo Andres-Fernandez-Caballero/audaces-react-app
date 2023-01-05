@@ -60,7 +60,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 					</div>
 					<div className={styles.navbar__cartPosition}>
 						<div className={styles.navbar__cartshop}>
-							<FontAwesomeIcon icon='cart-shopping' />
+							<FontAwesomeIcon icon='key-skeleton' />
 						</div>
 					</div>
 				</div>

@@ -5,6 +5,8 @@ import About from '@pages/About';
 import Home from '@pages/Home';
 import ProductDetail from '@pages/Products/ProductDetail';
 import ProductList from '@pages/Products/ProductList';
+import Login from '@/pages/Login';
+import Register from '@/pages/Register';
 
 const AppRouter: React.FC = () => {
 	return (
@@ -28,8 +30,8 @@ const AppRouter: React.FC = () => {
 
 			<Route path={PATH_NAME.AUTH}>
 				<Route index element={<h1>LandingPage</h1>} />
-				<Route path={PATH_NAME.LOGIN} element={<h1>Login</h1>} />
-				<Route path={PATH_NAME.SIGNUP} element={<h1>Register</h1>} />
+				<Route path={PATH_NAME.LOGIN} element={<Login />} />
+				<Route path={PATH_NAME.SIGNUP} element={<Register />} />
 			</Route>
 		</Routes>
 	);
