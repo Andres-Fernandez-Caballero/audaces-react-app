@@ -26,10 +26,10 @@ const AppRouter: React.FC = () => {
 				<Route path='*' element={<h1>404</h1>} />
 			</Route>
 
-			<Route path='auth'>
+			<Route path={PATH_NAME.AUTH}>
 				<Route index element={<h1>LandingPage</h1>} />
-				<Route path='login' element={<h1>Login</h1>} />
-				<Route path='register' element={<h1>Register</h1>} />
+				<Route path={PATH_NAME.LOGIN} element={<h1>Login</h1>} />
+				<Route path={PATH_NAME.SIGNUP} element={<h1>Register</h1>} />
 			</Route>
 		</Routes>
 	);
