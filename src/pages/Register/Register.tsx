@@ -1,18 +1,19 @@
+import Modals from '@/components/layouts/Modal';
+import { URL } from '@/constants/routes';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 const Register: React.FC = () => {
 	return (
 		<>
-			<section>
-				<form className='container h-75 d-flex justify-content-center mt-5 mb-5'>
-					<section className='container h-75 border border-secundary'>
-						<div className='d-grid gap-2 col-10 mx-auto'>
-							<h1 className='d-flex justify-content-center text-center mt-4'>
-								Crear Cuenta
-							</h1>
+			<Modals>
+				<form className='container'>
+					<article className='card border-0'>
+						<h1 className='card-title text-center'>Crear Cuenta</h1>
+						<article className='card-body py-md-4'>
 							<div className='mb-3'>
 								<label className='form-label'>Nombre de usuario</label>
-								<div className='input-group col-sm-12'>
+								<div className='input-group col-sm-10'>
 									<span
 										className='input-group-text bg-secondary'
 										id='basic-addon1'
@@ -76,28 +77,30 @@ const Register: React.FC = () => {
 									/>
 								</div>
 							</div>
-							<div className='form-row text-center'>
-								<div className='d-grid gap-2 col-6 mx-auto'>
-									<button
-										type='submit'
-										className='btn btn-primary border border-secundary'
-										style={{ marginTop: '1.5rem' }}
-									>
-										Crear Usuario
-									</button>
-									<button
-										type='submit'
-										className='btn btn-secondary border border-primary'
-										style={{ marginBottom: '0.5rem' }}
-									>
-										¿Ya tiene usuario? Inicie Sesion
-									</button>
-								</div>
+						</article>
+						<div className='form-row text-center'>
+							<div className='d-grid gap-2 col-8 mx-auto'>
+								<Link
+									to={URL.HOME}
+									type='submit'
+									className='btn btn-primary border border-secundary'
+									style={{ marginTop: '1.5rem' }}
+								>
+									Crear Usuario
+								</Link>
+
+								<Link
+									style={{ marginBottom: '0.5rem' }}
+									className='btn btn-secondary border border-primary text-decoration-none'
+									to={URL.LOGIN}
+								>
+									¿Ya tiene usuario? Inicie Sesion
+								</Link>
 							</div>
 						</div>
-					</section>
+					</article>
 				</form>
-			</section>
+			</Modals>
 		</>
 	);
 };

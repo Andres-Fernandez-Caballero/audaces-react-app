@@ -28,7 +28,7 @@ const AppRouter: React.FC = () => {
 				<Route path='*' element={<h1>404</h1>} />
 			</Route>
 
-			<Route path={PATH_NAME.AUTH}>
+			<Route path={PATH_NAME.AUTH} element={<NavigableLayout />}>
 				<Route index element={<h1>LandingPage</h1>} />
 				<Route path={PATH_NAME.LOGIN} element={<Login />} />
 				<Route path={PATH_NAME.SIGNUP} element={<Register />} />
