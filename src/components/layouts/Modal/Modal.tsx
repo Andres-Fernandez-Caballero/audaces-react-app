@@ -1,11 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
-export interface ModalsProps {
-	children?: React.ReactNode;
-}
+import Tabs from '../Tabs';
 
-const Modals: React.FC<ModalsProps> = (props: ModalsProps) => {
+const Modals: React.FC = () => {
 	const [open, setOpen] = useState(false);
 
 	const onCloseModal = (): void => setOpen(false);
@@ -13,12 +12,14 @@ const Modals: React.FC<ModalsProps> = (props: ModalsProps) => {
 	const onOpenModal = (): void => setOpen(true);
 
 	return (
-		<div>
-			<button onClick={onOpenModal}>Open modal</button>
+		<>
+			<button className='btn btn-primary' onClick={onOpenModal}>
+				<FontAwesomeIcon icon='user' />
+			</button>
 			<Modal open={open} onClose={onCloseModal} center>
-				{props.children}
+				<Tabs />
 			</Modal>
-		</div>
+		</>
 	);
 };
 export default Modals;
