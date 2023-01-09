@@ -29,6 +29,8 @@
 			"@components/*": ["src/components/*"],
 			"@services/*": ["src/services/*"],
 			"@tests/*": ["src/tests/*"],
+			"@store/*": ["src/store/*"],
+			"@slyces/*": ["src/store/slyces/*"],
 
 			"~/*": ["src/*"]
 		}
