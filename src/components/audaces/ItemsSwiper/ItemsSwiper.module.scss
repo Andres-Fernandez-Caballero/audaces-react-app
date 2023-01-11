@@ -1,4 +1,4 @@
-@import '../../../sass/theme/variables';
+@import '@sass/theme/variables';
 
 .container {
 	display: flex;
@@ -16,8 +16,8 @@
 
 /* Inside auto layout */
 .element {
-    flex: none;
-    order: 2;
-    align-self: stretch;
-    flex-grow: 0;
+	flex: none;
+	order: 2;
+	align-self: stretch;
+	flex-grow: 0;
 }

@@ -1,6 +1,6 @@
 import styles from './OverNavBar.module.scss';
 import { Link } from 'react-router-dom';
-import { URL } from '../../../constants/routes';
+import { URL, PATH_NAME } from '../../../constants/routes';
 import BlackLabelBar from '../BlackLaberBar';
 
 const OverNavBar: React.FunctionComponent = () => (
@@ -8,13 +8,18 @@ const OverNavBar: React.FunctionComponent = () => (
 		<h2 className=''> Bienvenido user</h2>
 		<ul>
 			<li className=''>
-				<Link className='' to={URL.TOOLS}>
-					Herramientas
+				<Link className='' to={URL.LOGIN}>
+					{PATH_NAME.LOGIN}
 				</Link>
 			</li>
 			<li className=''>
-				<Link className='' to={URL.TOOLS}>
-					Salir
+				<Link className='' to={URL.SIGNUP}>
+					{PATH_NAME.SIGNUP}
+				</Link>
+			</li>
+			<li className=''>
+				<Link className='' to='#'>
+					Logout
 				</Link>
 			</li>
 		</ul>

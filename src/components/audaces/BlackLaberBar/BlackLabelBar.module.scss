@@ -1,4 +1,6 @@
+@import '@sass/theme/variables';
+
 .container {
-    background-color: rgb(41, 41, 41);
-    min-height: 3rem;
+	background-color: $primary;
+	min-height: 3rem;
 }
