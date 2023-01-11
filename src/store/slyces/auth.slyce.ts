@@ -24,11 +24,11 @@ const authSlice = createSlice({
 	name: 'auth',
 	initialState: emptyState,
 	reducers: {
-		setAuth: (state, action) => {
+		setAuth: (state: IAuthState, action: any) => {
 			state.user = action.payload;
 			state.isAuthenticate = true;
 		},
-		clearAuth: state => {
+		clearAuth: (state: IAuthState) => {
 			state.user = emptyState.user;
 			state.isAuthenticate = false;
 		},
@@ -40,7 +40,7 @@ export const { setAuth, clearAuth } = authSlice.actions;
 // @ts-expect-error
 export const login = (email: string, password: string) => dispatch => {
 	signIn(email, password)
-		.then((userCredential: unknown) => {
+		.then((userCredential: any) => {
 			dispatch(setAuth(userCredential));
 		})
 		.catch((error: string | undefined) => {
