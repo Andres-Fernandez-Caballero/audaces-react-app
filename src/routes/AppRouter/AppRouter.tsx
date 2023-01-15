@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { NavigableLayout } from '@components/layers/NavigableLayout/NavigableLayout';
+import NavigableLayout from '@components/layers/NavigableLayout';
 import { PATH_NAME } from '@constants/routes';
 import About from '@pages/About';
 import Home from '@pages/Home';
