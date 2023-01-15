@@ -27,6 +27,7 @@
 		"core@2.11.6": "link:popperjs/core@2.11.6",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
+		"react-responsive-modal": "^6.4.1",
 		"react-redux": "^8.0.5",
 		"react-router-dom": "6"
 	},
