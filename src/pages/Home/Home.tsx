@@ -1,20 +1,13 @@
-import React from 'react';
-import BlackLabelBar from '../../components/audaces/BlackLaberBar';
-import FeatureProductsCarousel from '../../components/audaces/FeatureProductsCarousel';
-import GridSection from '../../components/audaces/GridSection';
-import ItemsSwiper from '../../components/audaces/ItemsSwiper';
-import OverNavBar from '../../components/audaces/OverNavBar';
-import Footer from '../../components/layouts/Footer';
-import Navbar from '../../components/layouts/Navbar';
-import { navBarLinks } from '../../constants/routes';
+import BlackLabelBar from '@components/audaces/BlackLaberBar';
+import FeatureProductsCarousel from '@components/audaces/FeatureProductsCarousel';
+import GridSection from '@components/audaces/GridSection';
+import ItemsSwiper from '@components/audaces/ItemsSwiper';
 import styles from './styles/Home.module.scss';
 // export interface HomeInterface {}
 
 const Home: React.FC = () => {
 	return (
 		<div className={styles.home}>
-			<OverNavBar />
-			<Navbar navLinks={navBarLinks} />
 			<ItemsSwiper items={[]} />
 			<BlackLabelBar>
 				<nav
@@ -25,6 +18,9 @@ const Home: React.FC = () => {
 							fontSize: 'medium',
 							color: 'whitesmoke',
 							fontWeight: 'bolder',
+							display: 'flex',
+							justifyContent: 'center',
+							padding: '1rem',
 						}}
 					>
 						De atletas para atletas
@@ -33,7 +29,6 @@ const Home: React.FC = () => {
 			</BlackLabelBar>
 			<GridSection />
 			<FeatureProductsCarousel />
-			<Footer />
 		</div>
 	);
 };

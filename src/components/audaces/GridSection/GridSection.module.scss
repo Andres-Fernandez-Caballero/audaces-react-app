@@ -1,19 +1,21 @@
-
-@import '../../../sass/theme/variables';
+@import '@sass/theme/variables';
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 16px;
-    margin:1rem
-
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(1rem, 40rem));
+	margin: 8px;
+	gap: 0.5rem;
+	justify-content: center;
+	align-items: center;
 }
 
 .section {
-    height: 40rem;
-    background-color: $background;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-  }
+	height: 20.75rem;
+	background-color: $background;
+	border: 1px solid rgba(255, 255, 255, 0.8);
+	font-size: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}

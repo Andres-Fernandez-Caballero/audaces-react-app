@@ -1,3 +1,67 @@
-.Navbar {
-	color: crimson;
+@import '@sass/theme/variables';
+@import '@sass/core/typography';
+@import '@sass/animations/zoomIn';
+
+@mixin dipositives($breakpoint) {
+	@if $breakpoint == mobile {
+		@media only screen and (max-device-width: 600px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == webside {
+		@media only screen and (max-width: 1920px) {
+			@content;
+		}
+	}
+}
+
+.navbar {
+	&__cartshop {
+		color: $info;
+		animation: zoomIn 1s;
+	}
+	@include dipositives(webside) {
+		justify-content: center;
+		align-items: center;
+		padding: 0.6rem;
+		width: 100%;
+		background: $navbarcolor;
+
+		nav {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
+			background-color: $navbarcolor;
+		}
+
+		&__item {
+			display: flex;
+			text-decoration: none;
+			padding-inline-start: 10px;
+			font-family: $tipografy;
+			font-style: normal;
+		}
+
+		&__cartshop {
+			font-size: 1.5rem;
+			margin: 1rem;
+			padding: '0.5rem';
+		}
+	}
+
+	@include dipositives(mobile) {
+		.navbar {
+			nav {
+				display: flex;
+				flex-direction: row;
+				padding: 1em;
+			}
+		}
+		img {
+			width: 40%;
+			height: 40%;
+		}
+	}
 }
