@@ -1,17 +1,25 @@
 import styles from './OverNavBar.module.scss';
-import { Link } from 'react-router-dom';
-import Modals from '@/components/layouts/Modal';
 import BlackLabelBar from '../BlackLaberBar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useDispatch } from 'react-redux';
+import { openModalAuth } from '@slyces/modalAuth.slyce';
 
 const OverNavBar: React.FunctionComponent = () => {
+	const dispatch = useDispatch();
+
 	return (
 		<div className={styles.container}>
-			<h2 className=''> Bienvenido user</h2>
 			<ul>
 				<li className=''>
-					<Link className='' to='#'>
-						<Modals />
-					</Link>
+					<button
+						className='btn btn-primary'
+						onClick={() => {
+							dispatch(openModalAuth());
+						}}
+					>
+						<h2 className=''> Login/Registrate</h2>
+						<FontAwesomeIcon icon='user' />
+					</button>
 				</li>
 			</ul>
 		</div>
