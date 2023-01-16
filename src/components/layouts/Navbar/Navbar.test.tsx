@@ -2,6 +2,8 @@ import { cleanup, render } from '@testing-library/react';
 import Navbar, { NavbarProps } from './Navbar';
 import { expect } from 'vitest';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from '@/store';
 
 describe('Navbar', () => {
 	afterEach(cleanup);
@@ -15,9 +17,11 @@ describe('Navbar', () => {
 	it('should render', () => {
 		const props = { ...defaultProps };
 		const { asFragment, queryByAltText } = render(
-			<BrowserRouter>
-				<Navbar {...props} />
-			</BrowserRouter>
+			<Provider store={store}>
+				<BrowserRouter>
+					<Navbar {...props} />
+				</BrowserRouter>
+			</Provider>
 		);
 
 		expect(asFragment()).toMatchSnapshot();

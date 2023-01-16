@@ -4,8 +4,11 @@ import { IProduct } from '@interfaces/IProduct';
 import api from '@tests/api/products.mock.json';
 import tshirt from '@assets/imgs/remera_frente.png';
 import styles from './Detail.module.scss';
+import { useDispatch } from 'react-redux';
+import { openModalAuth } from '@slyces/modalAuth.slyce';
 
 const Detail: React.FunctionComponent = () => {
+	const dispatch = useDispatch();
 	const initProduct: IProduct = {
 		title: {
 			titulo: '',
@@ -64,7 +67,14 @@ const Detail: React.FunctionComponent = () => {
 						</p>
 						<p>Componente selector talle/color</p>
 
-						<button className='btn btn-info'>Agregar al carrito</button>
+						<button
+							className='btn btn-info'
+							onClick={() => {
+								dispatch(openModalAuth());
+							}}
+						>
+							Agregar al carrito
+						</button>
 					</article>
 					<article className='accordion my-4' id='preguntas-frecuentes'>
 						<div className='accordion-item'>
