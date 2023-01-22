@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import { IAuthLogin, IAuthResponse } from '@/interfaces/IAuth';
 import { signIn, signOut } from '@/service/auth';
-import { createSlice } from '@reduxjs/toolkit';
-import { IAsyncState, IStateWhitError } from '../interfaces/state';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IAsyncState, IStateWhitError } from '@/store/interfaces/state';
+import { RootState } from '@/store';
 
 export interface Iuser {
-	email: string;
-	uid: string;
+	email?: string;
+	username: string;
+	token: string;
 }
 
 export interface IAuthState extends IAsyncState, IStateWhitError {
@@ -14,7 +17,7 @@ export interface IAuthState extends IAsyncState, IStateWhitError {
 }
 
 const emptyState: IAuthState = {
-	user: null,
+	user: null as Iuser | null,
 	isAuthenticate: false,
 	loading: false,
 	error: null,
@@ -24,7 +27,7 @@ const authSlice = createSlice({
 	name: 'auth',
 	initialState: emptyState,
 	reducers: {
-		setAuth: (state: IAuthState, action: any) => {
+		setAuth: (state: IAuthState, action: PayloadAction<Iuser>) => {
 			state.user = action.payload;
 			state.isAuthenticate = true;
 		},
@@ -32,21 +35,42 @@ const authSlice = createSlice({
 			state.user = emptyState.user;
 			state.isAuthenticate = false;
 		},
+
+		setIsAuthenticate: (state: IAuthState, action: PayloadAction<boolean>) => {
+			state.isAuthenticate = action.payload;
+		},
+
+		setLoading(state: IAuthState, action: PayloadAction<boolean>) {
+			state.loading = action.payload;
+		},
 	},
 });
 
-export const { setAuth, clearAuth } = authSlice.actions;
+export const { setAuth, clearAuth, setLoading, setIsAuthenticate } =
+	authSlice.actions;
 
-// @ts-expect-error
-export const login = (email: string, password: string) => dispatch => {
-	signIn(email, password)
-		.then((userCredential: any) => {
-			dispatch(setAuth(userCredential));
-		})
-		.catch((error: string | undefined) => {
-			throw new Error(error);
-		});
-};
+export const login =
+	(dtoLogin: IAuthLogin) =>
+	(
+		dispatch: (arg0: {
+			payload: boolean | Iuser;
+			type: 'auth/setAuth' | 'auth/setLoading' | 'auth/setIsAuthenticate';
+		}) => void
+	) => {
+		dispatch(setLoading(true));
+		signIn(dtoLogin)
+			.then((userCredential: IAuthResponse) => {
+				dispatch(setAuth(userCredential));
+				dispatch(setLoading(false));
+				dispatch(setIsAuthenticate(true));
+			})
+			.catch((error: string | undefined) => {
+				throw new Error(error);
+			})
+			.finally(() => {
+				dispatch(setLoading(false));
+			});
+	};
 
 export const logout =
 	() =>
@@ -61,7 +85,7 @@ export const logout =
 				throw new Error(error);
 			});
 	};
-// @ts-expect-error
+
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const selectAuth = state => state.auth;
+export const selectAuth = (state: RootState) => state.auth;
 export default authSlice.reducer;

@@ -30,8 +30,8 @@ specifiers:
   prettier: ^2.7.1
   react: ^18.2.0
   react-dom: ^18.2.0
-  react-responsive-modal: ^6.4.1
   react-redux: ^8.0.5
+  react-responsive-modal: ^6.4.1
   react-router-dom: '6'
   sass: ^1.55.0
   typescript: '*'
@@ -50,8 +50,8 @@ dependencies:
   core@2.11.6: link:popperjs/core@2.11.6
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  react-responsive-modal: 6.4.1_biqbaboplfbrettd7655fr4n2y
   react-redux: 8.0.5_5uumaiclxbdbzaqafclbf6maf4
+  react-responsive-modal: 6.4.1_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.4.3_biqbaboplfbrettd7655fr4n2y
 
 devDependencies:

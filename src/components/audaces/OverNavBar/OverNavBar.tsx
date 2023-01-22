@@ -1,25 +1,36 @@
 import styles from './OverNavBar.module.scss';
 import BlackLabelBar from '../BlackLaberBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useDispatch } from 'react-redux';
+
 import { openModalAuth } from '@slyces/modalAuth.slyce';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux..hook';
+import { selectAuth } from '@/store/slyces/auth.slyce';
+import { Link } from 'react-router-dom';
+// import { URL } from '@/constants/routes';
 
 const OverNavBar: React.FunctionComponent = () => {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
+	const auth = useAppSelector(selectAuth);
 
 	return (
 		<div className={styles.container}>
 			<ul>
 				<li className=''>
-					<button
-						className='btn btn-primary'
-						onClick={() => {
-							dispatch(openModalAuth());
-						}}
-					>
-						<h2 className=''> Login/Registrate</h2>
-						<FontAwesomeIcon icon='user' />
-					</button>
+					{auth.isAuthenticate ? (
+						<Link to='/user'>
+							{' '}
+							<FontAwesomeIcon icon='user' /> {auth.user?.username}{' '}
+						</Link>
+					) : (
+						<button
+							className='btn btn-primary'
+							onClick={() => {
+								dispatch(openModalAuth());
+							}}
+						>
+							<h2 className=''> Login/Registrate</h2>
+						</button>
+					)}
 				</li>
 			</ul>
 		</div>

@@ -1,9 +1,40 @@
+import { useAppDispatch, useAppSelector } from '@/hooks/redux..hook';
+import { IAuthLogin } from '@/interfaces/IAuth';
+import { login, selectAuth } from '@/store/slyces/auth.slyce';
+import { closeModalAuth } from '@/store/slyces/modalAuth.slyce';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 const Login: React.FunctionComponent = () => {
+	const defaultLogin: IAuthLogin = {
+		username: '',
+		password: '',
+	};
+
+	const dispatch = useAppDispatch();
+	const auth = useAppSelector(selectAuth);
+
+	const [dtoLogin, setDtoLogin] = useState(defaultLogin);
+
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+		e.preventDefault();
+		console.table(dtoLogin);
+		dispatch(login(dtoLogin));
+		dispatch(closeModalAuth());
+	};
+
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+		setDtoLogin({
+			...dtoLogin,
+			[e.target.name]: e.target.value,
+		});
+	};
+
 	return (
 		<>
-			<form className='container'>
+			<p>estado User: {auth.user?.username}</p>
+			<form className='container' onSubmit={handleSubmit}>
 				<div className='card border-0'>
 					<h1 className='card-title text-center mt-4'>Iniciar Sesion</h1>
 					<section className='card-body py-md-4'>
@@ -17,10 +48,11 @@ const Login: React.FunctionComponent = () => {
 									<FontAwesomeIcon icon='user' />
 								</span>
 								<input
-									type='email'
+									type='text'
+									name='username'
+									onChange={handleChange}
+									placeholder='nombre de usuario'
 									className='form-control'
-									id='exampleInputEmail1'
-									aria-describedby='emailHelp'
 								/>
 							</div>
 						</div>
@@ -36,7 +68,9 @@ const Login: React.FunctionComponent = () => {
 								<input
 									type='password'
 									className='form-control'
-									id='exampleInputPassword1'
+									name='password'
+									onChange={handleChange}
+									placeholder='contraseña'
 								/>
 							</div>
 						</div>

@@ -6,8 +6,13 @@ import Home from '@pages/Home';
 import ProductDetail from '@pages/Products/ProductDetail';
 import ProductList from '@pages/Products/ProductList';
 import Login from '@/pages/Login';
+import { selectAuth } from '@/store/slyces/auth.slyce';
+import { useAppSelector } from '@/hooks/redux..hook';
+import UserPanel from '@/pages/UserPanel';
 
 const AppRouter: React.FC = () => {
+	const auth = useAppSelector(selectAuth);
+
 	return (
 		<>
 			<Routes>
@@ -29,6 +34,10 @@ const AppRouter: React.FC = () => {
 						<Route path={PATH_NAME.LOGIN} element={<Login />} />
 						<Route path={PATH_NAME.SIGNUP} element={<h1>Register</h1>} />
 					</Route>
+					<Route
+						path='user'
+						element={auth.isAuthenticate ? <UserPanel /> : <h1>401</h1>}
+					/>
 					<Route path='*' element={<h1>404</h1>} />
 				</Route>
 			</Routes>

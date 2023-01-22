@@ -1,7 +1,6 @@
-export const API_URL =
-	import.meta.env.VITE_API_URL ??
-	'https://hidrasport.com.ar/api/store/products';
+const { VITE_API_URL } = import.meta.env;
 
-export const ENDPOINTS = {
-	PRODUCTS: 'products',
-};
+const API_URL = (VITE_API_URL as string) ?? 'https://hidrasport.com.ar/api/';
+
+export const PRODUCTS = `${API_URL}store/products/`;
+export const AUTH = `${API_URL}accounts/`;
