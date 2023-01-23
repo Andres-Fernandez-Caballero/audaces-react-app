@@ -5,12 +5,12 @@ import { IProduct } from '@interfaces/IProduct';
 import JumboBanner from '@components/layouts/JumboBanner';
 import banner from '@assets/imgs/banners/bermuda.banner.png';
 import tshirt from '@assets/imgs/remera_frente.png';
-import { consultaProducto } from '@/interceptors/product.interceptor';
+import { getAllProducts } from '@/service/products';
 
 const List: React.FunctionComponent = () => {
 	const [products, setProducts] = useState([] as IProduct[]);
 	useEffect(() => {
-		consultaProducto()
+		getAllProducts()
 			.then(apiProducts => {
 				setProducts(apiProducts);
 			})

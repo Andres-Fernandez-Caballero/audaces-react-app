@@ -5,7 +5,7 @@ import tshirt from '@assets/imgs/remera_frente.png';
 import styles from './Detail.module.scss';
 import { useDispatch } from 'react-redux';
 import { openModalAuth } from '@slyces/modalAuth.slyce';
-import { productById } from '@/interceptors/product.interceptor';
+import { getProductById } from '@/service/products';
 
 const Detail: React.FunctionComponent = () => {
 	const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const Detail: React.FunctionComponent = () => {
 
 	useEffect(() => {
 		if (id !== undefined) {
-			productById(id)
+			getProductById(id)
 				.then(productFind => {
 					if (productFind !== null && productFind !== undefined)
 						setProduct(productFind);
