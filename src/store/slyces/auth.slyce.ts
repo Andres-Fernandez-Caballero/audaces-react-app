@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { IAuthLogin, IAuthResponse } from '@/interfaces/IAuth';
-import { signIn, signOut } from '@/service/auth';
+import { signIn } from '@/service/auth';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IAsyncState, IStateWhitError } from '@/store/interfaces/state';
 import { RootState } from '@/store';
+import Cookies from 'universal-cookie';
+import { COOKIES } from '@/constants/globals';
 
 export interface Iuser {
 	email?: string;
@@ -16,23 +18,36 @@ export interface IAuthState extends IAsyncState, IStateWhitError {
 	isAuthenticate: boolean;
 }
 
-const emptyState: IAuthState = {
-	user: null as Iuser | null,
-	isAuthenticate: false,
-	loading: false,
-	error: null,
+const initState = (): IAuthState => {
+	const cookies = new Cookies();
+	const credentials = cookies.get(COOKIES.AUTH_CREDENTIALS);
+	if (credentials === undefined) {
+		return {
+			user: null,
+			isAuthenticate: false,
+			loading: false,
+			error: null,
+		};
+	}
+
+	return {
+		user: credentials,
+		isAuthenticate: true,
+		loading: false,
+		error: null,
+	};
 };
 
 const authSlice = createSlice({
 	name: 'auth',
-	initialState: emptyState,
+	initialState: initState(),
 	reducers: {
 		setAuth: (state: IAuthState, action: PayloadAction<Iuser>) => {
 			state.user = action.payload;
 			state.isAuthenticate = true;
 		},
 		clearAuth: (state: IAuthState) => {
-			state.user = emptyState.user;
+			state.user = null;
 			state.isAuthenticate = false;
 		},
 
@@ -63,8 +78,13 @@ export const login =
 				dispatch(setAuth(userCredential));
 				dispatch(setLoading(false));
 				dispatch(setIsAuthenticate(true));
+				const cookies = new Cookies();
+				cookies.set(COOKIES.AUTH_CREDENTIALS, JSON.stringify(userCredential), {
+					path: '/',
+				});
 			})
 			.catch((error: string | undefined) => {
+				console.log('error no se concreto la transaccion', error);
 				throw new Error(error);
 			})
 			.finally(() => {
@@ -77,13 +97,9 @@ export const logout =
 	(
 		dispatch: (arg0: { payload: undefined; type: 'auth/clearAuth' }) => void
 	) => {
-		signOut()
-			.then(() => {
-				dispatch(clearAuth());
-			})
-			.catch((error: string | undefined) => {
-				throw new Error(error);
-			});
+		const cookies = new Cookies();
+		cookies.remove(COOKIES.AUTH_CREDENTIALS);
+		dispatch(clearAuth());
 	};
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
