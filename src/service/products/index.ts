@@ -7,9 +7,9 @@ import { IProduct } from '@/interfaces/IProduct';
 import productsApiMok from '@tests/api/products.mock.json';
 
 export const getAllProducts: () => Promise<IProduct[]> = async () => {
-	return config.mode === 'development'
+	return config.mode === 'test'
 		? await new Promise(resolve => resolve(productsApiMok.results))
-		: await consultaProducto();
+		: (await consultaProducto()).results;
 };
 
 export const getProductById: (id: string) => Promise<IProduct> = async (
