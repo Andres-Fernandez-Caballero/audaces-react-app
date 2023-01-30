@@ -2,7 +2,7 @@ import { AxiosRequestConfig } from 'axios';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const logerInterceptor = (request: AxiosRequestConfig) => {
-	console.warn('INFO Request', request);
+	console.warn('INFO Request MIDLLEWARE', request);
 	return request;
 };
 

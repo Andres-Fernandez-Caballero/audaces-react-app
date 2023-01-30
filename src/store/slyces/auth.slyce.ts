@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { IAuthLogin, IAuthResponse } from '@/interfaces/IAuth';
-import { signIn } from '@/service/auth';
+import { IAuthLogin, IAuthRegister, IAuthResponse } from '@/interfaces/IAuth';
+import { signIn, signUp } from '@/service/auth';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IAsyncState, IStateWhitError } from '@/store/interfaces/state';
 import { RootState } from '@/store';
@@ -45,14 +45,20 @@ const authSlice = createSlice({
 		setAuth: (state: IAuthState, action: PayloadAction<Iuser>) => {
 			state.user = action.payload;
 			state.isAuthenticate = true;
+			state.error = null;
 		},
 		clearAuth: (state: IAuthState) => {
 			state.user = null;
 			state.isAuthenticate = false;
+			state.error = null;
 		},
 
 		setIsAuthenticate: (state: IAuthState, action: PayloadAction<boolean>) => {
 			state.isAuthenticate = action.payload;
+		},
+
+		setError: (state: IAuthState, action: PayloadAction<string>) => {
+			state.error = action.payload;
 		},
 
 		setLoading(state: IAuthState, action: PayloadAction<boolean>) {
@@ -61,31 +67,70 @@ const authSlice = createSlice({
 	},
 });
 
-export const { setAuth, clearAuth, setLoading, setIsAuthenticate } =
+export const { setAuth, clearAuth, setLoading, setIsAuthenticate, setError } =
 	authSlice.actions;
 
 export const login =
 	(dtoLogin: IAuthLogin) =>
 	(
 		dispatch: (arg0: {
-			payload: boolean | Iuser;
-			type: 'auth/setAuth' | 'auth/setLoading' | 'auth/setIsAuthenticate';
+			payload: boolean | Iuser | string | undefined;
+			type:
+				| 'auth/setAuth'
+				| 'auth/setLoading'
+				| 'auth/setIsAuthenticate'
+				| 'auth/setError';
 		}) => void
 	) => {
 		dispatch(setLoading(true));
 		signIn(dtoLogin)
 			.then((userCredential: IAuthResponse) => {
 				dispatch(setAuth(userCredential));
-				dispatch(setLoading(false));
 				dispatch(setIsAuthenticate(true));
 				const cookies = new Cookies();
 				cookies.set(COOKIES.AUTH_CREDENTIALS, JSON.stringify(userCredential), {
 					path: '/',
 				});
 			})
-			.catch((error: string | undefined) => {
-				console.log('error no se concreto la transaccion', error);
-				throw new Error(error);
+			.catch((error: any): void => {
+				if (error.code === 'ERR_BAD_RESPONSE') {
+					dispatch(setError('Usuario o contraseña incorrectos'));
+				}
+				// TODO: dispatch error
+				// TODO: store log
+			})
+			.finally(() => {
+				dispatch(setLoading(false));
+			});
+	};
+
+export const register =
+	(dtoRegister: IAuthRegister) =>
+	(
+		dispatch: (arg0: {
+			payload: string | boolean | Iuser;
+			type:
+				| 'auth/setAuth'
+				| 'auth/setLoading'
+				| 'auth/setIsAuthenticate'
+				| 'auth/setError';
+		}) => void
+	) => {
+		dispatch(setLoading(true));
+		signUp(dtoRegister)
+			.then((userCredential: IAuthResponse) => {
+				dispatch(setAuth(userCredential));
+				dispatch(setIsAuthenticate(true));
+				const cookies = new Cookies();
+				cookies.set(COOKIES.AUTH_CREDENTIALS, JSON.stringify(userCredential), {
+					path: '/',
+				});
+			})
+			.catch((error: any): void => {
+				if (error.code === 'ERR_BAD_RESPONSE') {
+					dispatch(setError('credenciales incorrectas'));
+				}
+				console.log(error);
 			})
 			.finally(() => {
 				dispatch(setLoading(false));
@@ -102,6 +147,5 @@ export const logout =
 		dispatch(clearAuth());
 	};
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const selectAuth = (state: RootState) => state.auth;
+export const selectAuth = (state: RootState): IAuthState => state.auth;
 export default authSlice.reducer;

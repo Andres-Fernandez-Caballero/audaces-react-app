@@ -1,3 +1,4 @@
+import { IProduct, IProductListResponse } from '@/interfaces/IProduct';
 import axios from 'axios';
 import { PRODUCTS } from '../constants/api.routes';
 import { logerInterceptor } from './basics.Interceptor';
@@ -5,7 +6,6 @@ import { logerInterceptor } from './basics.Interceptor';
 const APIKit = axios.create({
 	baseURL: PRODUCTS,
 	timeout: 10000,
-	// withCredentials: true,
 });
 
 APIKit.interceptors.request.use(logerInterceptor);
@@ -20,14 +20,12 @@ APIKit.interceptors.request.use(logerInterceptor);
 // 	return request;
 // });
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const consultaProducto = async () => {
+export const consultaProducto = async (): Promise<IProductListResponse> => {
 	const response = await APIKit.get('');
 	return response.data;
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const productById = async (id: string) => {
+export const productById = async (id: string): Promise<IProduct> => {
 	const response = await APIKit.get(`/${id}/`);
 	return response.data;
 };
