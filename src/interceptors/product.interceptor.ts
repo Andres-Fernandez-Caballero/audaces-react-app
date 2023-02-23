@@ -1,14 +1,13 @@
 import { IProduct, IProductListResponse } from '@/interfaces/IProduct';
 import axios from 'axios';
 import { PRODUCTS } from '../constants/api.routes';
-import { logerInterceptor } from './basics.Interceptor';
 
 const APIKit = axios.create({
 	baseURL: PRODUCTS,
 	timeout: 10000,
 });
 
-APIKit.interceptors.request.use(logerInterceptor);
+// APIKit.interceptors.request.use(logerInterceptor);
 
 // APIKit.interceptors.request.use(request => {
 // 	console.log('agregado control origenes');

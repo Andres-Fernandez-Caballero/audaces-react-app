@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { IAuthLogin, IAuthRegister, IAuthResponse } from '@/interfaces/IAuth';
 import { signIn, signUp } from '@/service/auth';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
@@ -92,7 +91,7 @@ export const login =
 					path: '/',
 				});
 			})
-			.catch((error: any): void => {
+			.catch((error): void => {
 				if (error.code === 'ERR_BAD_RESPONSE') {
 					dispatch(setError('Usuario o contraseña incorrectos'));
 				}
@@ -126,7 +125,7 @@ export const register =
 					path: '/',
 				});
 			})
-			.catch((error: any): void => {
+			.catch((error): void => {
 				if (error.code === 'ERR_BAD_RESPONSE') {
 					dispatch(setError('credenciales incorrectas'));
 				}
