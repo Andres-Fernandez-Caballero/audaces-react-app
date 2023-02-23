@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from '@/hooks/redux..hook';
 import { IAuthLogin } from '@/interfaces/IAuth';
 import { login, selectAuth } from '@/store/slyces/auth.slyce';
+import { closeModalAuth } from '@/store/slyces/modalAuth.slyce';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -18,7 +19,17 @@ const Login: React.FunctionComponent = () => {
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
 		e.preventDefault();
-		dispatch(login(dtoLogin));
+		dispatch(login(dtoLogin))
+			.then(() => {
+				alert('Sesion iniciada');
+				dispatch(closeModalAuth());
+			})
+			.catch(() => {
+				alert('Error al iniciar sesion');
+			})
+			.finally(() => {
+				setDtoLogin(defaultLogin);
+			});
 	};
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {

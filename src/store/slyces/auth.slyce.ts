@@ -5,6 +5,8 @@ import { IAsyncState, IStateWhitError } from '@/store/interfaces/state';
 import { RootState } from '@/store';
 import Cookies from 'universal-cookie';
 import { COOKIES } from '@/constants/globals';
+import { removeCookie, setCookie } from '@/utils/cookies';
+import { AxiosError } from 'axios';
 
 export interface Iuser {
 	email?: string;
@@ -71,7 +73,7 @@ export const { setAuth, clearAuth, setLoading, setIsAuthenticate, setError } =
 
 export const login =
 	(dtoLogin: IAuthLogin) =>
-	(
+	async (
 		dispatch: (arg0: {
 			payload: boolean | Iuser | string | undefined;
 			type:
@@ -82,30 +84,23 @@ export const login =
 		}) => void
 	) => {
 		dispatch(setLoading(true));
-		signIn(dtoLogin)
-			.then((userCredential: IAuthResponse) => {
-				dispatch(setAuth(userCredential));
-				dispatch(setIsAuthenticate(true));
-				const cookies = new Cookies();
-				cookies.set(COOKIES.AUTH_CREDENTIALS, JSON.stringify(userCredential), {
-					path: '/',
-				});
-			})
-			.catch((error): void => {
-				if (error.code === 'ERR_BAD_RESPONSE') {
-					dispatch(setError('Usuario o contraseña incorrectos'));
-				}
-				// TODO: dispatch error
-				// TODO: store log
-			})
-			.finally(() => {
-				dispatch(setLoading(false));
-			});
+		try {
+			const userCredential = await signIn(dtoLogin);
+			setSession(userCredential)(dispatch);
+		} catch (error) {
+			if ((error as AxiosError).code === 'ERR_BAD_RESPONSE') {
+				dispatch(setError('Usuario o contraseña incorrectos'));
+			}
+			// TODO: dispatch error
+			// TODO: store log
+		} finally {
+			dispatch(setLoading(false));
+		}
 	};
 
 export const register =
 	(dtoRegister: IAuthRegister) =>
-	(
+	async (
 		dispatch: (arg0: {
 			payload: string | boolean | Iuser;
 			type:
@@ -116,24 +111,17 @@ export const register =
 		}) => void
 	) => {
 		dispatch(setLoading(true));
-		signUp(dtoRegister)
-			.then((userCredential: IAuthResponse) => {
-				dispatch(setAuth(userCredential));
-				dispatch(setIsAuthenticate(true));
-				const cookies = new Cookies();
-				cookies.set(COOKIES.AUTH_CREDENTIALS, JSON.stringify(userCredential), {
-					path: '/',
-				});
-			})
-			.catch((error): void => {
-				if (error.code === 'ERR_BAD_RESPONSE') {
-					dispatch(setError('credenciales incorrectas'));
-				}
-				console.log(error);
-			})
-			.finally(() => {
-				dispatch(setLoading(false));
-			});
+		try {
+			const userCredential = await signUp(dtoRegister);
+			setSession(userCredential)(dispatch);
+		} catch (error) {
+			if ((error as AxiosError).code === 'ERR_BAD_RESPONSE') {
+				dispatch(setError('credenciales incorrectas'));
+			}
+			console.log(error);
+		} finally {
+			dispatch(setLoading(false));
+		}
 	};
 
 export const logout =
@@ -141,9 +129,21 @@ export const logout =
 	(
 		dispatch: (arg0: { payload: undefined; type: 'auth/clearAuth' }) => void
 	) => {
-		const cookies = new Cookies();
-		cookies.remove(COOKIES.AUTH_CREDENTIALS);
+		removeCookie(COOKIES.AUTH_CREDENTIALS);
 		dispatch(clearAuth());
+	};
+
+const setSession =
+	(userCredential: IAuthResponse) =>
+	(
+		dispatch: (arg0: {
+			payload: boolean;
+			type: 'auth/setIsAuthenticate';
+		}) => void
+	) => {
+		setAuth(userCredential);
+		dispatch(setIsAuthenticate(true));
+		setCookie(COOKIES.AUTH_CREDENTIALS, userCredential);
 	};
 
 export const selectAuth = (state: RootState): IAuthState => state.auth;

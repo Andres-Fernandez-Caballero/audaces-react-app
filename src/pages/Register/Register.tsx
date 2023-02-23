@@ -32,7 +32,17 @@ const Register: React.FC = () => {
 
 	const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
 		e.preventDefault();
-		dispatch(register(formData));
+		dispatch(register(formData))
+			.then(() => {
+				alert('Usuario creado');
+				dispatch(closeModalAuth());
+			})
+			.catch(() => {
+				alert('Error al crear usuario');
+			})
+			.finally(() => {
+				setFormData(initState);
+			});
 	};
 	return (
 		<>
