@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import NavigableLayout from '@components/layers/NavigableLayout';
 import { PATH_NAME } from '@constants/routes';
-import About from '@pages/About';
+// import About from '@pages/About';
 import Home from '@pages/Home';
 import ProductDetail from '@pages/Products/ProductDetail';
 import ProductList from '@pages/Products/ProductList';
@@ -9,6 +9,7 @@ import Login from '@/pages/Login';
 import { selectAuth } from '@/store/slyces/auth.slyce';
 import { useAppSelector } from '@/hooks/redux..hook';
 import UserPanel from '@/pages/UserPanel';
+import CartShop from '@/pages/CartShop';
 
 const AppRouter: React.FC = () => {
 	const auth = useAppSelector(selectAuth);
@@ -18,7 +19,7 @@ const AppRouter: React.FC = () => {
 			<Routes>
 				<Route path='/' element={<NavigableLayout />}>
 					<Route index element={<Home />} />
-					<Route path={PATH_NAME.ABOUT} element={<About />} />
+					<Route path={PATH_NAME.ABOUT} element={<CartShop />} />
 					<Route path={PATH_NAME.PRODUCTS}>
 						<Route index element={<ProductList />} />
 						<Route
