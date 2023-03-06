@@ -28,24 +28,36 @@ const ProductSelect: React.FC = () => {
 									type='button'
 									className='btn btn-outline-primary rounded-circle'
 									style={{
-										height: '35px',
-										width: '35px',
+										height: '1.5rem',
+										width: '1.5rem',
 										textAlign: 'center',
-										padding: '6px 0',
+										lineHeight: '0px',
+										padding: '0.5rem 0',
 									}}
 								>
 									{' '}
 									+{' '}
 								</button>
-								<div className='text-center p-1'> 1 </div>
+								<div
+									className='text-center p-1'
+									style={{
+										fontSize: '1.1rem',
+										fontWeight: 'bold',
+										lineHeight: '0px',
+									}}
+								>
+									{' '}
+									1{' '}
+								</div>
 								<button
 									type='button'
 									className='btn btn-outline-primary rounded-circle'
 									style={{
-										height: '35px',
-										width: '35px',
+										height: '1.5rem',
+										width: '1.5rem',
 										textAlign: 'center',
-										padding: '6px 0',
+										lineHeight: '0px',
+										padding: '0.5rem 0',
 									}}
 								>
 									{' '}
