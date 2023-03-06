@@ -1,2 +1,3 @@
-import Login from '@pages/Login/Login';
-export default Login;
+import { View } from '@pages/Login/View';
+
+export default View;

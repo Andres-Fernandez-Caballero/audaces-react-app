@@ -1,5 +1,5 @@
 import Login from '@/pages/Login';
-import Register from '@/pages/Register';
+import Register from '@pages/Register';
 import { useTabAuth } from './hooks/useTabAuth';
 import { TabButton } from './TabButton';
 import { TAB_LOGIN, TAB_REGISTER } from './constants';
