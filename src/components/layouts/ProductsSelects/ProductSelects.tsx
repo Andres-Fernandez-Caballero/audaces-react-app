@@ -2,7 +2,7 @@ const ProductSelect: React.FC = () => {
 	return (
 		<div className='card border-2 border-secondary d-flex justify-content-center'>
 			<div className='card-body'>
-				<div className='container'>
+				<div className='container-fluid'>
 					<div className='row'>
 						<div className='col-md-2'>
 							<img
@@ -39,7 +39,7 @@ const ProductSelect: React.FC = () => {
 									+{' '}
 								</button>
 								<div
-									className='text-center p-1'
+									className='text-center m-1 p-1'
 									style={{
 										fontSize: '1.1rem',
 										fontWeight: 'bold',

@@ -2,8 +2,8 @@ version: '3.7'
 services:
   hidra:
     build: .
-      
+
     ports:
       - 9090:80
-    env_file: 
+    env_file:
       - .env

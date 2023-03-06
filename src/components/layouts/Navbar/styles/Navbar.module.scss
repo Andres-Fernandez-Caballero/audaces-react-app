@@ -3,13 +3,13 @@
 @import '@sass/animations/zoomIn';
 
 @mixin dipositives($breakpoint) {
-	@if $breakpoint == mobile {
+	@if $breakpoint ==mobile {
 		@media only screen and (max-device-width: 600px) {
 			@content;
 		}
 	}
 
-	@if $breakpoint == webside {
+	@if $breakpoint ==webside {
 		@media only screen and (max-width: 1920px) {
 			@content;
 		}
@@ -21,10 +21,11 @@
 		color: $info;
 		animation: zoomIn 1s;
 	}
+
 	@include dipositives(webside) {
 		justify-content: center;
 		align-items: center;
-		padding: 0.6rem;
+		// padding: 0.6rem;
 		width: 100%;
 		background: $navbarcolor;
 
@@ -33,22 +34,27 @@
 			flex-direction: row;
 			justify-content: flex-start;
 			align-items: center;
-			background-color: $navbarcolor;
 		}
 
-		&__item {
+		&__link {
 			display: flex;
 			text-decoration: none;
 			padding-inline-start: 10px;
 			font-family: $tipografy;
 			font-style: normal;
+			transition: all 0.2s;
+		}
+
+		&__link :hover {
+			text-decoration: underline;
 		}
 
 		&__cartshop {
 			font-size: 1.5rem;
 			margin: 1rem;
 			padding: '0.5rem';
-			color:$info
+			color: $info;
+			order: 1;
 		}
 	}
 
@@ -57,12 +63,13 @@
 			nav {
 				display: flex;
 				flex-direction: row;
-				padding: 1em;
+				// padding: 1em;
 			}
 		}
+
 		img {
 			width: 40%;
-			height: 40%;
+			height: 80%;
 		}
 	}
 }

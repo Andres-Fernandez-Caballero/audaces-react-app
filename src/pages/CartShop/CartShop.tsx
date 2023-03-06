@@ -1,17 +1,16 @@
 import CardTotal from '@/components/layouts/CardTotal';
 import ProductSelect from '@/components/layouts/ProductsSelects';
-
 export const CartShop = (): JSX.Element => {
 	return (
-		<div className='container d-flex align-items-center justify-content-center m-auto'>
-			<div className='row row-cols-1 row-cols-md-2 g-4'>
-				<div className='col'>
+		<section className='container-fluid d-flex justify-content-lg-center align-items-lg-center mt-3 '>
+			<div className='row row-cols-1 row-cols-md-2 g-4' style={{ order: 2 }}>
+				<div className='col-md-8'>
 					<ProductSelect />
 				</div>
-				<div className='col'>
+				<div className='col-md-4'>
 					<CardTotal />
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
