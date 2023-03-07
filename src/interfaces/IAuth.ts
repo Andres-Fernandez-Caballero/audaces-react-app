@@ -1,3 +1,5 @@
+import { Iuser } from '@slyces/auth.slyce';
+
 export interface IAuthLogin {
 	username: string;
 	password: string;
@@ -10,7 +12,10 @@ export interface IAuthRegister {
 	password2: string;
 }
 
-export interface IAuthResponse {
-	token: string;
-	username: string;
+export interface IResponse {
+	response: string;
 }
+
+export interface IAuthSuccessfulResponse extends Iuser, IResponse {}
+
+export interface IAuthWrongResponse extends IResponse {}

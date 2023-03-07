@@ -1,42 +1,28 @@
 import { useAppDispatch, useAppSelector } from '@/hooks/redux..hook';
-import { IAuthLogin } from '@/interfaces/IAuth';
 import { login, selectAuth } from '@/store/slyces/auth.slyce';
-import { closeModalAuth } from '@/store/slyces/modalAuth.slyce';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDtoLogin } from '@pages/Login/useDtoLogin.hook';
+import React from 'react';
+import { closeModalAuth } from '@slyces/modalAuth.slyce';
 
-const Login: React.FunctionComponent = () => {
-	const defaultLogin: IAuthLogin = {
-		username: '',
-		password: '',
-	};
-
+const LoginView: React.FunctionComponent = () => {
 	const dispatch = useAppDispatch();
 	const auth = useAppSelector(selectAuth);
-
-	const [dtoLogin, setDtoLogin] = useState(defaultLogin);
+	const { resetLogin, dtoLogin, setUserName, setPassword } = useDtoLogin();
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
 		e.preventDefault();
 		dispatch(login(dtoLogin))
 			.then(() => {
-				alert('Sesion iniciada');
 				dispatch(closeModalAuth());
 			})
 			.catch(() => {
-				alert('Error al iniciar sesion');
+				//  handle error
 			})
 			.finally(() => {
-				setDtoLogin(defaultLogin);
+				resetLogin();
 			});
-	};
-
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-		setDtoLogin({
-			...dtoLogin,
-			[e.target.name]: e.target.value,
-		});
 	};
 
 	return (
@@ -44,7 +30,7 @@ const Login: React.FunctionComponent = () => {
 			<div className='card border-0'>
 				<h1 className='card-title text-center mt-4'>Iniciar Sesion</h1>
 				{auth.error !== null && (
-					<div className='alert alert-danger' role='alert'>
+					<div className='alert alert-danger text-center' role='alert'>
 						{auth.error}
 					</div>
 				)}
@@ -58,7 +44,9 @@ const Login: React.FunctionComponent = () => {
 							<input
 								type='text'
 								name='username'
-								onChange={handleChange}
+								onChange={e => {
+									setUserName(e.target.value);
+								}}
 								placeholder='nombre de usuario'
 								className='form-control'
 							/>
@@ -77,7 +65,9 @@ const Login: React.FunctionComponent = () => {
 								type='password'
 								className='form-control'
 								name='password'
-								onChange={handleChange}
+								onChange={e => {
+									setPassword(e.target.value);
+								}}
 								placeholder='contraseña'
 							/>
 						</div>
@@ -101,4 +91,4 @@ const Login: React.FunctionComponent = () => {
 	);
 };
 
-export default Login;
+export default LoginView;

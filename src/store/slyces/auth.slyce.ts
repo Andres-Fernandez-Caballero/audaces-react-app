@@ -1,4 +1,8 @@
-import { IAuthLogin, IAuthRegister, IAuthResponse } from '@/interfaces/IAuth';
+import {
+	IAuthLogin,
+	IAuthRegister,
+	IAuthSuccessfulResponse,
+} from '@/interfaces/IAuth';
 import { signIn, signUp } from '@/service/auth';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IAsyncState, IStateWhitError } from '@/store/interfaces/state';
@@ -9,7 +13,7 @@ import { removeCookie, setCookie } from '@/utils/cookies';
 import { AxiosError } from 'axios';
 
 export interface Iuser {
-	email?: string;
+	email: string;
 	username: string;
 	token: string;
 }
@@ -76,23 +80,15 @@ export const login =
 	async (
 		dispatch: (arg0: {
 			payload: boolean | Iuser | string | undefined;
-			type:
-				| 'auth/setAuth'
-				| 'auth/setLoading'
-				| 'auth/setIsAuthenticate'
-				| 'auth/setError';
+			type: 'auth/setAuth' | 'auth/setLoading' | 'auth/setError';
 		}) => void
 	) => {
 		dispatch(setLoading(true));
 		try {
-			const userCredential = await signIn(dtoLogin);
+			const userCredential: IAuthSuccessfulResponse = await signIn(dtoLogin);
 			setSession(userCredential)(dispatch);
 		} catch (error) {
-			if ((error as AxiosError).code === 'ERR_BAD_RESPONSE') {
-				dispatch(setError('Usuario o contraseña incorrectos'));
-			}
-			// TODO: dispatch error
-			// TODO: store log
+			handleError(error as AxiosError)(dispatch);
 		} finally {
 			dispatch(setLoading(false));
 		}
@@ -103,11 +99,7 @@ export const register =
 	async (
 		dispatch: (arg0: {
 			payload: string | boolean | Iuser;
-			type:
-				| 'auth/setAuth'
-				| 'auth/setLoading'
-				| 'auth/setIsAuthenticate'
-				| 'auth/setError';
+			type: 'auth/setAuth' | 'auth/setLoading' | 'auth/setError';
 		}) => void
 	) => {
 		dispatch(setLoading(true));
@@ -115,13 +107,20 @@ export const register =
 			const userCredential = await signUp(dtoRegister);
 			setSession(userCredential)(dispatch);
 		} catch (error) {
-			if ((error as AxiosError).code === 'ERR_BAD_RESPONSE') {
-				dispatch(setError('credenciales incorrectas'));
-			}
+			handleError(error as AxiosError)(dispatch);
 			console.log(error);
 		} finally {
 			dispatch(setLoading(false));
 		}
+	};
+
+const handleError =
+	(error: AxiosError) =>
+	(dispatch: (arg0: { payload: string; type: 'auth/setError' }) => void) => {
+		if (error.response?.status === 401 || error.response?.status === 500) {
+			dispatch(setError('credenciales incorrectas'));
+		}
+		throw new Error('Credenciales incorrectas -_-');
 	};
 
 export const logout =
@@ -134,16 +133,12 @@ export const logout =
 	};
 
 const setSession =
-	(userCredential: IAuthResponse) =>
-	(
-		dispatch: (arg0: {
-			payload: boolean;
-			type: 'auth/setIsAuthenticate';
-		}) => void
-	) => {
-		setAuth(userCredential);
-		dispatch(setIsAuthenticate(true));
-		setCookie(COOKIES.AUTH_CREDENTIALS, userCredential);
+	(userCredential: IAuthSuccessfulResponse) =>
+	(dispatch: (arg0: { payload: Iuser; type: 'auth/setAuth' }) => void) => {
+		const { email, username, token } = userCredential;
+		const user = { email, username, token };
+		setCookie(COOKIES.AUTH_CREDENTIALS, user);
+		dispatch(setAuth(user));
 	};
 
 export const selectAuth = (state: RootState): IAuthState => state.auth;

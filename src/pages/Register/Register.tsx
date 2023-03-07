@@ -1,11 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect, useState } from 'react';
-import { IAuthRegister } from '@/interfaces/IAuth';
+import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux..hook';
-import { register, selectAuth } from '@/store/slyces/auth.slyce';
+import { selectAuth } from '@/store/slyces/auth.slyce';
 import { closeModalAuth } from '@/store/slyces/modalAuth.slyce';
+import { RegisterProps } from '@pages/Register/Register.interfaces';
 
-const Register: React.FC = () => {
+const Register: React.FC<RegisterProps> = ({
+	onSubmit,
+	onChange,
+}: RegisterProps) => {
 	const auth = useAppSelector(selectAuth);
 	const dispatch = useAppDispatch();
 
@@ -15,40 +18,16 @@ const Register: React.FC = () => {
 		}
 	}, [auth.isAuthenticate, dispatch]);
 
-	const initState: IAuthRegister = {
-		username: '',
-		email: '',
-		password: '',
-		password2: '',
-	};
-	const [formData, setFormData] = useState(initState);
-
-	const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-		setFormData({
-			...formData,
-			[e.target.name]: e.target.value,
-		});
-	};
-
-	const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-		e.preventDefault();
-		dispatch(register(formData))
-			.then(() => {
-				alert('Usuario creado');
-				dispatch(closeModalAuth());
-			})
-			.catch(() => {
-				alert('Error al crear usuario');
-			})
-			.finally(() => {
-				setFormData(initState);
-			});
-	};
 	return (
 		<>
-			<form className='container' onSubmit={handleOnSubmit}>
+			<form className='container' onSubmit={onSubmit}>
 				<article className='card border-0'>
 					<h1 className='card-title text-center mt-4'>Crear Cuenta</h1>
+					{auth.error !== null && (
+						<div className='alert alert-danger text-center' role='alert'>
+							{auth.error}
+						</div>
+					)}
 					<article className='card-body py-md-4'>
 						<div className='mb-3'>
 							<label className='form-label'>Nombre de usuario</label>
@@ -60,7 +39,7 @@ const Register: React.FC = () => {
 									type='text'
 									className='form-control'
 									name='username'
-									onChange={handleOnChange}
+									onChange={onChange}
 									autoComplete='off'
 								/>
 							</div>
@@ -76,7 +55,7 @@ const Register: React.FC = () => {
 									className='form-control'
 									name='email'
 									aria-describedby='emailHelp'
-									onChange={handleOnChange}
+									onChange={onChange}
 								/>
 							</div>
 						</div>
@@ -90,7 +69,7 @@ const Register: React.FC = () => {
 									type='password'
 									className='form-control'
 									name='password'
-									onChange={handleOnChange}
+									onChange={onChange}
 									autoComplete='off'
 								/>
 							</div>
@@ -105,7 +84,7 @@ const Register: React.FC = () => {
 									type='password'
 									className='form-control'
 									name='password2'
-									onChange={handleOnChange}
+									onChange={onChange}
 								/>
 							</div>
 						</div>
