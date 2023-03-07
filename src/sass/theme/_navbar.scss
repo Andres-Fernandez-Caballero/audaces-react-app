@@ -1,7 +1,8 @@
 @import '../theme/variables';
 .nav-link {
 	position: relative;
-	font-size: 600;
+	font-size: 115%;
+	font-weight: 500;
 }
 .nav-link::after {
 	transition: all 0.2s;
