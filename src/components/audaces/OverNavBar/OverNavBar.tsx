@@ -1,30 +1,41 @@
 import styles from './OverNavBar.module.scss';
-import { Link } from 'react-router-dom';
-import { URL, PATH_NAME } from '../../../constants/routes';
 import BlackLabelBar from '../BlackLaberBar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const OverNavBar: React.FunctionComponent = () => (
-	<div className={styles.container}>
-		<h2 className=''> Bienvenido user</h2>
-		<ul>
-			<li className=''>
-				<Link className='' to={URL.LOGIN}>
-					{PATH_NAME.LOGIN}
-				</Link>
-			</li>
-			<li className=''>
-				<Link className='' to={URL.SIGNUP}>
-					{PATH_NAME.SIGNUP}
-				</Link>
-			</li>
-			<li className=''>
-				<Link className='' to='#'>
-					Logout
-				</Link>
-			</li>
-		</ul>
-	</div>
-);
+import { openModalAuth } from '@slyces/modalAuth.slyce';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux..hook';
+import { selectAuth } from '@/store/slyces/auth.slyce';
+import { Link } from 'react-router-dom';
+// import { URL } from '@/constants/routes';
+
+const OverNavBar: React.FunctionComponent = () => {
+	const dispatch = useAppDispatch();
+	const auth = useAppSelector(selectAuth);
+
+	return (
+		<div className={styles.container}>
+			<ul>
+				<li className=''>
+					{auth.isAuthenticate ? (
+						<Link to='/user'>
+							{' '}
+							<FontAwesomeIcon icon='user' /> {auth.user?.username}{' '}
+						</Link>
+					) : (
+						<button
+							className='btn btn-primary'
+							onClick={() => {
+								dispatch(openModalAuth());
+							}}
+						>
+							<h2 className=''> Login/Registrate</h2>
+						</button>
+					)}
+				</li>
+			</ul>
+		</div>
+	);
+};
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const componentOver = () => (

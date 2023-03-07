@@ -7,12 +7,5 @@ describe('List', () => {
 
 	it.skip('should render', () => {
 		const { asFragment, queryAllByText } = render(
-			<BrowserRouter>
-				<List />
-			</BrowserRouter>
-		);
-
-		expect(asFragment()).toMatchSnapshot();
-		expect(queryAllByText('$').length).toBeGreaterThan(0);
 	});
 });

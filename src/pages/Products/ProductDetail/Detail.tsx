@@ -3,36 +3,14 @@ import { useParams } from 'react-router-dom';
 import { IProduct } from '@interfaces/IProduct';
 import tshirt from '@assets/imgs/remera_frente.png';
 import styles from './Detail.module.scss';
-import { getProductById } from '@/services/product.service';
+
+import { useDispatch } from 'react-redux';
+import { openModalAuth } from '@slyces/modalAuth.slyce';
+import { getProductById } from '@/service/products';
 
 const Detail: React.FunctionComponent = () => {
-	const initProduct: IProduct = {
-		title: {
-			titulo: '',
-			preguntas: '',
-			descripcion: '',
-			info_tienda: '',
-		},
-		code: '',
-		name: '',
-		description: '',
-		sex: '',
-		guard: '',
-		cloth: '',
-		design: '',
-		size: '',
-		weight: 0,
-		color_details: '',
-		missing: null,
-		price: 0,
-		precio_mayorista: 0,
-		oferta: false,
-		bestof: false,
-		visible: false,
-		tabla_talles: '',
-		discount: 0,
-		categories: [],
-	};
+	const dispatch = useDispatch();
+	let initProduct: undefined | IProduct;
 	const [product, setProduct] = useState(initProduct);
 	const { id } = useParams();
 
@@ -47,6 +25,7 @@ const Detail: React.FunctionComponent = () => {
 					console.log(error);
 				});
 		// else throw new Error('No se encontró el producto');
+
 	}, []);
 
 	return (
@@ -58,42 +37,59 @@ const Detail: React.FunctionComponent = () => {
 					</figure>
 				</aside>
 				<section className='col-md-4'>
-					<article>
-						<h2>{product.title.titulo}</h2>
-						<p className='badge text-bg-primary' style={{ fontSize: '1.1rem' }}>
-							<span>$</span>
-							{product.price}
-						</p>
-						<p>Componente selector talle/color</p>
-
-						<button className='btn btn-info'>Agregar al carrito</button>
-					</article>
-					<article className='accordion my-4' id='preguntas-frecuentes'>
-						<div className='accordion-item'>
-							<h3 className='accordion-header' id='preguntas-frecuentes-titulo'>
-								<button
-									className='accordion-button'
-									type='button'
-									data-bs-toggle='collapse'
-									data-bs-target='#preguntas-frecuentes-contenido'
-									aria-expanded='true'
-									aria-controls='preguntas-frecuentes-contenido'
+					{product !== undefined && (
+						<>
+							<article>
+								<h2>{product.title.titulo}</h2>
+								<p
+									className='badge text-bg-primary'
+									style={{ fontSize: '1.1rem' }}
 								>
-									Preguntas Frecuentes
+									<span>$</span>
+									{product.price}
+								</p>
+								<p>Componente selector talle/color</p>
+
+								<button
+									className='btn btn-info'
+									onClick={() => {
+										dispatch(openModalAuth());
+									}}
+								>
+									Agregar al carrito
 								</button>
-							</h3>
-							<div
-								id='preguntas-frecuentes-contenido'
-								className='accordion-collapse collapse show'
-								aria-labelledby='preguntas-frecuentes-titulo'
-								data-bs-parent='#preguntas-frecuentes'
-							>
-								<div className='accordion-body'>
-									<p>{product.title.preguntas}</p>
+							</article>
+							<article className='accordion my-4' id='preguntas-frecuentes'>
+								<div className='accordion-item'>
+									<h3
+										className='accordion-header'
+										id='preguntas-frecuentes-titulo'
+									>
+										<button
+											className='accordion-button'
+											type='button'
+											data-bs-toggle='collapse'
+											data-bs-target='#preguntas-frecuentes-contenido'
+											aria-expanded='true'
+											aria-controls='preguntas-frecuentes-contenido'
+										>
+											Preguntas Frecuentes
+										</button>
+									</h3>
+									<div
+										id='preguntas-frecuentes-contenido'
+										className='accordion-collapse collapse show'
+										aria-labelledby='preguntas-frecuentes-titulo'
+										data-bs-parent='#preguntas-frecuentes'
+									>
+										<div className='accordion-body'>
+											<p>{product.title.preguntas}</p>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-					</article>
+							</article>
+						</>
+					)}
 				</section>
 			</main>
 		</div>

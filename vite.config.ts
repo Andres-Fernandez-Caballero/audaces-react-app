@@ -24,6 +24,9 @@ export default defineConfig({
 			'@components': `${__dirname}/src/components`,
 			'@services': `${__dirname}/src/services`,
 			'@tests': `${__dirname}/src/tests`,
+			'@store': `${__dirname}/src/store`,
+			'@slyces': `${__dirname}/src/store/slyces`,
+			'@hooks': `${__dirname}/src/hooks`,
 		},
 	},
 });

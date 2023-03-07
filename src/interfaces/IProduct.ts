@@ -24,6 +24,13 @@ export interface IProduct {
 	design: string | null;
 }
 
+export interface IProductListResponse {
+	count: number;
+	next: string | null;
+	previous: string | null;
+	results: IProduct[];
+}
+
 export interface ITitle {
 	id?: number;
 	titulo: string;

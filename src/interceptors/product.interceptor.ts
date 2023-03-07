@@ -1,28 +1,32 @@
+import { IProduct, IProductListResponse } from '@/interfaces/IProduct';
 import axios from 'axios';
-import { IApiAllProductsResponse } from '@/interfaces/IAPI';
-import { API_URL, ENDPOINTS } from '../constants/api.routes';
-import { logerInterceptor } from './basics.Interceptor';
-import { IProduct } from '@/interfaces/IProduct';
+import { PRODUCTS } from '../constants/api.routes';
 
 const APIKit = axios.create({
-	baseURL: API_URL,
+	baseURL: PRODUCTS,
 	timeout: 10000,
-	headers: {
-		'Content-Type': 'application/json',
-		Accept: 'application/json',
-	},
 });
 
-APIKit.interceptors.request.use(logerInterceptor);
+// APIKit.interceptors.request.use(logerInterceptor);
 
-export async function allProducts(): Promise<IApiAllProductsResponse> {
-	const response = await APIKit.get(ENDPOINTS.PRODUCTS);
-	return response.data as IApiAllProductsResponse;
-}
+// APIKit.interceptors.request.use(logerInterceptor);
 
-export async function productById(id: number): Promise<IProduct> {
-	const response = await APIKit.get(`${ENDPOINTS.PRODUCTS}${id}/`);
-	console.log('response get by id ', response);
+// APIKit.interceptors.request.use(request => {
+// 	console.log('agregado control origenes');
+// 	request.headers = {
+// 		'Access-Control-Allow-Origin': `${PRODUCTS}/*`,
+// 		'Access-Control-Allow-Methods': 'GET, POST, PUT',
+// 		'Access-Control-Allow-Headers': 'Content-Type',
+// 	};
+// 	return request;
+// });
 
+export const consultaProducto = async (): Promise<IProductListResponse> => {
+	const response = await APIKit.get('');
 	return response.data;
-}
+};
+
+export const productById = async (id: string): Promise<IProduct> => {
+	const response = await APIKit.get(`/${id}/`);
+	return response.data;
+};

@@ -6,14 +6,14 @@ import { IProduct } from '@interfaces/IProduct';
 import JumboBanner from '@components/layouts/JumboBanner';
 import banner from '@assets/imgs/banners/bermuda.banner.png';
 import tshirt from '@assets/imgs/remera_frente.png';
-import { getAllProducts } from '@/services/product.service';
+import { getAllProducts } from '@/service/products';
 
 const List: React.FunctionComponent = () => {
 	const [products, setProducts] = useState([] as IProduct[]);
 	useEffect(() => {
 		getAllProducts()
-			.then(productsFromServer => {
-				setProducts(productsFromServer);
+			.then(apiProducts => {
+				setProducts(apiProducts);
 			})
 			.catch(err => {
 				console.error(err);
