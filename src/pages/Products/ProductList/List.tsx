@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { URL } from '@constants/routes';
 import { IProduct } from '@interfaces/IProduct';
-import JumboBanner from '@components/layouts/JumboBanner';
-import banner from '@assets/imgs/banners/bermuda.banner.png';
 import tshirt from '@assets/imgs/remera_frente.png';
 import { getAllProducts } from '@/service/products';
 
@@ -21,7 +19,6 @@ const List: React.FunctionComponent = () => {
 
 	return (
 		<>
-			<JumboBanner src={banner} />
 			<section className='container h-100 d-flex justify-content-center align-items-center'>
 				<ul className='row row-cols-1 row-cols-md-2 g-4'>
 					{products.map((product: IProduct) => (
@@ -41,7 +38,12 @@ const List: React.FunctionComponent = () => {
 								>
 									<img
 										className='card-img-top'
-										src={tshirt}
+										src={
+											product.subproducto[0].images.length > 0 &&
+											product.subproducto[0].images[1].image !== undefined
+												? product.subproducto[0].images[1].image
+												: tshirt
+										}
 										alt={product.title.titulo}
 									/>
 								</Link>

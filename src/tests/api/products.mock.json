@@ -1,297 +1,1075 @@
 {
-	"count": 468,
+	"count": 471,
 	"next": "http://localhost:8000/api/store/products/?page=2",
 	"previous": null,
 	"results": [
 		{
-			"id": 324,
+			"id": 3,
 			"title": {
-				"id": 45,
-				"titulo": "Malla Entera Combinada",
-				"preguntas": "Consultas frecuentes.\n¿Tienen stock?\n- Disponemos de stock permanente.\n¿Puedo comprar varios productos y que llegue en un solo envío?\n- Se pueden realizar varios pedidos en una sola comprar para que sean enviados en un solo viaje.\n¿Cuál es el costo de envío?\n- El servicio de envío tiene un costo establecido por Mercado Envíos sujeto a la zona donde reside el comprador (Exceptuando nuestros productos destacados con envio gratis)\n¿Cambios de productos?\n- Los cambios de productos se coordinan con el asesor comercial de Hidra Sport y está sujeto a\ndisponibilidad del producto y otras variables.\nFormas de pagos.\n- Es posible pagar por Tarjeta de Crédito y Débito por Mercado Pago. Consultar siempre las\npromociones vigentes al momento de la compra.\n ¿Los productos tienen garantía?\n-Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización de la entrega del nuevo producto.",
-				"descripcion": "                        pendiente\n                    ",
-				"info_tienda": "HIDRA SPORT\nSomos una familia de atletas emprendedores con 25 años vistiendo deportistas en las distintas disciplinas.\n- Muchas gracias por confiar en Hidra Sport"
+				"id": 138,
+				"titulo": "pendiente",
+				"preguntas": "pendiente",
+				"descripcion": "titulo pendiente",
+				"info_tienda": "pendiente"
 			},
-			"code": "07271005230",
-			"name": "MALLA ENTERA",
-			"description": "COMBINADA",
-			"sex": "FEMENINO",
-			"guard": "-",
-			"cloth": "DRYFIT",
-			"design": "LINEA",
+			"subproducto": [
+				{
+					"id": 1878,
+					"talles": [
+						{
+							"id": 14483,
+							"subcodigo": "18224004521500101",
+							"talle": "XXS",
+							"largo": null,
+							"cadera": null,
+							"manga": null,
+							"siza": null,
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1878
+						}
+					],
+					"images": [],
+					"subcodigo": "0045",
+					"color": "NARANJA",
+					"producto": 3
+				}
+			],
+			"code": "18224215001",
+			"name": "ABRIGO",
+			"description": "CLASICO",
+			"sex": "UNISEX",
+			"guard": "GUARD+",
+			"cloth": "TRACKER",
+			"design": "-",
 			"size": "GRANDE",
-			"weight": 545,
-			"color_details": "BLANCA",
-			"missing": null,
-			"price": 5999.0,
-			"precio_mayorista": 3899.35,
-			"oferta": false,
+			"weight": 950,
+			"color_details": "-",
+			"missing": "SIN TORTUGA",
+			"price": 28799.0,
+			"precio_mayorista": 18719.350000000002,
 			"bestof": false,
-			"visible": false,
-			"tabla_talles": "http://localhost:8000/media/images/COMBINADA-01_fst2rC1.png",
+			"tabla_talles": "http://localhost:8000/media/default",
 			"discount": 1.0,
-			"categories": [41, 5, 18, 21, 13, 17, 15, 10]
+			"categories": [28, 5, 26, 19, 13, 1, 16]
 		},
 		{
-			"id": 969,
+			"id": 4,
 			"title": {
-				"id": 80,
-				"titulo": "Primera Piel Protect UV Guardavidas",
-				"preguntas": "Consultas frecuentes.\n¿Tienen stock?\n- Disponemos de stock permanente.\n¿Puedo comprar varios productos y que llegue en un solo envío?\n- Se pueden realizar varios pedidos en una sola comprar para que sean enviados en un solo viaje.\n¿Cuál es el costo de envío?\n- El servicio de envío tiene un costo establecido por Mercado Envíos sujeto a la zona donde reside el comprador (Exceptuando nuestros productos destacados con envio gratis)\n¿Cambios de productos?\n- Los cambios de productos se coordinan con el asesor comercial de Hidra Sport y está sujeto a\ndisponibilidad del producto y otras variables.\nFormas de pagos.\n- Es posible pagar por Tarjeta de Crédito y Débito por Mercado Pago. Consultar siempre las\npromociones vigentes al momento de la compra.\n ¿Los productos tienen garantía?\n-Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización de la entrega del nuevo producto.",
-				"descripcion": "pendiente",
-				"info_tienda": "HIDRA SPORT\nSomos una familia de atletas emprendedores con 25 años vistiendo deportistas en las distintas disciplinas.\n- Muchas gracias por confiar en Hidra Sport"
+				"id": 138,
+				"titulo": "pendiente",
+				"preguntas": "pendiente",
+				"descripcion": "titulo pendiente",
+				"info_tienda": "pendiente"
 			},
-			"code": "09264207000",
-			"name": "PRIMERA PIEL",
-			"description": "CLASSIC M/L",
+			"subproducto": [
+				{
+					"id": 1879,
+					"talles": [
+						{
+							"id": 14484,
+							"subcodigo": "18224005501500004",
+							"talle": "M",
+							"largo": "71",
+							"cadera": null,
+							"manga": "58",
+							"siza": "62",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1879
+						}
+					],
+					"images": [],
+					"subcodigo": "0055",
+					"color": "NEGRO",
+					"producto": 4
+				},
+				{
+					"id": 1876,
+					"talles": [
+						{
+							"id": 14479,
+							"subcodigo": "18224004501500008",
+							"talle": "XXXL",
+							"largo": "75.5",
+							"cadera": null,
+							"manga": "58",
+							"siza": "75.5",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1876
+						},
+						{
+							"id": 14477,
+							"subcodigo": "18224004501500005",
+							"talle": "L",
+							"largo": "70",
+							"cadera": null,
+							"manga": "58",
+							"siza": "62",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1876
+						},
+						{
+							"id": 14476,
+							"subcodigo": "18224004501500004",
+							"talle": "M",
+							"largo": "67",
+							"cadera": null,
+							"manga": "56",
+							"siza": "60",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1876
+						}
+					],
+					"images": [],
+					"subcodigo": "0045",
+					"color": "NARANJA",
+					"producto": 4
+				}
+			],
+			"code": "18224015000",
+			"name": "ABRIGO",
+			"description": "CLASICO",
 			"sex": "UNISEX",
-			"guard": "GUARD+",
-			"cloth": "LYCRA",
-			"design": null,
-			"size": null,
-			"weight": 0,
-			"color_details": null,
+			"guard": "-",
+			"cloth": "TRACKER",
+			"design": "-",
+			"size": "GRANDE",
+			"weight": 950,
+			"color_details": "-",
 			"missing": null,
-			"price": 5999.0,
-			"precio_mayorista": 3899.0,
-			"oferta": false,
+			"price": 28799.0,
+			"precio_mayorista": 18719.350000000002,
 			"bestof": false,
-			"visible": false,
-			"tabla_talles": "http://localhost:8000/media/images/UV_PROTECT-01.png",
+			"tabla_talles": "http://localhost:8000/media/default",
 			"discount": 1.0,
-			"categories": [5, 31, 19, 35, 1, 16, 10]
+			"categories": [28, 5, 26, 19, 13, 1]
 		},
 		{
-			"id": 958,
+			"id": 5,
 			"title": {
-				"id": 98,
-				"titulo": "Musculosa PROMOCION",
-				"preguntas": "Consultas frecuentes.\n¿Tienen stock?\n- Disponemos de stock permanente.\n¿Puedo comprar varios productos y que llegue en un solo envío?\n- Se pueden realizar varios pedidos en una sola comprar para que sean enviados en un solo viaje.\n¿Cuál es el costo de envío?\n- El servicio de envío tiene un costo establecido por Mercado Envíos sujeto a la zona donde reside el comprador (Exceptuando nuestros productos destacados con envio gratis)\n¿Cambios de productos?\n- Los cambios de productos se coordinan con el asesor comercial de Hidra Sport y está sujeto a\ndisponibilidad del producto y otras variables.\nFormas de pagos.\n- Es posible pagar por Tarjeta de Crédito y Débito por Mercado Pago. Consultar siempre las\npromociones vigentes al momento de la compra.\n ¿Los productos tienen garantía?\n-Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización de la entrega del nuevo producto.",
-				"descripcion": "pendiente",
-				"info_tienda": "HIDRA SPORT\nSomos una familia de atletas emprendedores con 25 años vistiendo deportistas en las distintas disciplinas.\n- Muchas gracias por confiar en Hidra Sport"
+				"id": 137,
+				"titulo": "Campera De Abrigo Unisex Guardavidas",
+				"preguntas": "¿Cuál es el costo de envío? - El servicio de envío tiene un costo establecido por por la empresa de logística Ship Now sujeto a la zona donde reside el comprador \r\n¿Cambios de productos? - Los cambios de productos se coordinan con el asesor comercial de Hidra y está sujeto a disponibilidad del producto y otras variables. \r\nFormas de pagos. - Es posible pagar por Tarjeta de Crédito y Débito.\r\n¿Cuál es el costo de envío? - El servicio de envío tiene un costo establecido por poe la empresa de logistica Ship Now sujeto a la zona donde reside el comprador \r\n¿Cambios de productos? - Los cambios de productos se coordinan con el asesor comercial de Hidra y está sujeto a disponibilidad del producto y otras variables. \r\nFormas de pagos. - Es posible pagar por Tarjeta de Crédito y Débito.\r\n ¿Los productos tienen garantía? -Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización\r\n- Se pueden realizar varios pedidos en una sola comprar para que sean enviados en un solo viaje.\r\n¿Cuál es el costo de envío?\r\n- El servicio de envío tiene un costo establecido por Mercado Envíos sujeto a la zona donde reside el comprador (Exceptuando nuestros productos destacados con envio gratis)\r\n¿Cambios de productos?\r\n- Los cambios de productos se coordinan con el asesor comercial de Hidra Sport y está sujeto a\r\ndisponibilidad del producto y otras variables.\r\nFormas de pagos.\r\n- Es posible pagar por Tarjeta de Crédito y Débito por Mercado Pago. Consultar siempre las\r\npromociones vigentes al momento de la compra.\r\n ¿Los productos tienen garantía?\r\n-Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización de la entrega del nuevo producto.",
+				"descripcion": "- Detalles del producto\r\nNombre: Campera de abrigo.\r\nGénero: Unisex.\r\nConfeccionada con tela tracker con forro interior, de alta resistencia en la parte  ofreciendo una excelente relación entre la comodidad, abrigo y resistencia estampa “Logo Hidra” en el pecho y la espalda la inscripcion de GUARDAVIDAS\r\nIdeal como abrigo complementario deportivo",
+				"info_tienda": "HIDRA LIFEGUARD remonta sus inicios hace aproximadamente 25 años, bajo el nombre de HIDRASPORT, fundada por Diego Elias, nadador, triatleta y siempre vinculado al mundo del salvamento acuático. El del salvamento acuático fue creciendo año a año de forma exponencial, generando así un fuerte vinculo con los Guardavidas, desarrollando cada vez más y más productos relacionados directamente a esta importante vocación. Por esta razón EL día 09/01/2022 con la intención de representar cada vez más y mejor al guardavidas, se lanzó al publico HIDRALIFEGUARD, \"LA MARCA PARA GUARDAVIDAS\" la cual está destinada a cubrir de la mejor forma posible todas las necesidades y exigencias que la indumentaria vinculada al salvamento acuático presenta, desde la etapa formativa junto al aspirante, hasta el acompañamiento a lo largo de los años de formación profesional."
 			},
-			"code": "08214205400",
-			"name": "MUSCULOSA",
-			"description": "CLASSIC",
+			"subproducto": [
+				{
+					"id": 1880,
+					"talles": [
+						{
+							"id": 14488,
+							"subcodigo": "18224006511500008",
+							"talle": "XXXL",
+							"largo": "75",
+							"cadera": null,
+							"manga": "56",
+							"siza": "74",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "U1S13.C13",
+							"caja": "C13.1",
+							"tamaño_caja": null,
+							"cantidad": 2,
+							"cantidad2": 0,
+							"subproducto": 1880
+						},
+						{
+							"id": 14487,
+							"subcodigo": "18224006511500004",
+							"talle": "M",
+							"largo": "67",
+							"cadera": null,
+							"manga": "55",
+							"siza": "60",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1880
+						},
+						{
+							"id": 14486,
+							"subcodigo": "18224006511500003",
+							"talle": "S",
+							"largo": "64",
+							"cadera": null,
+							"manga": "55",
+							"siza": "56",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1880
+						},
+						{
+							"id": 14485,
+							"subcodigo": "18224006511500002",
+							"talle": "XS",
+							"largo": "60",
+							"cadera": null,
+							"manga": "55",
+							"siza": "51",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1880
+						}
+					],
+					"images": [
+						{
+							"image": "http://localhost:8000/media/products/ESPALDA.png"
+						},
+						{
+							"image": "http://localhost:8000/media/products/ROJA_FRENTE_2LsWxyB.png"
+						}
+					],
+					"subcodigo": "0065",
+					"color": "ROJO",
+					"producto": 5
+				},
+				{
+					"id": 1877,
+					"talles": [
+						{
+							"id": 14482,
+							"subcodigo": "18224004511500008",
+							"talle": "XXXL",
+							"largo": "75.5",
+							"cadera": null,
+							"manga": "76",
+							"siza": "58",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "U1S13.C12",
+							"caja": "C12.1\n",
+							"tamaño_caja": null,
+							"cantidad": 2,
+							"cantidad2": 0,
+							"subproducto": 1877
+						},
+						{
+							"id": 14481,
+							"subcodigo": "18224004511500007",
+							"talle": "XXL",
+							"largo": "72.5",
+							"cadera": null,
+							"manga": "57",
+							"siza": "71",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "U1S13.C15",
+							"caja": "C15.1\n",
+							"tamaño_caja": null,
+							"cantidad": 3,
+							"cantidad2": 0,
+							"subproducto": 1877
+						},
+						{
+							"id": 14480,
+							"subcodigo": "18224004511500004",
+							"talle": "M",
+							"largo": "67",
+							"cadera": null,
+							"manga": "56",
+							"siza": "60",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "U1S13.C14",
+							"caja": "C14.1\n",
+							"tamaño_caja": null,
+							"cantidad": 3,
+							"cantidad2": 0,
+							"subproducto": 1877
+						}
+					],
+					"images": [],
+					"subcodigo": "0045",
+					"color": "NARANJA",
+					"producto": 5
+				}
+			],
+			"code": "18224115000",
+			"name": "ABRIGO",
+			"description": "CLASICO",
 			"sex": "UNISEX",
-			"guard": "GUARD+",
-			"cloth": "DRYFIT",
-			"design": "SOLO TRASERO",
-			"size": null,
-			"weight": 0,
-			"color_details": null,
+			"guard": "GUARD",
+			"cloth": "TRACKER",
+			"design": "-",
+			"size": "GRANDE",
+			"weight": 950,
+			"color_details": "-",
 			"missing": null,
-			"price": 0.0,
-			"precio_mayorista": 0.0,
-			"oferta": false,
+			"price": 28799.0,
+			"precio_mayorista": 18719.350000000002,
 			"bestof": false,
-			"visible": false,
-			"tabla_talles": null,
+			"tabla_talles": "http://localhost:8000/media/default",
 			"discount": 1.0,
-			"categories": []
+			"categories": [28, 5, 26, 19, 13, 1, 16]
 		},
 		{
-			"id": 904,
+			"id": 6,
 			"title": {
-				"id": 53,
-				"titulo": "Bermuda Clásica De Mujer",
-				"preguntas": "Consultas frecuentes.\n¿Tienen stock?\n- Disponemos de stock permanente.\n¿Puedo comprar varios productos y que llegue en un solo envío?\n- Se pueden realizar varios pedidos en una sola comprar para que sean enviados en un solo viaje.\n¿Cuál es el costo de envío?\n- El servicio de envío tiene un costo establecido por Mercado Envíos sujeto a la zona donde reside el comprador (Exceptuando nuestros productos destacados con envio gratis)\n¿Cambios de productos?\n- Los cambios de productos se coordinan con el asesor comercial de Hidra Sport y está sujeto a\ndisponibilidad del producto y otras variables.\nFormas de pagos.\n- Es posible pagar por Tarjeta de Crédito y Débito por Mercado Pago. Consultar siempre las\npromociones vigentes al momento de la compra.\n ¿Los productos tienen garantía?\n-Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización de la entrega del nuevo producto.",
-				"descripcion": "pendiente",
-				"info_tienda": "HIDRA SPORT\nSomos una familia de atletas emprendedores con 25 años vistiendo deportistas en las distintas disciplinas.\n- Muchas gracias por confiar en Hidra Sport"
+				"id": 138,
+				"titulo": "pendiente",
+				"preguntas": "pendiente",
+				"descripcion": "titulo pendiente",
+				"info_tienda": "pendiente"
 			},
-			"code": "01121008000",
+			"subproducto": [
+				{
+					"id": 1881,
+					"talles": [
+						{
+							"id": 14489,
+							"subcodigo": "18224006511540008",
+							"talle": "XXXL",
+							"largo": "75",
+							"cadera": null,
+							"manga": "56",
+							"siza": "74",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1881
+						}
+					],
+					"images": [],
+					"subcodigo": "0065",
+					"color": "ROJO",
+					"producto": 6
+				}
+			],
+			"code": "18224115400",
+			"name": "ABRIGO",
+			"description": "CLASICO",
+			"sex": "UNISEX",
+			"guard": "GUARD",
+			"cloth": "TRACKER ",
+			"design": "BORDADO",
+			"size": "GRANDE",
+			"weight": 950,
+			"color_details": "-",
+			"missing": null,
+			"price": 28799.0,
+			"precio_mayorista": 18719.350000000002,
+			"bestof": false,
+			"tabla_talles": "http://localhost:8000/media/default",
+			"discount": 1.0,
+			"categories": [28, 5, 26, 19, 13, 1, 16]
+		},
+		{
+			"id": 9,
+			"title": {
+				"id": 138,
+				"titulo": "pendiente",
+				"preguntas": "pendiente",
+				"descripcion": "titulo pendiente",
+				"info_tienda": "pendiente"
+			},
+			"subproducto": [
+				{
+					"id": 1884,
+					"talles": [
+						{
+							"id": 14491,
+							"subcodigo": "18364552501500004",
+							"talle": "M",
+							"largo": "71",
+							"cadera": null,
+							"manga": "58",
+							"siza": "62",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1884
+						}
+					],
+					"images": [],
+					"subcodigo": "5525",
+					"color": "NEGRO/BLANCO",
+					"producto": 9
+				}
+			],
+			"code": "18364015000",
+			"name": "ABRIGO",
+			"description": "FRANJA",
+			"sex": "UNISEX",
+			"guard": "-",
+			"cloth": "TRACKER ",
+			"design": "-",
+			"size": "GRANDE",
+			"weight": 950,
+			"color_details": "-",
+			"missing": null,
+			"price": 20499.0,
+			"precio_mayorista": 13324.35,
+			"bestof": false,
+			"tabla_talles": "http://localhost:8000/media/default",
+			"discount": 1.0,
+			"categories": [28, 5, 26, 13, 1]
+		},
+		{
+			"id": 10,
+			"title": {
+				"id": 138,
+				"titulo": "pendiente",
+				"preguntas": "pendiente",
+				"descripcion": "titulo pendiente",
+				"info_tienda": "pendiente"
+			},
+			"subproducto": [
+				{
+					"id": 1885,
+					"talles": [
+						{
+							"id": 14494,
+							"subcodigo": "18364652501501005",
+							"talle": "L",
+							"largo": "71",
+							"cadera": null,
+							"manga": "54",
+							"siza": "64",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "U1S13.C12",
+							"caja": "C12.1\n",
+							"tamaño_caja": null,
+							"cantidad": 1,
+							"cantidad2": 0,
+							"subproducto": 1885
+						},
+						{
+							"id": 14493,
+							"subcodigo": "18364652501501004",
+							"talle": "M",
+							"largo": "67",
+							"cadera": null,
+							"manga": "55",
+							"siza": "60",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1885
+						},
+						{
+							"id": 14492,
+							"subcodigo": "18364652501501003",
+							"talle": "S",
+							"largo": "67",
+							"cadera": null,
+							"manga": "54.5",
+							"siza": "60",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1885
+						}
+					],
+					"images": [
+						{
+							"image": "http://localhost:8000/media/products/MORON_ESPALDA_ZDDV6tw.png"
+						},
+						{
+							"image": "http://localhost:8000/media/products/MORON_FRENTE_QdPFPHA.png"
+						}
+					],
+					"subcodigo": "6525",
+					"color": "ROJO/BLANCO",
+					"producto": 10
+				},
+				{
+					"id": 1883,
+					"talles": [],
+					"images": [],
+					"subcodigo": "0144",
+					"color": "AZUL/BLANCO/NEGRO",
+					"producto": 10
+				},
+				{
+					"id": 1882,
+					"talles": [
+						{
+							"id": 14490,
+							"subcodigo": "18364152501501002",
+							"talle": "XS",
+							"largo": "68",
+							"cadera": null,
+							"manga": "51",
+							"siza": "61",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1882
+						}
+					],
+					"images": [],
+					"subcodigo": "1525",
+					"color": "AZUL/BLANCO",
+					"producto": 10
+				},
+				{
+					"id": 1698,
+					"talles": [
+						{
+							"id": 12629,
+							"subcodigo": "18364014401501003",
+							"talle": "S",
+							"largo": "66",
+							"cadera": null,
+							"manga": "54",
+							"siza": "58",
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1698
+						}
+					],
+					"images": [],
+					"subcodigo": "0144",
+					"color": "AZUL-BLANCO-NEGRO",
+					"producto": 10
+				}
+			],
+			"code": "18364015010",
+			"name": "ABRIGO",
+			"description": "FRANJA",
+			"sex": "UNISEX",
+			"guard": "-",
+			"cloth": "TRACKER ",
+			"design": "-",
+			"size": "GRANDE",
+			"weight": 950,
+			"color_details": "MORON",
+			"missing": null,
+			"price": 20499.0,
+			"precio_mayorista": 13324.35,
+			"bestof": false,
+			"tabla_talles": "http://localhost:8000/media/default",
+			"discount": 1.0,
+			"categories": [28, 5, 26, 13, 1]
+		},
+		{
+			"id": 20,
+			"title": {
+				"id": 136,
+				"titulo": "Bermuda Clásica De Mujer Guardavidas",
+				"preguntas": "Consultas frecuentes.\r\n¿Tienen stock?\r\n- Disponemos de stock permanente.\r\n¿Puedo comprar varios productos y que llegue en un solo envío?\r\n- Se pueden realizar varios pedidos en una sola comprar para que sean enviados en un solo viaje.\r\n¿Cuál es el costo de envío?\r\n- El servicio de envío tiene un costo establecido por Mercado Envíos sujeto a la zona donde reside el comprador (Exceptuando nuestros productos destacados con envio gratis)\r\n¿Cambios de productos?\r\n- Los cambios de productos se coordinan con el asesor comercial de Hidra Sport y está sujeto a\r\ndisponibilidad del producto y otras variables.\r\nFormas de pagos.\r\n- Es posible pagar por Tarjeta de Crédito y Débito por Mercado Pago. Consultar siempre las\r\npromociones vigentes al momento de la compra.\r\n ¿Los productos tienen garantía?\r\n-Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización de la entrega del nuevo producto.",
+				"descripcion": "- Detalles del producto\r\nNombre: Bermuda Clásica de Guardavidas\r\nGénero: Mujer\r\nConfeccionada con tela de microfibra, estampa “Guardavidas”, cordón para\r\najuste de cintura, pensada para el trabajo profesional de salvamento acuático. Tela de\r\nsecado rápido.\r\n",
+				"info_tienda": "HIDRA LIFEGUARD remonta sus inicios hace aproximadamente 25 años, bajo el nombre de HIDRASPORT, fundada por Diego Elias, nadador, triatleta y siempre vinculado al mundo del salvamento acuático. El del salvamento acuático fue creciendo año a año de forma exponencial, generando así un fuerte vinculo con los Guardavidas, desarrollando cada vez más y más productos relacionados directamente a esta importante vocación. Por esta razón EL día 09/01/2022 con la intención de representar cada vez más y mejor al guardavidas, se lanzó al publico HIDRALIFEGUARD, \"LA MARCA PARA GUARDAVIDAS\" la cual está destinada a cubrir de la mejor forma posible todas las necesidades y exigencias que la indumentaria vinculada al salvamento acuático presenta, desde la etapa formativa junto al aspirante, hasta el acompañamiento a lo largo de los años de formación profesional."
+			},
+			"subproducto": [
+				{
+					"id": 1890,
+					"talles": [
+						{
+							"id": 14502,
+							"subcodigo": "01121007910800003",
+							"talle": "S",
+							"largo": "40",
+							"cadera": "40",
+							"manga": null,
+							"siza": null,
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1890
+						}
+					],
+					"images": [
+						{
+							"image": "http://localhost:8000/media/products/VERDE_OSCURO_ESPALDA_resultado_u0ZvdZ3.png"
+						},
+						{
+							"image": "http://localhost:8000/media/products/VERDE_OSCURO_GUARD_DORSO_resultado_M4IL9qk.png"
+						}
+					],
+					"subcodigo": "0079",
+					"color": "VERDE OSCURO",
+					"producto": 20
+				},
+				{
+					"id": 1888,
+					"talles": [
+						{
+							"id": 14499,
+							"subcodigo": "01121006110800002",
+							"talle": "XS",
+							"largo": "37.5",
+							"cadera": "36",
+							"manga": null,
+							"siza": null,
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1888
+						}
+					],
+					"images": [
+						{
+							"image": "http://localhost:8000/media/products/ROSA_ESPALDA_resultado_gaYdekh.png"
+						},
+						{
+							"image": "http://localhost:8000/media/products/ROSA_GUARD_DORSO_resultado_t5KeghI.png"
+						}
+					],
+					"subcodigo": "0061",
+					"color": "FUCCIA",
+					"producto": 20
+				},
+				{
+					"id": 990,
+					"talles": [
+						{
+							"id": 12645,
+							"subcodigo": "01121006510800003",
+							"talle": "S",
+							"largo": "39",
+							"cadera": "39.5",
+							"manga": null,
+							"siza": null,
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "U1S7.B2",
+							"caja": "B2.4\n",
+							"tamaño_caja": null,
+							"cantidad": 1,
+							"cantidad2": 0,
+							"subproducto": 990
+						},
+						{
+							"id": 12644,
+							"subcodigo": "01121006510800002",
+							"talle": "XS",
+							"largo": "37",
+							"cadera": "37.5",
+							"manga": null,
+							"siza": null,
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "U1S7.B1",
+							"caja": "B1.1\n",
+							"tamaño_caja": null,
+							"cantidad": 2,
+							"cantidad2": 0,
+							"subproducto": 990
+						}
+					],
+					"images": [
+						{
+							"image": "http://localhost:8000/media/products/ROJO_TORTUGA_AMARILLA_ESPALDA_resultado_Jd16AUd.png"
+						},
+						{
+							"image": "http://localhost:8000/media/products/ROJO_GUARD_DORSO_resultado_oNvGQSK.png"
+						}
+					],
+					"subcodigo": "0065",
+					"color": "ROJO",
+					"producto": 20
+				}
+			],
+			"code": "01121108000",
 			"name": "BERMUDA",
 			"description": "BERMUDA",
 			"sex": "FEMENINO",
-			"guard": "None",
-			"cloth": null,
-			"design": "None",
+			"guard": "GUARD",
+			"cloth": "MICROFIBRA",
+			"design": "-",
 			"size": "INTERMEDIO",
 			"weight": 100,
-			"color_details": "None",
+			"color_details": "-",
 			"missing": null,
-			"price": 4999.0,
-			"precio_mayorista": 3249.35,
-			"oferta": false,
-			"bestof": true,
-			"visible": false,
-			"tabla_talles": "http://localhost:8000/media/images/BERMUDA_FEMENINA-01.png",
+			"price": 6249.0,
+			"precio_mayorista": 4061.8500000000004,
+			"bestof": false,
+			"tabla_talles": "http://localhost:8000/media/images/guard_hhXPfJd.png",
 			"discount": 1.0,
-			"categories": [23, 5, 18, 17, 15, 10]
+			"categories": [22, 5, 18, 17, 16, 15, 10]
 		},
 		{
-			"id": 901,
+			"id": 21,
 			"title": {
-				"id": 54,
-				"titulo": "Bermuda New Classic Unisex",
-				"preguntas": "Consultas frecuentes.\n¿Tienen stock?\n- Disponemos de stock permanente.\n¿Puedo comprar varios productos y que llegue en un solo envío?\n- Se pueden realizar varios pedidos en una sola comprar para que sean enviados en un solo viaje.\n¿Cuál es el costo de envío?\n- El servicio de envío tiene un costo establecido por Mercado Envíos sujeto a la zona donde reside el comprador (Exceptuando nuestros productos destacados con envio gratis)\n¿Cambios de productos?\n- Los cambios de productos se coordinan con el asesor comercial de Hidra Sport y está sujeto a\ndisponibilidad del producto y otras variables.\nFormas de pagos.\n- Es posible pagar por Tarjeta de Crédito y Débito por Mercado Pago. Consultar siempre las\npromociones vigentes al momento de la compra.\n ¿Los productos tienen garantía?\n-Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización de la entrega del nuevo producto.",
-				"descripcion": "pendiente",
-				"info_tienda": "HIDRA SPORT\nSomos una familia de atletas emprendedores con 25 años vistiendo deportistas en las distintas disciplinas.\n- Muchas gracias por confiar en Hidra Sport"
+				"id": 53,
+				"titulo": "Bermuda Clásica De Mujer",
+				"preguntas": "¿Cuál es el costo de envío? - El servicio de envío tiene un costo establecido por por la empresa de logística Ship Now sujeto a la zona donde reside el comprador \r\n¿Cambios de productos? - Los cambios de productos se coordinan con el asesor comercial de Hidra y está sujeto a disponibilidad del producto y otras variables. \r\nFormas de pagos. - Es posible pagar por Tarjeta de Crédito y Débito.\r\n¿Cuál es el costo de envío? - El servicio de envío tiene un costo establecido por por la empresa de logistica Ship Now sujeto a la zona donde reside el comprador \r\n¿Cambios de productos? - Los cambios de productos se coordinan con el asesor comercial de Hidra y está sujeto a disponibilidad del producto y otras variables. \r\nFormas de pagos. - Es posible pagar por Tarjeta de Crédito y Débito.\r\n ¿Los productos tienen garantía? -Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización",
+				"descripcion": "- Detalles del producto\r\nNombre: Bermuda Clásica \r\nGénero: Mujer\r\nConfeccionada con tela microfibra, pensada para la práctica deportiva en agua, ideal para\r\nel uso en aguas abiertas por su adhesión al cuerpo, liviana y de secado rápido.\r\n",
+				"info_tienda": "HIDRA SPORT\r\nSomos una familia de atletas emprendedores con 25 años vistiendo deportistas en las distintas disciplinas.\r\n- Muchas gracias por confiar en Hidra Sport"
 			},
-			"code": "01914008000",
+			"subproducto": [
+				{
+					"id": 984,
+					"talles": [
+						{
+							"id": 12634,
+							"subcodigo": "01121001520800003",
+							"talle": "S",
+							"largo": "45.5",
+							"cadera": "39.5",
+							"manga": null,
+							"siza": null,
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 984
+						}
+					],
+					"images": [
+						{
+							"image": "http://localhost:8000/media/products/AZUL_ESPALDA_TORTUGA_BLANCA_resultado_TJr0Ivk.png"
+						},
+						{
+							"image": "http://localhost:8000/media/products/AZUL_GUARD__FRENTE_resultado_W1xGyhf.png"
+						}
+					],
+					"subcodigo": "0015",
+					"color": "AZUL",
+					"producto": 21
+				}
+			],
+			"code": "01121208000",
 			"name": "BERMUDA",
-			"description": "NEW CLASSIC",
-			"sex": "UNISEX",
-			"guard": "None",
-			"cloth": null,
-			"design": "None",
+			"description": "BERMUDA",
+			"sex": "FEMENINO",
+			"guard": "GUARD+",
+			"cloth": "MICROFIBRA",
+			"design": "-",
 			"size": "INTERMEDIO",
 			"weight": 100,
-			"color_details": "None",
-			"missing": null,
-			"price": 4999.0,
-			"precio_mayorista": 3249.35,
-			"oferta": false,
-			"bestof": false,
-			"visible": false,
-			"tabla_talles": "http://localhost:8000/media/images/BERMUDA_NEW_CLASSIC-01.png",
-			"discount": 1.0,
-			"categories": [22, 15]
-		},
-		{
-			"id": 644,
-			"title": {
-				"id": 152,
-				"titulo": "Slip Combinado De Hombre",
-				"preguntas": "Consultas frecuentes. ¿Tienen stock? - Disponemos de stock permanente. ¿Puedo comprar varios productos y que llegue en un solo envío? - Se pueden realizar varios pedidos en una sola comprar para que sean enviados en un solo viaje. ¿Cuál es el costo de envío? - El servicio de envío tiene un costo establecido por Mercado Envíos sujeto a la zona donde reside el comprador (Exceptuando nuestros productos destacados con envio gratis) ¿Cambios de productos? - Los cambios de productos se coordinan con el asesor comercial de Hidra Sport y está sujeto a disponibilidad del producto y otras variables. Formas de pagos. - Es posible pagar por Tarjeta de Crédito y Débito por Mercado Pago. Consultar siempre las promociones vigentes al momento de la compra. ¿Los productos tienen garantía? -Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización de",
-				"descripcion": "Pendiente",
-				"info_tienda": "HIDRA SPORT Somos una familia de atletas emprendedores con 25 años vistiendo deportistas en las distintas disciplinas. - Muchas gracias por confiar en Hidra Sport"
-			},
-			"code": "12272005000",
-			"name": "SLIP",
-			"description": "COMBINADA",
-			"sex": "MASCULINO",
-			"guard": "-",
-			"cloth": "DRYFIT",
-			"design": "-",
-			"size": "GRANDE",
-			"weight": 545,
 			"color_details": "-",
 			"missing": null,
-			"price": 4799.0,
-			"precio_mayorista": 3119.35,
-			"oferta": false,
+			"price": 6249.0,
+			"precio_mayorista": 4061.8500000000004,
 			"bestof": false,
-			"visible": false,
-			"tabla_talles": "http://localhost:8000/media/images/COMBINADO-01.png",
+			"tabla_talles": "http://localhost:8000/media/images/Mesa_de_trabajo_2_0vj8bsG.png",
 			"discount": 1.0,
-			"categories": [18, 21, 17, 24, 1, 15, 10]
+			"categories": [22, 5, 18, 17, 15, 10]
 		},
 		{
-			"id": 959,
+			"id": 29,
 			"title": {
-				"id": 79,
-				"titulo": "Remera Clásica Algodon Guardavidas",
-				"preguntas": "Consultas frecuentes.\n¿Tienen stock?\n- Disponemos de stock permanente.\n¿Puedo comprar varios productos y que llegue en un solo envío?\n- Se pueden realizar varios pedidos en una sola comprar para que sean enviados en un solo viaje.\n¿Cuál es el costo de envío?\n- El servicio de envío tiene un costo establecido por Mercado Envíos sujeto a la zona donde reside el comprador (Exceptuando nuestros productos destacados con envio gratis)\n¿Cambios de productos?\n- Los cambios de productos se coordinan con el asesor comercial de Hidra Sport y está sujeto a\ndisponibilidad del producto y otras variables.\nFormas de pagos.\n- Es posible pagar por Tarjeta de Crédito y Débito por Mercado Pago. Consultar siempre las\npromociones vigentes al momento de la compra.\n ¿Los productos tienen garantía?\n-Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización de la entrega del nuevo producto.",
-				"descripcion": "pendiente",
-				"info_tienda": "HIDRA SPORT\nSomos una familia de atletas emprendedores con 25 años vistiendo deportistas en las distintas disciplinas.\n- Muchas gracias por confiar en Hidra Sport"
+				"id": 131,
+				"titulo": "Bermuda Tira Roja Unisex Guardavidas",
+				"preguntas": "¿Cuál es el costo de envío? - El servicio de envío tiene un costo establecido por por la empresa de logística Ship Now sujeto a la zona donde reside el comprador \r\n¿Cambios de productos? - Los cambios de productos se coordinan con el asesor comercial de Hidra y está sujeto a disponibilidad del producto y otras variables. \r\nFormas de pagos. - Es posible pagar por Tarjeta de Crédito y Débito.\r\n¿Cuál es el costo de envío? - El servicio de envío tiene un costo establecido por poe la empresa de logistica Ship Now sujeto a la zona donde reside el comprador \r\n¿Cambios de productos? - Los cambios de productos se coordinan con el asesor comercial de Hidra y está sujeto a disponibilidad del producto y otras variables. \r\nFormas de pagos. - Es posible pagar por Tarjeta de Crédito y Débito.\r\n ¿Los productos tienen garantía? -Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización",
+				"descripcion": "Nombre: Bermuda Clásica de Guardavidas\r\nGénero: Unisex\r\nConfeccionada con tela de microfibra, estampa “Guardavidas”, cordón para\r\najuste de cintura, pensada para el trabajo profesional de salvamento acuático. Tela de\r\nsecado rápido.\r\n",
+				"info_tienda": "HIDRA LIFEGUARD remonta sus inicios hace aproximadamente 25 años, bajo el nombre de HIDRASPORT, fundada por Diego Elias, nadador, triatleta y siempre vinculado al mundo del salvamento acuático. El del salvamento acuático fue creciendo año a año de forma exponencial, generando así un fuerte vinculo con los Guardavidas, desarrollando cada vez más y más productos relacionados directamente a esta importante vocación. Por esta razón EL día 09/01/2022 con la intención de representar cada vez más y mejor al guardavidas, se lanzó al publico HIDRALIFEGUARD, \"LA MARCA PARA GUARDAVIDAS\" la cual está destinada a cubrir de la mejor forma posible todas las necesidades y exigencias que la indumentaria vinculada al salvamento acuático presenta, desde la etapa formativa junto al aspirante, hasta el acompañamiento a lo largo de los años de formación profesional."
 			},
-			"code": "10214202400",
-			"name": "REMERA",
-			"description": "CLASSIC",
+			"subproducto": [
+				{
+					"id": 999,
+					"talles": [
+						{
+							"id": 12668,
+							"subcodigo": "01124001500821002",
+							"talle": "XS",
+							"largo": "43",
+							"cadera": "37",
+							"manga": null,
+							"siza": null,
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "U2.N3.S7G",
+							"caja": "29.S7.N3.U2\n",
+							"tamaño_caja": null,
+							"cantidad": 14,
+							"cantidad2": 0,
+							"subproducto": 999
+						}
+					],
+					"images": [
+						{
+							"image": "http://localhost:8000/media/products/AZUL_LINEA_ROJA_ESPALDA_resultado.png"
+						},
+						{
+							"image": "http://localhost:8000/media/products/AZUL_LINEA_ROJA_FRENTE_resultado.png"
+						}
+					],
+					"subcodigo": "0015",
+					"color": "AZUL",
+					"producto": 29
+				}
+			],
+			"code": "01124008210",
+			"name": "BERMUDA",
+			"description": "BERMUDA",
 			"sex": "UNISEX",
-			"guard": "GUARD+",
-			"cloth": "ALGODON",
-			"design": "SOLO TRASERO",
-			"size": null,
-			"weight": 0,
-			"color_details": null,
+			"guard": "-",
+			"cloth": "MICROFIBRA",
+			"design": "TIRA  (TR)",
+			"size": "INTERMEDIO",
+			"weight": 100,
+			"color_details": "ROJA",
 			"missing": null,
-			"price": 3999.0,
-			"precio_mayorista": 2404.35,
-			"oferta": false,
+			"price": 6249.0,
+			"precio_mayorista": 4061.8500000000004,
 			"bestof": false,
-			"visible": false,
-			"tabla_talles": "http://localhost:8000/media/images/GUARD-01.png",
+			"tabla_talles": "http://localhost:8000/media/images/Mesa_de_trabajo_2_iO9TBwR.png",
 			"discount": 1.0,
-			"categories": [5, 31, 32, 19, 1, 16, 10]
+			"categories": [22, 5, 18, 17, 1, 15, 10]
 		},
 		{
-			"id": 970,
+			"id": 47,
 			"title": {
-				"id": 158,
-				"titulo": "Remera De Argentina Guardavidas",
-				"preguntas": "Consultas frecuentes. ¿Tienen stock? - Disponemos de stock permanente. ¿Puedo comprar varios productos y que llegue en un solo envío? - Se pueden realizar varios pedidos en una sola comprar para que sean enviados en un solo viaje. ¿Cuál es el costo de envío? - El servicio de envío tiene un costo establecido por Mercado Envíos sujeto a la zona donde reside el comprador (Exceptuando nuestros productos destacados con envio gratis) ¿Cambios de productos? - Los cambios de productos se coordinan con el asesor comercial de Hidra Sport y está sujeto a disponibilidad del producto y otras variables. Formas de pagos. - Es posible pagar por Tarjeta de Crédito y Débito por Mercado Pago. Consultar siempre las promociones vigentes al momento de la compra. ¿Los productos tienen garantía? -Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización de",
-				"descripcion": "-",
-				"info_tienda": "-"
+				"id": 133,
+				"titulo": "Bermuda Tortuga Bordada Unisex",
+				"preguntas": "¿Cuál es el costo de envío? - El servicio de envío tiene un costo establecido por por la empresa de logística Ship Now sujeto a la zona donde reside el comprador \r\n¿Cambios de productos? - Los cambios de productos se coordinan con el asesor comercial de Hidra y está sujeto a disponibilidad del producto y otras variables. \r\nFormas de pagos. - Es posible pagar por Tarjeta de Crédito y Débito.\r\n¿Cuál es el costo de envío? - El servicio de envío tiene un costo establecido por poe la empresa de logistica Ship Now sujeto a la zona donde reside el comprador \r\n¿Cambios de productos? - Los cambios de productos se coordinan con el asesor comercial de Hidra y está sujeto a disponibilidad del producto y otras variables. \r\nFormas de pagos. - Es posible pagar por Tarjeta de Crédito y Débito.\r\n ¿Los productos tienen garantía? -Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización",
+				"descripcion": "Nombre: Bermuda Clásica \r\nGénero: Unisex\r\nConfeccionada con tela microfibra, pensada para la práctica deportiva en agua, ideal para\r\nel uso en aguas abiertas por su adhesión al cuerpo, liviana y de secado rápido.\r\n",
+				"info_tienda": "HIDRA SPORT\r\nSomos una familia de atletas emprendedores con 25 años vistiendo deportistas en las distintas disciplinas.\r\n- Muchas gracias por confiar en Hidra Sport"
 			},
-			"code": "10074212000",
-			"name": "REMERA",
-			"description": "ARGENTINA",
+			"subproducto": [
+				{
+					"id": 1901,
+					"talles": [
+						{
+							"id": 14532,
+							"subcodigo": "01124006500800302",
+							"talle": "XS",
+							"largo": "43",
+							"cadera": "41",
+							"manga": null,
+							"siza": null,
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1901
+						}
+					],
+					"images": [
+						{
+							"image": "http://localhost:8000/media/products/ROJA_SIN_TORTUGA_GRANDE_ESPALDA_Va6L7uX.png"
+						},
+						{
+							"image": "http://localhost:8000/media/products/ROJA_SIN_TORTUGA_GRANDE_FRENTE_EBmKUC1.png"
+						}
+					],
+					"subcodigo": "0065",
+					"color": "ROJO",
+					"producto": 47
+				},
+				{
+					"id": 1899,
+					"talles": [
+						{
+							"id": 14530,
+							"subcodigo": "01124005500800303",
+							"talle": "S",
+							"largo": "45",
+							"cadera": "41",
+							"manga": null,
+							"siza": null,
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1899
+						}
+					],
+					"images": [
+						{
+							"image": "http://localhost:8000/media/products/NEGRA_SIN_TORTUGA_GRANDE_ESPALDA_fKNWf7F.png"
+						},
+						{
+							"image": "http://localhost:8000/media/products/NEGRA_SIN_TORTUGA_GRANDE_FRENTE_fSHPb6b.png"
+						}
+					],
+					"subcodigo": "0055",
+					"color": "NEGRO",
+					"producto": 47
+				},
+				{
+					"id": 1005,
+					"talles": [
+						{
+							"id": 12692,
+							"subcodigo": "01124005100800302",
+							"talle": "XS",
+							"largo": "42",
+							"cadera": "40",
+							"manga": null,
+							"siza": null,
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 1005
+						}
+					],
+					"images": [
+						{
+							"image": "http://localhost:8000/media/products/GRIS_SIN_TORTUGA_GRANDE_ESPALDA.png"
+						},
+						{
+							"image": "http://localhost:8000/media/products/GRIS_SIN_TORTUGA_GRANDE_FRENTE.png"
+						}
+					],
+					"subcodigo": "0051",
+					"color": "GRIS",
+					"producto": 47
+				},
+				{
+					"id": 998,
+					"talles": [
+						{
+							"id": 12667,
+							"subcodigo": "01124001500800302",
+							"talle": "XS",
+							"largo": "43",
+							"cadera": "37",
+							"manga": null,
+							"siza": null,
+							"tiro": null,
+							"bajo_busto": null,
+							"cintura": null,
+							"ubicacion": "pendiente",
+							"caja": "pendiente",
+							"tamaño_caja": null,
+							"cantidad": 0,
+							"cantidad2": 0,
+							"subproducto": 998
+						}
+					],
+					"images": [
+						{
+							"image": "http://localhost:8000/media/products/AZUL_SIN_TORTUGA_GRANDE_ESPALDA.png"
+						},
+						{
+							"image": "http://localhost:8000/media/products/AZUL_SIN_TORTUGA_GRANDE_FRENTE.png"
+						}
+					],
+					"subcodigo": "0015",
+					"color": "AZUL",
+					"producto": 47
+				}
+			],
+			"code": "01124008003",
+			"name": "BERMUDA",
+			"description": "BERMUDA",
 			"sex": "UNISEX",
-			"guard": "GUARD +",
-			"cloth": "POLIESTER",
-			"design": "-",
-			"size": "-",
-			"weight": 0,
-			"color_details": "-",
-			"missing": "-",
-			"price": 5599.0,
-			"precio_mayorista": 3699.0,
-			"oferta": false,
-			"bestof": true,
-			"visible": true,
-			"tabla_talles": "http://localhost:8000/media/images/ARG-01_UEInW8V.png",
-			"discount": 1.0,
-			"categories": [5, 31, 13, 1, 16, 10]
-		},
-		{
-			"id": 708,
-			"title": {
-				"id": 62,
-				"titulo": "Sungon Sublimado De Hombre",
-				"preguntas": "Consultas frecuentes.\n¿Tienen stock?\n- Disponemos de stock permanente.\n¿Puedo comprar varios productos y que llegue en un solo envío?\n- Se pueden realizar varios pedidos en una sola comprar para que sean enviados en un solo viaje.\n¿Cuál es el costo de envío?\n- El servicio de envío tiene un costo establecido por Mercado Envíos sujeto a la zona donde reside el comprador (Exceptuando nuestros productos destacados con envio gratis)\n¿Cambios de productos?\n- Los cambios de productos se coordinan con el asesor comercial de Hidra Sport y está sujeto a\ndisponibilidad del producto y otras variables.\nFormas de pagos.\n- Es posible pagar por Tarjeta de Crédito y Débito por Mercado Pago. Consultar siempre las\npromociones vigentes al momento de la compra.\n ¿Los productos tienen garantía?\n-Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización de la entrega del nuevo producto.",
-				"descripcion": "pendiente",
-				"info_tienda": "HIDRA SPORT\nSomos una familia de atletas emprendedores con 25 años vistiendo deportistas en las distintas disciplinas.\n- Muchas gracias por confiar en Hidra Sport"
-			},
-			"code": "13422013000",
-			"name": "SUNGON 1 ",
-			"description": "JOKER",
-			"sex": "MASCULINO",
 			"guard": "-",
-			"cloth": "POLIESTER CON ELASTANO",
-			"design": "-",
-			"size": "CHICO",
-			"weight": 95,
+			"cloth": "MICROFIBRA",
+			"design": "TORTUGA BORDADA",
+			"size": "INTERMEDIO",
+			"weight": 100,
 			"color_details": "-",
-			"missing": null,
-			"price": 4999.0,
-			"precio_mayorista": 3249.35,
-			"oferta": false,
+			"missing": "SIN TORTUGA GRANDE/SIN CORDON",
+			"price": 6249.0,
+			"precio_mayorista": 4061.8500000000004,
 			"bestof": false,
-			"visible": false,
-			"tabla_talles": "http://localhost:8000/media/images/BLUN_mDobRfW.png",
+			"tabla_talles": "http://localhost:8000/media/images/Mesa_de_trabajo_2_3QbRnn8.png",
 			"discount": 1.0,
-			"categories": [18, 17, 25, 1, 15, 10]
-		},
-		{
-			"id": 707,
-			"title": {
-				"id": 62,
-				"titulo": "Sungon Sublimado De Hombre",
-				"preguntas": "Consultas frecuentes.\n¿Tienen stock?\n- Disponemos de stock permanente.\n¿Puedo comprar varios productos y que llegue en un solo envío?\n- Se pueden realizar varios pedidos en una sola comprar para que sean enviados en un solo viaje.\n¿Cuál es el costo de envío?\n- El servicio de envío tiene un costo establecido por Mercado Envíos sujeto a la zona donde reside el comprador (Exceptuando nuestros productos destacados con envio gratis)\n¿Cambios de productos?\n- Los cambios de productos se coordinan con el asesor comercial de Hidra Sport y está sujeto a\ndisponibilidad del producto y otras variables.\nFormas de pagos.\n- Es posible pagar por Tarjeta de Crédito y Débito por Mercado Pago. Consultar siempre las\npromociones vigentes al momento de la compra.\n ¿Los productos tienen garantía?\n-Todos nuestros productos cuentan con nuestra garantía de fabrica oficial. Con la posibilidad de cambiar el producto, de padecer algún desperfecto técnico. Sujeto a revisión de nuestro departamento de garantías para posterior autorización de la entrega del nuevo producto.",
-				"descripcion": "pendiente",
-				"info_tienda": "HIDRA SPORT\nSomos una familia de atletas emprendedores con 25 años vistiendo deportistas en las distintas disciplinas.\n- Muchas gracias por confiar en Hidra Sport"
-			},
-			"code": "13322013001",
-			"name": "SUNGON 1",
-			"description": "ESCAMAS",
-			"sex": "MASCULINO",
-			"guard": "-",
-			"cloth": "POLIESTER CON ELASTANO",
-			"design": "-",
-			"size": "CHICO",
-			"weight": 95,
-			"color_details": "-",
-			"missing": "SIN CORDON",
-			"price": 4999.0,
-			"precio_mayorista": 3249.35,
-			"oferta": false,
-			"bestof": false,
-			"visible": false,
-			"tabla_talles": "http://localhost:8000/media/images/BLUN_hzgFD9j.png",
-			"discount": 1.0,
-			"categories": [18, 17, 25, 1, 15, 10]
+			"categories": [22, 5, 18, 17, 1, 15, 10]
 		}
 	]
 }
