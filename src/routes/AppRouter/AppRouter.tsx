@@ -35,6 +35,7 @@ const AppRouter: React.FC = () => {
 						<Route path={PATH_NAME.LOGIN} element={<Login />} />
 						<Route path={PATH_NAME.SIGNUP} element={<h1>Register</h1>} />
 					</Route>
+					<Route path={PATH_NAME.CART} element={<CartShop />} />
 					<Route
 						path='user'
 						element={auth.isAuthenticate ? <UserPanel /> : <h1>401</h1>}
