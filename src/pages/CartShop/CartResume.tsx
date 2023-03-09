@@ -1,4 +1,4 @@
-const CardTotal: React.FC = () => {
+export const CartResume: React.FC = () => {
 	return (
 		<div className='card border border-2 border-secondary w-100'>
 			<div className='card-body'>
@@ -64,4 +64,3 @@ const CardTotal: React.FC = () => {
 		</div>
 	);
 };
-export default CardTotal;

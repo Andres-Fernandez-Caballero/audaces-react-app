@@ -9,7 +9,7 @@ import Login from '@/pages/Login';
 import { selectAuth } from '@/store/slyces/auth.slyce';
 import { useAppSelector } from '@/hooks/redux..hook';
 import UserPanel from '@/pages/UserPanel';
-import CartShop from '@/pages/CartShop';
+import CartShop from '@pages/CartShop';
 
 const AppRouter: React.FC = () => {
 	const auth = useAppSelector(selectAuth);

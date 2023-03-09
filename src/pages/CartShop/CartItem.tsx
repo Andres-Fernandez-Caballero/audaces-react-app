@@ -1,4 +1,4 @@
-const ProductSelect: React.FC = () => {
+export const CartItem: React.FC = () => {
 	return (
 		<div className='card border-2 border-secondary d-flex justify-content-center'>
 			<div className='card-body'>
@@ -75,4 +75,3 @@ const ProductSelect: React.FC = () => {
 		</div>
 	);
 };
-export default ProductSelect;
