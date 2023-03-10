@@ -2,9 +2,9 @@ import styles from './OverNavBar.module.scss';
 import BlackLabelBar from '../BlackLaberBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { openModalAuth } from '@slyces/modalAuth.slyce';
+import { openModalAuth } from '@store/slices/modalAuth.slyce';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux..hook';
-import { selectAuth } from '@/store/slyces/auth.slyce';
+import { selectAuth } from '@/store/slices/auth.slyce';
 import { Link } from 'react-router-dom';
 // import { URL } from '@/constants/routes';
 

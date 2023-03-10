@@ -6,7 +6,7 @@ import {
 	closeModalAuth,
 	IModalModalState,
 	selectModalState,
-} from '@slyces/modalAuth.slyce';
+} from '@store/slices/modalAuth.slyce';
 import Tabs from '@components/layouts/Tabs';
 import Modal from 'react-responsive-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

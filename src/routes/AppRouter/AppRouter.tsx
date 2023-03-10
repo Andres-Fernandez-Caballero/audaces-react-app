@@ -1,17 +1,17 @@
 import { Route, Routes } from 'react-router-dom';
 import NavigableLayout from '@components/layers/NavigableLayout';
 import { PATH_NAME } from '@constants/routes';
-// import About from '@pages/About';
 import Home from '@pages/Home';
 import ProductDetail from '@pages/Products/ProductDetail';
 import ProductList from '@pages/Products/ProductList';
 import Login from '@/pages/Login';
-import { selectAuth } from '@/store/slyces/auth.slyce';
+import { selectAuth } from '@/store/slices/auth.slyce';
 import { useAppSelector } from '@/hooks/redux..hook';
 import UserPanel from '@/pages/UserPanel';
 import CartShop from '@pages/CartShop';
+import { FC } from 'react';
 
-const AppRouter: React.FC = () => {
+const AppRouter: FC = () => {
 	const auth = useAppSelector(selectAuth);
 
 	return (

@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { IProduct } from '@interfaces/IProduct';
 import tshirt from '@assets/imgs/remera_frente.png';
 import styles from './Detail.module.scss';
 import { useDispatch } from 'react-redux';
-import { openModalAuth } from '@slyces/modalAuth.slyce';
+import { openModalAuth } from '@store/slices/modalAuth.slyce';
 import { getProductById } from '@/service/products';
+import { IProduct } from '@interfaces/IProduct';
 
 const Detail: React.FunctionComponent = () => {
 	const dispatch = useDispatch();
-	let initProduct: undefined | IProduct;
-	const [product, setProduct] = useState(initProduct);
+	const [product, setProduct] = useState<IProduct>();
 
 	const { id } = useParams();
 

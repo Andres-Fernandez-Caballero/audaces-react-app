@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux..hook';
-import { selectAuth } from '@/store/slyces/auth.slyce';
-import { closeModalAuth } from '@/store/slyces/modalAuth.slyce';
+import { selectAuth } from '@/store/slices/auth.slyce';
+import { closeModalAuth } from '@/store/slices/modalAuth.slyce';
 import { RegisterProps } from '@pages/Register/Register.interfaces';
 
 const Register: React.FC<RegisterProps> = ({

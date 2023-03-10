@@ -1,4 +1,4 @@
-import { Iuser } from '@slyces/auth.slyce';
+import { Iuser } from '@store/slices/auth.slyce';
 
 export interface IAuthLogin {
 	username: string;
