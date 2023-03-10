@@ -1,5 +1,5 @@
-import { CartItem } from '@pages/CartShop/CartItem';
-import { CartResume } from '@pages/CartShop/CartResume';
+import { CartItem } from '@pages/CartShop/CartItem/CartItem';
+import { CartResume } from '@pages/CartShop/CartResume/CartResume';
 
 export const CartShop = (): JSX.Element => {
 	return (

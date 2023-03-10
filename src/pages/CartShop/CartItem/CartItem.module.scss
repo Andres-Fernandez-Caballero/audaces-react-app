@@ -1,0 +1,46 @@
+@import "@sass/theme/variables.scss";
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  padding: 1rem;
+  grid-template-areas:
+        "image amount  amount"
+        "details details menu";
+}
+
+
+.image {
+  grid-area: image;;
+
+  img {
+    border-radius: $border-radius-1;
+    width: 75%;
+  }
+}
+
+.amount {
+  grid-area: amount;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+
+.details {
+  grid-area: details;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  strong {
+    color: $info;
+  }
+}
+
+.menu {
+  grid-area: menu;
+}

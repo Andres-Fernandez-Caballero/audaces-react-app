@@ -57,7 +57,7 @@ export const CartResume: React.FC = () => {
 						</select>
 					</div>
 				</p>
-				<button className='btn btn-primary justify-content-center d-flex'>
+				<button className='btn btn-secondary justify-content-center d-flex'>
 					Procesar Pago
 				</button>
 			</div>
