@@ -4,3 +4,4 @@
 echo "Running pre-commit hook"
 pnpm test:just-once
 pnpm dlx lint-staged
+pnpm  build

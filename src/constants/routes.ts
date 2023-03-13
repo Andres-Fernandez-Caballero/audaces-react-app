@@ -9,6 +9,7 @@ export const PATH_NAME = {
 	AUTH: 'auth',
 	LOGIN: 'login',
 	SIGNUP: 'signup',
+	CART: 'cart',
 };
 
 const root = '/';
@@ -20,6 +21,7 @@ export const URL = {
 	PRODUCTS_DETAIL: root + PATH_NAME.PRODUCTS + '/' + PATH_NAME.DETAIL,
 	LOGIN: root + PATH_NAME.AUTH + '/' + PATH_NAME.LOGIN,
 	SIGNUP: root + PATH_NAME.AUTH + '/' + PATH_NAME.SIGNUP,
+	CART: root + PATH_NAME.CART,
 };
 export const navBarLinks: ILink[] = [
 	{ name: PATH_NAME.HOME, url: URL.HOME },

@@ -4,8 +4,6 @@ import { ILink } from '@interfaces/ILink';
 import { URL } from '@constants/routes';
 import hidraLogo2 from '@assets/hidraLogo2.png';
 import styles from './styles/Navbar.module.scss';
-import { useDispatch } from 'react-redux';
-import { openModalAuth } from '@slyces/modalAuth.slyce';
 
 export interface NavbarProps {
 	navLinks: ILink[];
@@ -14,8 +12,6 @@ export interface NavbarProps {
 const Navbar: React.FunctionComponent<NavbarProps> = ({
 	navLinks,
 }: NavbarProps) => {
-	const dispatch = useDispatch();
-
 	const activeLinkStyle = {
 		color: '#4066ad',
 	};
@@ -67,14 +63,11 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 							))}
 						</ul>
 					</div>
-					<div className='navbar-nav order-1'>
-						<div
-							className={styles.navbar__cartshop}
-							onClick={() => {
-								dispatch(openModalAuth());
-							}}
-						>
-							<FontAwesomeIcon icon='cart-shopping' />
+					<div className={styles.navbar__cartPosition}>
+						<div className={styles.navbar__cartshop}>
+							<NavLink to={URL.CART}>
+								<FontAwesomeIcon icon='cart-shopping' />
+							</NavLink>
 						</div>
 					</div>
 				</div>
