@@ -1,0 +1,38 @@
+
+.cart {
+  &__icon {
+    position: relative;
+    margin-right: 2rem;
+    font-size: 2rem;
+    color: #0d6efd;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__counter__badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 1.2em;
+    translate: 50%;
+    width: 60%;
+    height: 50%;
+    background-color: crimson;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 100%;
+    padding: 0.25rem;
+
+    // animation for counter fade in
+    animation: fade-in 0.3s ease-in-out;
+
+  }
+}

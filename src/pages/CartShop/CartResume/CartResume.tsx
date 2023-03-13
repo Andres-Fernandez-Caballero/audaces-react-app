@@ -1,8 +1,14 @@
-export const CartResume: React.FC = () => {
+import { FC, ReactElement } from 'react';
+import { useAppSelector } from '@hooks/redux..hook';
+import { selectCart } from '@slices/cart.slyce';
+
+export const CartResume: FC = (): ReactElement => {
+	const { totalAmount } = useAppSelector(selectCart);
+
 	return (
 		<div className='card border border-2 border-secondary w-100'>
 			<div className='card-body'>
-				<h5 className='card-title'>Total Productos: $</h5>
+				<h2 className='card-title'>Total Productos: ${totalAmount}</h2>
 				<p className='card-text'>
 					<div className='mb-3 flex-nowrap'>
 						<label
