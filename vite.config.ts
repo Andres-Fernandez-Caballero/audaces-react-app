@@ -31,7 +31,7 @@ export default defineConfig({
 			'@services': `${__dirname}/src/services`,
 			'@tests': `${__dirname}/src/tests`,
 			'@store': `${__dirname}/src/store`,
-			'@slyces': `${__dirname}/src/store/slyces`,
+			'@slices': `${__dirname}/src/store/slices`,
 			'@hooks': `${__dirname}/src/hooks`,
 		},
 	},

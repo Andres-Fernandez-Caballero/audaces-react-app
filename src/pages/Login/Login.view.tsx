@@ -1,10 +1,10 @@
 import { useAppDispatch, useAppSelector } from '@/hooks/redux..hook';
-import { login, selectAuth } from '@/store/slyces/auth.slyce';
+import { login, selectAuth } from '@/store/slices/auth.slyce';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { useDtoLogin } from '@pages/Login/useDtoLogin.hook';
 import React from 'react';
-import { closeModalAuth } from '@slyces/modalAuth.slyce';
+import { closeModalAuth } from '@store/slices/modalAuth.slyce';
 
 const LoginView: React.FunctionComponent = () => {
 	const dispatch = useAppDispatch();

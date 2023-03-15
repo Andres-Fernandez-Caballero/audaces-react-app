@@ -1,13 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-import authSlyce from './slyces/auth.slyce';
-import loadingSlyce from './slyces/loading.slyce';
-import modalAuthSlyce from './slyces/modalAuth.slyce';
+import authSlice from './slices/auth.slyce';
+import loadingSlice from './slices/loading.slyce';
+import modalAuthSlice from './slices/modalAuth.slyce';
+import cartSlice from '@store/slices/cart.slyce';
 
 const store = configureStore({
 	reducer: {
-		auth: authSlyce,
-		loading: loadingSlyce,
-		modalAuth: modalAuthSlyce,
+		auth: authSlice,
+		loading: loadingSlice,
+		modalAuth: modalAuthSlice,
+		cart: cartSlice,
 	},
 });
 

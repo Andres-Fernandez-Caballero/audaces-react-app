@@ -1,7 +1,7 @@
 import Register from '@pages/Register/Register';
 import { useRegisterDto } from '@pages/Register/Register.hook';
-import { register, setError } from '@slyces/auth.slyce';
-import { closeModalAuth } from '@slyces/modalAuth.slyce';
+import { register, setError } from '@store/slices/auth.slyce';
+import { closeModalAuth } from '@store/slices/modalAuth.slyce';
 import React from 'react';
 import { useAppDispatch } from '@hooks/redux..hook';
 

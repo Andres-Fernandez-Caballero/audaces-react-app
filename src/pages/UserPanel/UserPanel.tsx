@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '@/hooks/redux..hook';
-import { logout, selectAuth } from '@/store/slyces/auth.slyce';
+import { logout, selectAuth } from '@/store/slices/auth.slyce';
 import { useNavigate } from 'react-router-dom';
 
 export const UserPanel = (): JSX.Element => {

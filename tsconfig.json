@@ -30,7 +30,7 @@
 			"@services/*": ["src/services/*"],
 			"@tests/*": ["src/tests/*"],
 			"@store/*": ["src/store/*"],
-			"@slyces/*": ["src/store/slyces/*"],
+			"@slices/*": ["src/store/slices/*"],
 			"@hooks/*": ["src/hooks/*"],
 
 			"~/*": ["src/*"]
