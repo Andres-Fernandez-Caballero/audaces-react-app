@@ -26,10 +26,12 @@ specifiers:
   husky: ^8.0.0
   jsdom: ^20.0.1
   lint-staged: ^13.0.3
+  postcss: ^8.4.21
   postcss-nesting: ^11.2.1
   prettier: ^2.7.1
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-multi-carousel: ^2.8.2
   react-redux: ^8.0.5
   react-responsive-modal: ^6.4.1
   react-router-dom: '6'
@@ -49,8 +51,10 @@ dependencies:
   '@reduxjs/toolkit': 1.9.1_k4ae6lp43ej6mezo3ztvx6pykq
   axios: 1.2.1
   bootstrap: 5.2.2_@popperjs+core@2.11.6
+  postcss: 8.4.21
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-multi-carousel: 2.8.2
   react-redux: 8.0.5_5uumaiclxbdbzaqafclbf6maf4
   react-responsive-modal: 6.4.1_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.4.3_biqbaboplfbrettd7655fr4n2y
@@ -75,7 +79,7 @@ devDependencies:
   husky: 8.0.1
   jsdom: 20.0.1
   lint-staged: 13.0.3
-  postcss-nesting: 11.2.1
+  postcss-nesting: 11.2.1_postcss@8.4.21
   prettier: 2.7.1
   sass: 1.55.0
   typescript: 4.8.4
@@ -374,13 +378,14 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@csstools/selector-specificity/2.1.1_laljekdltgzr3kfi7r4exvsr5a:
+  /@csstools/selector-specificity/2.1.1_wajs5nedgkikc5pcuwett7legi:
     resolution: {integrity: sha512-jwx+WCqszn53YHOfvFMJJRd/B2GqkCBt+1MJSG6o5/s8+ytHMvDZXsJgUEWLk12UnLd7HYKac4BYU5i/Ron1Cw==}
     engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
       postcss: ^8.4
       postcss-selector-parser: ^6.0.10
     dependencies:
+      postcss: 8.4.21
       postcss-selector-parser: 6.0.11
     dev: true
 
@@ -2687,7 +2692,6 @@ packages:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
-    dev: true
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
@@ -2883,7 +2887,6 @@ packages:
 
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
-    dev: true
 
   /picomatch/2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
@@ -2896,13 +2899,14 @@ packages:
     hasBin: true
     dev: true
 
-  /postcss-nesting/11.2.1:
+  /postcss-nesting/11.2.1_postcss@8.4.21:
     resolution: {integrity: sha512-E6Jq74Jo/PbRAtZioON54NPhUNJYxVWhwxbweYl1vAoBYuGlDIts5yhtKiZFLvkvwT73e/9nFrW3oMqAtgG+GQ==}
     engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
       postcss: ^8.4
     dependencies:
-      '@csstools/selector-specificity': 2.1.1_laljekdltgzr3kfi7r4exvsr5a
+      '@csstools/selector-specificity': 2.1.1_wajs5nedgkikc5pcuwett7legi
+      postcss: 8.4.21
       postcss-selector-parser: 6.0.11
     dev: true
 
@@ -2914,14 +2918,13 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /postcss/8.4.18:
-    resolution: {integrity: sha512-Wi8mWhncLJm11GATDaQKobXSNEYGUHeQLiQqDFG1qQ5UTDPTEvKw0Xt5NsTpktGTwLps3ByrWsBrG0rB8YQ9oA==}
+  /postcss/8.4.21:
+    resolution: {integrity: sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.4
       picocolors: 1.0.0
       source-map-js: 1.0.2
-    dev: true
 
   /prelude-ls/1.1.2:
     resolution: {integrity: sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==}
@@ -2994,6 +2997,11 @@ packages:
 
   /react-is/18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
+    dev: false
+
+  /react-multi-carousel/2.8.2:
+    resolution: {integrity: sha512-M9Y7DfAp8bA/r6yexttU6RLA7uyppje4c0ELRuCHZWswH+u7nr0uVP6qHNPjc4XGOEY1MYFOb5nBg7JvoKutuQ==}
+    engines: {node: '>=8'}
     dev: false
 
   /react-redux/8.0.5_5uumaiclxbdbzaqafclbf6maf4:
@@ -3305,7 +3313,6 @@ packages:
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /source-map/0.6.1:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
@@ -3618,7 +3625,7 @@ packages:
         optional: true
     dependencies:
       esbuild: 0.15.11
-      postcss: 8.4.18
+      postcss: 8.4.21
       resolve: 1.22.1
       rollup: 2.78.1
       sass: 1.55.0
