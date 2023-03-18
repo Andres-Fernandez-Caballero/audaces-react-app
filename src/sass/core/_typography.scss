@@ -1,2 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Signika:wght@500&display=swap');
 $tipografy: 'Signika', sans-serif;
+
+// ver despues otra forma de importarlo
+:root {
+	--bs-body-font-family: 'Signika', sans-serif;
+}
