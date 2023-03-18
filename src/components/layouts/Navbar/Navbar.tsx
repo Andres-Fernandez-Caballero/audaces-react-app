@@ -1,9 +1,9 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, NavLink } from 'react-router-dom';
 import { ILink } from '@interfaces/ILink';
 import { URL } from '@constants/routes';
 import hidraLogo2 from '@assets/hidraLogo2.png';
 import styles from './styles/Navbar.module.scss';
+import CartIcon from '@components/layouts/CartIcon';
 
 export interface NavbarProps {
 	navLinks: ILink[];
@@ -63,13 +63,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = ({
 							))}
 						</ul>
 					</div>
-					<div className={styles.navbar__cartPosition}>
-						<div className={styles.navbar__cartshop}>
-							<NavLink to={URL.CART}>
-								<FontAwesomeIcon icon='cart-shopping' />
-							</NavLink>
-						</div>
-					</div>
+					{<CartIcon />}
 				</div>
 			</nav>
 		</div>

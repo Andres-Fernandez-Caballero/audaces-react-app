@@ -2,15 +2,27 @@ import { ICartItem } from '@interfaces/ICartItem';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IProduct } from '@interfaces/IProduct';
 import { RootState } from '@/store';
+import {
+	addCartItemToCartInLocalStorage,
+	getCartItemsFromLocalStorage,
+	removeCartItemFromCartInLocalStorage,
+} from '@/utils/cartItemsStorage';
 
 export interface ICartState {
 	cart: ICartItem[];
 	totalAmount: number;
 }
 
+const calculateTotalAmount = (cart: ICartItem[]): number => {
+	return cart.reduce(
+		(acc, item) => acc + item.product.price * item.quantity,
+		0
+	);
+};
+
 const initState: ICartState = {
-	cart: [] as ICartItem[],
-	totalAmount: 0,
+	cart: getCartItemsFromLocalStorage(),
+	totalAmount: calculateTotalAmount(getCartItemsFromLocalStorage()),
 };
 
 export const cartSlice = createSlice({
@@ -23,15 +35,23 @@ export const cartSlice = createSlice({
 		setTotalAmount: (state: ICartState, action: PayloadAction<number>) => {
 			state.totalAmount = action.payload;
 		},
-		addToCart: (state: ICartState, action: PayloadAction<ICartItem>) => {
-			const cartItem = findCartItem(state.cart, action.payload.product);
+		addToCart: (state: ICartState, action: PayloadAction<IProduct>) => {
+			const newCartItem: ICartItem = {
+				product: action.payload,
+				quantity: 1,
+			};
+			const cartItem = findCartItem(state.cart, newCartItem.product);
 			if (cartItem !== undefined) throw new Error('Cart item already exists');
-			state.cart.push(action.payload);
+
+			addCartItemToCartInLocalStorage(newCartItem);
+			state.cart.push(newCartItem);
 		},
 		removeFromCart: (state: ICartState, action: PayloadAction<ICartItem>) => {
 			const cartItem = findCartItem(state.cart, action.payload.product);
 			if (cartItem === undefined) throw new Error('Cart item does not exists');
+			removeCartItemFromCartInLocalStorage(action.payload);
 			removeCartItem(state.cart, action.payload.product);
+			// revisar logica algo teclea
 		},
 		updateQuantityFromCartItem: (
 			state: ICartState,
@@ -54,13 +74,6 @@ const findCartItem = (
 
 const removeCartItem = (cart: ICartItem[], product: IProduct): ICartItem[] => {
 	return cart.filter(item => item.product.id !== product.id);
-};
-
-const calculateTotalAmount = (cart: ICartItem[]): number => {
-	return cart.reduce(
-		(acc, item) => acc + item.product.price * item.quantity,
-		0
-	);
 };
 
 export const {

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { CartItemAmountHook } from '@pages/CartShop/CartShop.interfaces';
 
-export const useCartItemAmount = (): CartItemAmountHook => {
+export const useCartItemAmountAndTotalPrice = (
+	productPrice: number
+): CartItemAmountHook => {
 	const [amount, setAmount] = useState(1);
 
 	const handleAdd = (): void => {
@@ -12,9 +14,10 @@ export const useCartItemAmount = (): CartItemAmountHook => {
 		setAmount(amount - 1);
 	};
 
-	return { amount, handleAdd, handleSubtract };
-};
+	const getTotalPrice = (): number => {
+		const DECIMALS = 2;
+		return Number((amount * productPrice).toFixed(DECIMALS));
+	};
 
-export const useCartItemTotal = (amount: number, price: number): string => {
-	return (amount * price).toFixed(2);
+	return { amount, handleAdd, handleSubtract, getTotalPrice };
 };

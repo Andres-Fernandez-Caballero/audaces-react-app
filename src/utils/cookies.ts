@@ -7,7 +7,7 @@ export const setCookie = (name: string, value: unknown): void => {
 	});
 };
 
-export const getCookie = (name: string): void => {
+export const getCookie = (name: string): unknown => {
 	const cookies = new Cookies();
 	return cookies.get(name);
 };

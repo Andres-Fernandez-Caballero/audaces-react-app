@@ -1,13 +1,19 @@
-import { useEffect, useState } from 'react';
+import { FC, ReactElement, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { URL } from '@constants/routes';
 import { IProduct } from '@interfaces/IProduct';
 import tshirt from '@assets/imgs/remera_frente.png';
 import { getAllProducts } from '@/service/products';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '@slices/cart.slyce';
+import { toast } from 'react-toastify';
+import { getCartItemsFromLocalStorage } from '@/utils/cartItemsStorage';
 
-const List: React.FunctionComponent = () => {
+const List: FC = (): ReactElement => {
+	const dispatch = useDispatch();
 	const [products, setProducts] = useState([] as IProduct[]);
 	useEffect(() => {
+		console.log('local storage', getCartItemsFromLocalStorage());
 		getAllProducts()
 			.then(apiProducts => {
 				setProducts(apiProducts);
@@ -72,6 +78,18 @@ const List: React.FunctionComponent = () => {
 										</span>
 										{product.price}
 									</p>
+									<button
+										className='btn btn-info'
+										onClick={() => {
+											dispatch(addToCart(product));
+											toast.success('Producto agregado al carrito', {
+												position: 'top-right',
+												autoClose: 2000,
+											});
+										}}
+									>
+										Agregar al Carrito
+									</button>
 								</div>
 							</div>
 						</div>
