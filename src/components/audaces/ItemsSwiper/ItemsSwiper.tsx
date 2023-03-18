@@ -14,8 +14,13 @@ const ItemsSwiper: React.FunctionComponent<ItemsSwiperProps> = ({
 	return (
 		<section className={styles.container}>
 			<article className={styles.element}>
-				<img className='img-fluid' src={itemFondo} alt='img' />
-				<span> Items swiper</span>
+				<img
+					className='img-fluid'
+					src={itemFondo}
+					height={800}
+					width={1400}
+					alt='img'
+				/>
 			</article>
 		</section>
 	);

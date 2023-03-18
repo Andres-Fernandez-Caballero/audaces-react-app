@@ -5,11 +5,12 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	gap: 10px;
+	// gap: 10px;
 	max-width: 100%;
 	max-height: 40rem;
 	background: $background;
 	overflow-y: hidden;
+	overflow-x: hidden ;
 }
 
 /* Inside auto layout */
