@@ -1,6 +1,7 @@
 import { FC, ReactElement } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CartItemCountProps } from '@pages/CartShop/CartShop.interfaces';
+import styles from './CartItem.module.scss';
 
 export const CartItemCounter: FC<CartItemCountProps> = ({
 	amount,
@@ -8,32 +9,20 @@ export const CartItemCounter: FC<CartItemCountProps> = ({
 	onAdd,
 }: CartItemCountProps): ReactElement => {
 	return (
-		<nav className='btn-group'>
-			<button style={cartItemCounterStyle.button} onClick={onAdd}>
-				<FontAwesomeIcon icon='plus' />
-			</button>
-			<p style={cartItemCounterStyle.amount}>{amount}</p>
-			<button style={cartItemCounterStyle.button} onClick={onSubtract}>
+		<nav className={styles.amountMenu__container}>
+			<button
+				className={styles.amountMenu__container__rounded__button}
+				onClick={onSubtract}
+			>
 				<FontAwesomeIcon icon='minus' />
+			</button>
+			<p className={styles.amountMenu__container__amount}>{amount}</p>
+			<button
+				className={styles.amountMenu__container__rounded__button}
+				onClick={onAdd}
+			>
+				<FontAwesomeIcon icon='plus' />
 			</button>
 		</nav>
 	);
-};
-
-const cartItemCounterStyle = {
-	button: {
-		display: 'flex',
-		backgroundColor: 'white',
-		border: '1px solid black',
-		borderRadius: '100%',
-		justifyContent: 'center',
-		alignItems: 'center',
-		height: '1.5rem',
-		width: '1.5rem',
-		padding: '0.5rem',
-	},
-	amount: {
-		fontWeight: 'bold',
-		margin: '0 0.5rem',
-	},
 };
