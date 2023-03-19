@@ -2,34 +2,17 @@ import config from '@/config';
 import { getProducts, productById } from '@/interceptors/product.interceptor';
 import { IProduct } from '@/interfaces/IProduct';
 import productsApiMok from '@tests/api/products.mock.json';
-import { SERVER_URL } from '@constants/api.routes';
+import Product from '@/models/product';
 
-export const getAllProducts: () => Promise<IProduct[]> = async () => {
+export const getAllProducts: () => Promise<Product[]> = async () => {
 	return config.mode === 'test'
-		? await new Promise(resolve => resolve(productsApiMok.results))
-		: (await getProducts()).results.map((p: IProduct) => {
-				const subProductos = p.subproducto.map(sp => {
-					function reemplaceLocalhost(image: string): string {
-						const urlSplit = image.split('http://localhost:8000');
-
-						return SERVER_URL + urlSplit[1];
-					}
-
-					return {
-						...sp,
-						images: sp.images.map(i => {
-							return { image: reemplaceLocalhost(i.image) };
-						}),
-					};
-				});
-				return {
-					...p,
-					subproducto: subProductos,
-				};
-		  });
+		? await new Promise(resolve =>
+				resolve(productsApiMok.results.map(p => new Product(p)))
+		  )
+		: (await getProducts()).results.map(p => new Product(p));
 };
 
-export const getProductById: (id: string) => Promise<IProduct> = async (
+export const getProductById: (id: string) => Promise<Product> = async (
 	id: string
 ) => {
 	return config.mode === 'test'
@@ -37,7 +20,7 @@ export const getProductById: (id: string) => Promise<IProduct> = async (
 				const product = productsApiMok.results.find(
 					p => p.id === Number(id)
 				) as IProduct;
-				resolve(product);
+				resolve(new Product(product));
 		  })
-		: await productById(id);
+		: new Product(await productById(id));
 };
