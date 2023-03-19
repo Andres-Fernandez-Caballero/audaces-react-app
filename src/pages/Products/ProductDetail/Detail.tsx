@@ -1,29 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import tshirt from '@assets/imgs/remera_frente.png';
+import { redirect, useParams } from 'react-router-dom';
 import styles from './Detail.module.scss';
 import { useDispatch } from 'react-redux';
 import { openModalAuth } from '@store/slices/modalAuth.slyce';
 import { getProductById } from '@/service/products';
-import { IProduct } from '@interfaces/IProduct';
+import Product from '@/models/product';
+import { URL } from '@constants/routes';
+import { loadingOff, loadingOn } from '@slices/loading.slyce';
+import { toast } from 'react-toastify';
 
 const Detail: React.FunctionComponent = () => {
 	const dispatch = useDispatch();
-	const [product, setProduct] = useState<IProduct>();
+	const [product, setProduct] = useState<Product>();
 
 	const { id } = useParams();
 
 	useEffect(() => {
-		if (id !== undefined) {
-			getProductById(id)
-				.then(productFind => {
-					if (productFind !== null && productFind !== undefined)
-						setProduct(productFind);
-				})
-				.catch(err => {
-					console.log(err);
-				});
+		if (id === undefined) {
+			redirect(URL.PRODUCTS);
+			return;
 		}
+		dispatch(loadingOn());
+		getProductById(id)
+			.then(productFind => {
+				if (productFind !== null && productFind !== undefined)
+					setProduct(productFind);
+			})
+			.catch(err => {
+				console.log(err);
+				toast.error('Error al cargar el producto');
+			})
+			.finally(() => {
+				dispatch(loadingOff());
+			});
 	}, []);
 
 	return (
@@ -31,7 +40,11 @@ const Detail: React.FunctionComponent = () => {
 			<main className='row'>
 				<aside className='col-md-8'>
 					<figure className='d-flex justify-content-center'>
-						<img className={styles.image} src={tshirt} alt='tshirt' />
+						<img
+							className={styles.image}
+							src={product?.frontImage()}
+							alt={product?.title.titulo}
+						/>
 					</figure>
 				</aside>
 				<section className='col-md-4'>

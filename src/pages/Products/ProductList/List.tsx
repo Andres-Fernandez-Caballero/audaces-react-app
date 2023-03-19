@@ -1,25 +1,30 @@
 import { FC, ReactElement, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { URL } from '@constants/routes';
-import { IProduct } from '@interfaces/IProduct';
-import tshirt from '@assets/imgs/remera_frente.png';
 import { getAllProducts } from '@/service/products';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '@slices/cart.slyce';
 import { toast } from 'react-toastify';
 import { getCartItemsFromLocalStorage } from '@/utils/cartItemsStorage';
+import { loadingOff, loadingOn } from '@slices/loading.slyce';
+import Product from '@/models/product';
 
 const List: FC = (): ReactElement => {
 	const dispatch = useDispatch();
-	const [products, setProducts] = useState([] as IProduct[]);
+	const [products, setProducts] = useState([] as Product[]);
 	useEffect(() => {
 		console.log('local storage', getCartItemsFromLocalStorage());
+		dispatch(loadingOn());
 		getAllProducts()
 			.then(apiProducts => {
 				setProducts(apiProducts);
 			})
 			.catch(err => {
-				console.error(err);
+				console.log(err);
+				toast.error('Error al cargar los productos');
+			})
+			.finally(() => {
+				dispatch(loadingOff());
 			});
 	}, []);
 
@@ -27,7 +32,7 @@ const List: FC = (): ReactElement => {
 		<>
 			<section className='container h-100 d-flex justify-content-center align-items-center'>
 				<ul className='row row-cols-1 row-cols-md-2 g-4'>
-					{products.map((product: IProduct) => (
+					{products.map((product: Product) => (
 						<div key={product.id} className='col-12 col-6 col-lg-3 mb-3'>
 							<div
 								className='card border border-secondary'
@@ -44,12 +49,7 @@ const List: FC = (): ReactElement => {
 								>
 									<img
 										className='card-img-top'
-										src={
-											product.subproducto[0].images.length > 0 &&
-											product.subproducto[0].images[1].image !== undefined
-												? product.subproducto[0].images[1].image
-												: tshirt
-										}
+										src={product.frontImage()}
 										alt={product.title.titulo}
 									/>
 								</Link>
@@ -81,7 +81,7 @@ const List: FC = (): ReactElement => {
 									<button
 										className='btn btn-info'
 										onClick={() => {
-											dispatch(addToCart(product));
+											dispatch(addToCart(product.getProduct()));
 											toast.success('Producto agregado al carrito', {
 												position: 'top-right',
 												autoClose: 2000,
