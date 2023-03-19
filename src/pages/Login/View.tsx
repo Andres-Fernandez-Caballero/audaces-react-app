@@ -6,5 +6,5 @@ import { ReactElement } from 'react';
 
 export const View = (): ReactElement => {
 	const authState = useAppSelector(selectAuth);
-	return authState.loading ? <Spinner /> : <LoginView />;
+	return authState.isLoading ? <Spinner /> : <LoginView />;
 };
