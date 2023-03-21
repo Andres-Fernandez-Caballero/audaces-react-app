@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { redirect, useParams } from 'react-router-dom';
-import styles from './Detail.module.scss';
 import { useDispatch } from 'react-redux';
 import { openModalAuth } from '@store/slices/modalAuth.slyce';
 import { getProductById } from '@/service/products';
@@ -8,11 +7,16 @@ import Product from '@/models/product';
 import { URL } from '@constants/routes';
 import { loadingOff, loadingOn } from '@slices/loading.slyce';
 import { toast } from 'react-toastify';
+import VariantSelector from '@pages/Products/ProductDetail/VariantSelector';
+import SubProduct from '@/models/subProduct';
+import { useProductDetail } from '@pages/Products/ProductDetail/ProductDetail.hooks';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
 
 const Detail: React.FunctionComponent = () => {
 	const dispatch = useDispatch();
 	const [product, setProduct] = useState<Product>();
-
+	const { chosenSubProduct, changeChosenSubProduct } = useProductDetail();
 	const { id } = useParams();
 
 	useEffect(() => {
@@ -23,8 +27,10 @@ const Detail: React.FunctionComponent = () => {
 		dispatch(loadingOn());
 		getProductById(id)
 			.then(productFind => {
-				if (productFind !== null && productFind !== undefined)
+				if (productFind !== null && productFind !== undefined) {
 					setProduct(productFind);
+					changeChosenSubProduct(new SubProduct(productFind.firstSubProduct));
+				}
 			})
 			.catch(err => {
 				console.log(err);
@@ -39,36 +45,54 @@ const Detail: React.FunctionComponent = () => {
 		<div className='container'>
 			<main className='row'>
 				<aside className='col-md-8'>
-					<figure className='d-flex justify-content-center'>
-						<img
-							className={styles.image}
-							src={product?.frontImage()}
-							alt={product?.title.titulo}
-						/>
-					</figure>
+					{product !== undefined && (
+						<Carousel showArrows={true}>
+							<figure>
+								<img
+									src={chosenSubProduct?.frontImage}
+									alt={product.title.titulo}
+								/>
+								<figcaption>{product?.title.titulo}</figcaption>
+							</figure>
+							<figure>
+								<img
+									src={chosenSubProduct?.backImage}
+									alt={product?.title.titulo}
+								/>
+								<figcaption>{product?.title.titulo}</figcaption>
+							</figure>
+						</Carousel>
+					)}
 				</aside>
 				<section className='col-md-4'>
 					{product !== undefined && (
 						<>
 							<article>
 								<h2>{product.title.titulo}</h2>
-								<p
-									className='badge text-bg-primary'
-									style={{ fontSize: '1.1rem' }}
-								>
-									<span>$</span>
-									{product.price}
-								</p>
-								<p>Componente selector talle/color</p>
-
-								<button
-									className='btn btn-info'
-									onClick={() => {
-										dispatch(openModalAuth());
-									}}
-								>
-									Agregar al carrito
-								</button>
+								<div className='d-flex justify-content-between	'>
+									<p
+										className='badge text-bg-primary'
+										style={{ fontSize: '1.1rem' }}
+									>
+										<span>$</span>
+										{product.price}
+									</p>
+									<button
+										className='btn btn-info'
+										onClick={() => {
+											dispatch(openModalAuth());
+										}}
+									>
+										Agregar al carrito
+									</button>
+								</div>
+								<VariantSelector
+									changeChosenSubProduct={changeChosenSubProduct}
+									chosenSubProduct={chosenSubProduct}
+									subProducts={product.subproducto.map(
+										sp => new SubProduct(sp)
+									)}
+								/>
 							</article>
 							<article className='accordion my-4' id='preguntas-frecuentes'>
 								<div className='accordion-item'>

@@ -47,6 +47,10 @@ class Product {
 	getProduct(): IProduct {
 		return this.product;
 	}
+
+	get firstSubProduct(): Subproducto {
+		return this.product.subproducto[0];
+	}
 }
 
 export default Product;
