@@ -17,7 +17,7 @@ const GridSection: React.FunctionComponent = () => {
 						</div>
 					</a>
 					<div>
-						<h2 className={styles.section_name}>Section</h2>
+						<h2 className={styles.section_name}>Guardavidas</h2>
 					</div>
 				</article>
 				<article
@@ -30,7 +30,7 @@ const GridSection: React.FunctionComponent = () => {
 						</div>
 					</a>
 					<div>
-						<h2 className={styles.section_name}>Section</h2>
+						<h2 className={styles.section_name}>Hombre</h2>
 					</div>
 				</article>
 				<article
@@ -43,7 +43,7 @@ const GridSection: React.FunctionComponent = () => {
 						</div>
 					</a>
 					<div>
-						<h2 className={styles.section_name}>Section</h2>
+						<h2 className={styles.section_name}>Mujer</h2>
 					</div>
 				</article>
 				<article
@@ -56,7 +56,7 @@ const GridSection: React.FunctionComponent = () => {
 						</div>
 					</a>
 					<div>
-						<h2 className={styles.section_name}>Section</h2>
+						<h2 className={styles.section_name}>Natación</h2>
 					</div>
 				</article>
 			</div>

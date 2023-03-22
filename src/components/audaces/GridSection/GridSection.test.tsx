@@ -8,6 +8,9 @@ describe('GridSection', () => {
 		const { asFragment, queryAllByText } = render(<GridSection />);
 
 		expect(asFragment()).toMatchSnapshot();
-		expect(queryAllByText('Section')).toHaveLength(4);
+		expect(queryAllByText('Guardavidas')).toHaveLength(1);
+		expect(queryAllByText('Hombre')).toHaveLength(1);
+		expect(queryAllByText('Mujer')).toHaveLength(1);
+		expect(queryAllByText('Natación')).toHaveLength(1);
 	});
 });
