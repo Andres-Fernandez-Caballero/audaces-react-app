@@ -4,12 +4,16 @@ import { CartItemDropItemButton } from '@pages/CartShop/CartItem/CartItemDropIte
 import { useCartItemAmountAndTotalPrice } from '@pages/CartShop/CartShop.hooks';
 import styles from '@pages/CartShop/CartItem/CartItem.module.scss';
 import { CartItemProps } from '@pages/CartShop/CartShop.interfaces';
+import { removeFromCart } from '@slices/cart.slyce';
+import { useAppDispatch } from '@hooks/redux..hook';
+import { toast } from 'react-toastify';
 
 export const CartItem: FC<CartItemProps> = ({
 	item,
 }: CartItemProps): ReactElement => {
 	const { amount, handleSubtract, handleAdd, getTotalPrice } =
 		useCartItemAmountAndTotalPrice(item.product.price);
+	const dispatch = useAppDispatch();
 
 	return (
 		<div className={styles.container}>
@@ -40,7 +44,12 @@ export const CartItem: FC<CartItemProps> = ({
 				</h2>
 			</header>
 			<menu className={styles.dropMenu}>
-				<CartItemDropItemButton />
+				<CartItemDropItemButton
+					onClick={() => {
+						dispatch(removeFromCart(item));
+						toast.info('producto eliminado del carrito ');
+					}}
+				/>
 			</menu>
 			<footer className={styles.details}>
 				<p>

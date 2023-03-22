@@ -47,11 +47,17 @@ export const cartSlice = createSlice({
 			state.cart.push(newCartItem);
 		},
 		removeFromCart: (state: ICartState, action: PayloadAction<ICartItem>) => {
+			function removeCartItem(
+				cart: ICartItem[],
+				product: IProduct
+			): ICartItem[] {
+				return cart.filter(item => item.product.id !== product.id);
+			}
+
 			const cartItem = findCartItem(state.cart, action.payload.product);
 			if (cartItem === undefined) throw new Error('Cart item does not exists');
 			removeCartItemFromCartInLocalStorage(action.payload);
-			removeCartItem(state.cart, action.payload.product);
-			// revisar logica algo teclea
+			state.cart = removeCartItem(state.cart, action.payload.product);
 		},
 		updateQuantityFromCartItem: (
 			state: ICartState,
@@ -70,10 +76,6 @@ const findCartItem = (
 	product: IProduct
 ): ICartItem | undefined => {
 	return cart.find(item => item.product.id === product.id);
-};
-
-const removeCartItem = (cart: ICartItem[], product: IProduct): ICartItem[] => {
-	return cart.filter(item => item.product.id !== product.id);
 };
 
 export const {

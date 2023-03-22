@@ -85,6 +85,8 @@
   justify-content: right;
 
   &__button {
+    background-color: white;
+    border: none;
     color: $primary;
 
     &:hover {
