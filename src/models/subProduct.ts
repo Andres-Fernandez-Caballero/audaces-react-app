@@ -30,6 +30,14 @@ class SubProduct {
 	get talles(): Talle[] {
 		return this.subProduct.talles;
 	}
+
+	get firstTalle(): string {
+		return this.subProduct.talles[0].talle;
+	}
+
+	getSubProduct(): Subproducto {
+		return this.subProduct;
+	}
 }
 
 export default SubProduct;

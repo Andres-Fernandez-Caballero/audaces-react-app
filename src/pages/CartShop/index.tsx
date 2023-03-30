@@ -1,6 +1,6 @@
 import { FC, ReactElement } from 'react';
 import { useAppSelector } from '@hooks/redux..hook';
-import { selectCart } from '@slices/cart.slyce';
+import { selectCart } from '@slices/cart/cart.slyce';
 import { CartShop } from '@pages/CartShop/CartShop';
 
 const ComponentCartPage: FC = (): ReactElement => {

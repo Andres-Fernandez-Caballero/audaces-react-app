@@ -6,9 +6,11 @@ import { toast } from 'react-toastify';
 
 export interface VariantSelectorProps {
 	subProducts: SubProduct[];
-
+	chosenSize: string | undefined;
+	setChosenSize: (size: string) => void;
 	changeChosenSubProduct: (subproduct: SubProduct) => void;
 	chosenSubProduct: SubProduct | undefined;
+	getSize: () => string | undefined;
 }
 
 export interface IOptionColor {

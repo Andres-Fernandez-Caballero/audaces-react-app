@@ -33,14 +33,35 @@ describe('cartItemStorage', () => {
 
 	it('should add a cart item to the cart', () => {
 		const cartItemsData: ICartItem[] = [
-			{ product: products.results[0], quantity: 1 },
-			{ product: products.results[1], quantity: 1 },
-			{ product: products.results[2], quantity: 1 },
+			{
+				product: products.results[0],
+				subProduct: products.results[0].subproducto[0],
+				quantity: 1,
+				talle: 'M',
+				color: 'Rojo',
+			},
+			{
+				product: products.results[1],
+				subProduct: products.results[1].subproducto[0],
+				quantity: 1,
+				talle: 'M',
+				color: 'Rojo',
+			},
+			{
+				product: products.results[2],
+				subProduct: products.results[2].subproducto[0],
+				quantity: 1,
+				talle: 'M',
+				color: 'Rojo',
+			},
 		];
 		localStorage.setItem(COOKIES.CART_ITEMS, JSON.stringify(cartItemsData));
 		addCartItemToCartInLocalStorage({
 			product: products.results[3],
-			quantity: 2,
+			subProduct: products.results[3].subproducto[0],
+			quantity: 1,
+			talle: 'M',
+			color: 'Rojo',
 		});
 		const itemsInStorage = getCartItemsFromLocalStorage();
 		expect(itemsInStorage).toHaveLength(4);
@@ -48,12 +69,28 @@ describe('cartItemStorage', () => {
 
 	it('should remove a  cart item from the cart', () => {
 		const cartItemsData: ICartItem[] = [
-			{ product: products.results[0], quantity: 1 },
-			{ product: products.results[1], quantity: 1 },
+			{
+				product: products.results[0],
+				subProduct: products.results[0].subproducto[0],
+				quantity: 1,
+				talle: 'M',
+				color: 'Rojo',
+			},
+
+			{
+				product: products.results[1],
+				subProduct: products.results[1].subproducto[0],
+				quantity: 1,
+				talle: 'M',
+				color: 'Rojo',
+			},
 		];
 		localStorage.setItem(COOKIES.CART_ITEMS, JSON.stringify(cartItemsData));
 		const cartToRemove: ICartItem = {
 			product: products.results[0],
+			subProduct: products.results[0].subproducto[0],
+			talle: 'M',
+			color: 'Rojo',
 			quantity: 1,
 		};
 		removeCartItemFromCartInLocalStorage(cartToRemove);
@@ -65,9 +102,27 @@ describe('cartItemStorage', () => {
 
 	it('should remove all products from the cart', () => {
 		const cartItemsData: ICartItem[] = [
-			{ product: products.results[0], quantity: 1 },
-			{ product: products.results[1], quantity: 1 },
-			{ product: products.results[2], quantity: 1 },
+			{
+				product: products.results[0],
+				subProduct: products.results[0].subproducto[0],
+				talle: 'M',
+				color: 'Rojo',
+				quantity: 1,
+			},
+			{
+				product: products.results[1],
+				subProduct: products.results[1].subproducto[0],
+				talle: 'M',
+				color: 'Rojo',
+				quantity: 1,
+			},
+			{
+				product: products.results[2],
+				subProduct: products.results[2].subproducto[0],
+				talle: 'M',
+				color: 'Rojo',
+				quantity: 1,
+			},
 		];
 		setCookie(COOKIES.CART_ITEMS, cartItemsData);
 		clearCartInLocalStorage();

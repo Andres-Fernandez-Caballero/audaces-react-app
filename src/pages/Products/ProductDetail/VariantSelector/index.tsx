@@ -1,3 +1,3 @@
-import { VariantSelector } from '@pages/Products/ProductDetail/VariantSelector/VariantSelector';
+import { VariantSelectorMosaic } from '@pages/Products/ProductDetail/VariantSelector/VariantSelectorMosaic';
 
-export default VariantSelector;
+export default VariantSelectorMosaic;

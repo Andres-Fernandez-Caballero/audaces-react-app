@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { redirect, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { openModalAuth } from '@store/slices/modalAuth.slyce';
 import { getProductById } from '@/service/products';
-import Product from '@/models/product';
 import { URL } from '@constants/routes';
 import { loadingOff, loadingOn } from '@slices/loading.slyce';
 import { toast } from 'react-toastify';
@@ -12,11 +10,21 @@ import SubProduct from '@/models/subProduct';
 import { useProductDetail } from '@pages/Products/ProductDetail/ProductDetail.hooks';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
+import { FAQ } from '@pages/Products/ProductDetail/FAQ';
+import { addToCart } from '@slices/cart/cart.slyce';
 
 const Detail: React.FunctionComponent = () => {
 	const dispatch = useDispatch();
-	const [product, setProduct] = useState<Product>();
-	const { chosenSubProduct, changeChosenSubProduct } = useProductDetail();
+	const {
+		chosenProduct,
+		setChosenProduct,
+		chosenSubProduct,
+		changeChosenSubProduct,
+		setChosenSize,
+		chosenSize,
+		generateItemCart,
+		getSize,
+	} = useProductDetail();
 	const { id } = useParams();
 
 	useEffect(() => {
@@ -28,7 +36,7 @@ const Detail: React.FunctionComponent = () => {
 		getProductById(id)
 			.then(productFind => {
 				if (productFind !== null && productFind !== undefined) {
-					setProduct(productFind);
+					setChosenProduct(productFind);
 					changeChosenSubProduct(new SubProduct(productFind.firstSubProduct));
 				}
 			})
@@ -45,83 +53,66 @@ const Detail: React.FunctionComponent = () => {
 		<div className='container'>
 			<main className='row'>
 				<aside className='col-md-8'>
-					{product !== undefined && (
+					{chosenProduct !== undefined && (
 						<Carousel showArrows={true}>
 							<figure>
 								<img
 									src={chosenSubProduct?.frontImage}
-									alt={product.title.titulo}
+									alt={chosenProduct.title.titulo}
 								/>
-								<figcaption>{product?.title.titulo}</figcaption>
+								<figcaption>{chosenProduct.title.titulo}</figcaption>
 							</figure>
 							<figure>
 								<img
 									src={chosenSubProduct?.backImage}
-									alt={product?.title.titulo}
+									alt={chosenProduct.title.titulo}
 								/>
-								<figcaption>{product?.title.titulo}</figcaption>
+								<figcaption>{chosenProduct.title.titulo}</figcaption>
 							</figure>
 						</Carousel>
 					)}
 				</aside>
 				<section className='col-md-4'>
-					{product !== undefined && (
+					{chosenProduct !== undefined && (
 						<>
 							<article>
-								<h2>{product.title.titulo}</h2>
+								<h2>{chosenProduct.title.titulo}</h2>
 								<div className='d-flex justify-content-between	'>
 									<p
 										className='badge text-bg-primary'
 										style={{ fontSize: '1.1rem' }}
 									>
 										<span>$</span>
-										{product.price}
+										{chosenProduct.price}
 									</p>
 									<button
 										className='btn btn-info'
 										onClick={() => {
-											dispatch(openModalAuth());
+											try {
+												dispatch(addToCart(generateItemCart()));
+												toast.success('Producto agregado al carrito 👍');
+											} catch (err) {
+												toast.error('Error al agregar al carrito');
+												console.log(err);
+											}
 										}}
 									>
 										Agregar al carrito
 									</button>
 								</div>
 								<VariantSelector
+									chosenSize={chosenSize}
+									setChosenSize={setChosenSize}
+									getSize={getSize}
 									changeChosenSubProduct={changeChosenSubProduct}
 									chosenSubProduct={chosenSubProduct}
-									subProducts={product.subproducto.map(
+									subProducts={chosenProduct.subproducto.map(
 										sp => new SubProduct(sp)
 									)}
 								/>
 							</article>
 							<article className='accordion my-4' id='preguntas-frecuentes'>
-								<div className='accordion-item'>
-									<h3
-										className='accordion-header'
-										id='preguntas-frecuentes-titulo'
-									>
-										<button
-											className='accordion-button'
-											type='button'
-											data-bs-toggle='collapse'
-											data-bs-target='#preguntas-frecuentes-contenido'
-											aria-expanded='true'
-											aria-controls='preguntas-frecuentes-contenido'
-										>
-											Preguntas Frecuentes
-										</button>
-									</h3>
-									<div
-										id='preguntas-frecuentes-contenido'
-										className='accordion-collapse collapse show'
-										aria-labelledby='preguntas-frecuentes-titulo'
-										data-bs-parent='#preguntas-frecuentes'
-									>
-										<div className='accordion-body'>
-											<p>{product.title.preguntas}</p>
-										</div>
-									</div>
-								</div>
+								<FAQ questions={chosenProduct.title.preguntas} />
 							</article>
 						</>
 					)}

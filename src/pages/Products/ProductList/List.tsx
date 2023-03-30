@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { URL } from '@constants/routes';
 import { getAllProducts } from '@/service/products';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '@slices/cart.slyce';
 import { toast } from 'react-toastify';
 import { getCartItemsFromLocalStorage } from '@/utils/cartItemsStorage';
 import { loadingOff, loadingOn } from '@slices/loading.slyce';
@@ -53,7 +52,7 @@ const List: FC = (): ReactElement => {
 										alt={product.title.titulo}
 									/>
 								</Link>
-								<div className='card-body'>
+								<article className='card-body'>
 									<h4
 										className='card-title'
 										style={{
@@ -78,19 +77,7 @@ const List: FC = (): ReactElement => {
 										</span>
 										{product.price}
 									</p>
-									<button
-										className='btn btn-info'
-										onClick={() => {
-											dispatch(addToCart(product.getProduct()));
-											toast.success('Producto agregado al carrito', {
-												position: 'top-right',
-												autoClose: 2000,
-											});
-										}}
-									>
-										Agregar al Carrito
-									</button>
-								</div>
+								</article>
 							</div>
 						</div>
 					))}

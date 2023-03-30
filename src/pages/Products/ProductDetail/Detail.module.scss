@@ -1,6 +1,41 @@
+@import '@sass/theme/_variables.scss';
+
 .image {
-	@media only screen and (max-device-width: 600px) {
-		height: 75%;
-		width: 75%;
-	}
+  @media only screen and (max-device-width: 600px) {
+    height: 75%;
+    width: 75%;
+  }
+}
+
+.container_mosaic {
+  display: flex;
+
+  &__mosaic__item {
+    border: 2px solid gray;
+    border-radius: $border-radius-1;
+    width: 4rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+
+    &___image {
+      height: 100%;
+      width: 100%;
+    }
+
+    &__text {
+      padding: 0;
+      margin: 0;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: $primary;
+    }
+  }
 }

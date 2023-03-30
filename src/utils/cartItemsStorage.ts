@@ -1,5 +1,6 @@
 import { ICartItem } from '@interfaces/ICartItem';
 import { COOKIES } from '@constants/globals';
+import { isTheSameCartItem } from '@slices/cart/cart.utils';
 
 export const getCartItemsFromLocalStorage = (): ICartItem[] => {
 	const ls = localStorage.getItem(COOKIES.CART_ITEMS);
@@ -12,12 +13,12 @@ export const getCartItemsFromLocalStorage = (): ICartItem[] => {
 export const addCartItemToCartInLocalStorage = (cartItem: ICartItem): void => {
 	const cartItems = getCartItemsFromLocalStorage();
 
-	const cartItemFind = cartItems.find(
-		item => item.product.id === cartItem.product.id
+	const cartItemFind = cartItems.find(item =>
+		isTheSameCartItem(item, cartItem)
 	);
 
 	if (cartItemFind !== undefined)
-		throw new Error('the product already exists in the cart');
+		throw new Error('El Producto ya existe en el carrito');
 
 	const newCartItems = [...cartItems, cartItem];
 	localStorage.setItem(COOKIES.CART_ITEMS, JSON.stringify(newCartItems));
@@ -28,9 +29,7 @@ export const removeCartItemFromCartInLocalStorage = (
 	cartItem: ICartItem
 ): void => {
 	const cartItems = getCartItemsFromLocalStorage();
-	const ItemFind = cartItems.find(
-		item => item.product.id === cartItem.product.id
-	);
+	const ItemFind = cartItems.find(item => isTheSameCartItem(item, cartItem));
 	if (ItemFind !== undefined) {
 		const index = cartItems.indexOf(ItemFind);
 		cartItems.splice(index, 1);

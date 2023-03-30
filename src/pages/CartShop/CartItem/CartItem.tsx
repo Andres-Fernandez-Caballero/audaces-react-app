@@ -1,39 +1,62 @@
 import { CartItemCounter } from '@pages/CartShop/CartItem/CartItemCounter';
 import { FC, ReactElement } from 'react';
 import { CartItemDropItemButton } from '@pages/CartShop/CartItem/CartItemDropItemButton';
-import { useCartItemAmountAndTotalPrice } from '@pages/CartShop/CartShop.hooks';
 import styles from '@pages/CartShop/CartItem/CartItem.module.scss';
 import { CartItemProps } from '@pages/CartShop/CartShop.interfaces';
-import { removeFromCart } from '@slices/cart.slyce';
+import {
+	removeFromCart,
+	updateQuantityFromCartItem,
+} from '@slices/cart/cart.slyce';
 import { useAppDispatch } from '@hooks/redux..hook';
 import { toast } from 'react-toastify';
+import Product from '@/models/product';
+import SubProduct from '@/models/subProduct';
 
 export const CartItem: FC<CartItemProps> = ({
 	item,
 }: CartItemProps): ReactElement => {
-	const { amount, handleSubtract, handleAdd, getTotalPrice } =
-		useCartItemAmountAndTotalPrice(item.product.price);
+	const product = new Product(item.product);
+	const subProduct = new SubProduct(item.subProduct);
+
 	const dispatch = useAppDispatch();
+
+	const handleSubtract = (): void => {
+		dispatch(
+			updateQuantityFromCartItem({
+				cartItem: item,
+				quantity: -1,
+			})
+		);
+	};
+
+	const handleAdd = (): void => {
+		dispatch(
+			updateQuantityFromCartItem({
+				cartItem: item,
+				quantity: 1,
+			})
+		);
+	};
+
+	const getTotalPrice = (): number => {
+		return product.price * item.quantity;
+	};
 
 	return (
 		<div className={styles.container}>
 			<h2 className={styles.productName}>
-				<strong>{item.product.name}</strong>
+				<strong>{product.title.titulo}</strong>
 			</h2>
 			<figure className={styles.thumbnail}>
 				<img
 					className={styles.thumbnail__image}
-					src={
-						item.product.subproducto.length > 0
-							? item.product.subproducto[0].images[1].image
-							: 'default'
-					}
-					alt='imagen de una prenda de vestir'
+					src={subProduct.frontImage}
+					alt={product.name}
 				/>
 			</figure>
 			<article className={styles.amountMenu}>
 				<CartItemCounter
-					amount={amount}
+					amount={item.quantity}
 					onSubtract={handleSubtract}
 					onAdd={handleAdd}
 				/>
@@ -53,10 +76,10 @@ export const CartItem: FC<CartItemProps> = ({
 			</menu>
 			<footer className={styles.details}>
 				<p>
-					<strong>Color:</strong> Negro
+					<strong>Color:</strong> {item.color}
 				</p>
 				<p>
-					<strong>Talle:</strong> M
+					<strong>Talle:</strong> {item.talle}
 				</p>
 			</footer>
 		</div>
