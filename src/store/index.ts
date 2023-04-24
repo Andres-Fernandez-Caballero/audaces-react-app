@@ -1,10 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit';
-import authSlyce from './slyces/auth.slyce';
-import loadingSlyce from './slyces/loading.slyce';
+import authSlice from './slices/auth.slyce';
+import loadingSlice from './slices/loading.slyce';
+import modalAuthSlice from './slices/modalAuth.slyce';
+import cartSlice from '@slices/cart/cart.slyce';
 
-export default configureStore({
+const store = configureStore({
 	reducer: {
-		auth: authSlyce,
-		loading: loadingSlyce,
+		auth: authSlice,
+		loading: loadingSlice,
+		modalAuth: modalAuthSlice,
+		cart: cartSlice,
 	},
 });
+
+export default store;
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

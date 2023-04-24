@@ -1,0 +1,2 @@
+const { VITE_WHATSAPP_BUSINESS_NUMBER } = import.meta.env;
+export const WHATSAPP_BUSINESS_NUMBER = VITE_WHATSAPP_BUSINESS_NUMBER as string;

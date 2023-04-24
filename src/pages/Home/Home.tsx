@@ -2,12 +2,12 @@ import BlackLabelBar from '@components/audaces/BlackLaberBar';
 import FeatureProductsCarousel from '@components/audaces/FeatureProductsCarousel';
 import GridSection from '@components/audaces/GridSection';
 import ItemsSwiper from '@components/audaces/ItemsSwiper';
-import styles from './styles/Home.module.scss';
+
 // export interface HomeInterface {}
 
 const Home: React.FC = () => {
 	return (
-		<div className={styles.home}>
+		<div className='container-fluid'>
 			<ItemsSwiper items={[]} />
 			<BlackLabelBar>
 				<nav

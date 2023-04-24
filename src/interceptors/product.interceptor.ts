@@ -1,29 +1,41 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import axios from 'axios';
-import { API_URL } from '../constants/api.routes';
-import { logerInterceptor } from './basics.Interceptor';
+import { IProduct, IProductListResponse } from '@/interfaces/IProduct';
+import axios, { AxiosResponse } from 'axios';
+import { PRODUCTS, SERVER_URL } from '@constants/api.routes';
 
 const APIKit = axios.create({
-	baseURL: API_URL,
+	baseURL: PRODUCTS,
 	timeout: 10000,
-	withCredentials: true,
 });
 
-APIKit.interceptors.request.use(logerInterceptor);
+export const getProducts = async (): Promise<IProductListResponse> => {
+	const response: AxiosResponse<IProductListResponse> = await APIKit.get('');
+	const productsMapped = response.data.results.map(remapProduct);
 
-APIKit.interceptors.request.use(request => {
-	console.log('agregado control origenes');
-	request.headers = {
-		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-		'Access-Control-Allow-Origin': `${API_URL}/*`,
-		'Access-Control-Allow-Methods': 'GET, POST, PUT',
-		'Access-Control-Allow-Headers': 'Content-Type',
-	};
-	return request;
-});
-
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const consultaProducto = async () => {
-	const response = await APIKit.get('');
-	return response.data;
+	return { ...response.data, results: productsMapped };
 };
+
+export const productById = async (id: string): Promise<IProduct> => {
+	const response: AxiosResponse<IProduct> = await APIKit.get(`/${id}/`);
+	return remapProduct(response.data);
+};
+
+function remapProduct(p: IProduct): IProduct {
+	const subProducts = p.subproducto.map(sp => {
+		return {
+			...sp,
+			images: sp.images.map(i => {
+				return { image: reemplaceLocalhost(i.image) };
+			}),
+		};
+	});
+	return {
+		...p,
+		subproducto: subProducts,
+	};
+
+	function reemplaceLocalhost(image: string): string {
+		const urlSplit = image.split('http://localhost:8000');
+
+		return SERVER_URL + urlSplit[1];
+	}
+}

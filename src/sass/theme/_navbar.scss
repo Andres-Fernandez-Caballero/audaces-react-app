@@ -1,0 +1,20 @@
+@import '../theme/variables';
+.nav-link {
+	position: relative;
+	font-size: 115%;
+	font-weight: 500;
+}
+.nav-link::after {
+	transition: all 0.2s;
+	opacity: 0;
+	height: 2px;
+	width: 100%;
+	background-color: $info;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.nav-link:hover::after {
+	content: '';
+	opacity: 1;
+}

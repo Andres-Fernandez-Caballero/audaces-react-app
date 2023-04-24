@@ -3,5 +3,5 @@ export interface IStateWhitError {
 }
 
 export interface IAsyncState {
-	loading: boolean;
+	isLoading: boolean;
 }

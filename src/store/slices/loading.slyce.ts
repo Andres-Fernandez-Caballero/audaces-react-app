@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { IAsyncState } from '../interfaces/state';
+import { RootState } from '@/store';
 
 const initialState: IAsyncState = {
-	loading: false,
+	isLoading: false,
 };
 
 const loadingSlice = createSlice({
@@ -10,14 +11,16 @@ const loadingSlice = createSlice({
 	initialState,
 	reducers: {
 		loadingOn: state => {
-			state.loading = true;
+			state.isLoading = true;
 		},
 		loadingOff: state => {
-			state.loading = false;
+			state.isLoading = false;
 		},
 	},
 });
 
 export const { loadingOn, loadingOff } = loadingSlice.actions;
+
+export const selectLoading = (state: RootState): IAsyncState => state.loading;
 
 export default loadingSlice.reducer;

@@ -1,19 +1,25 @@
 import { Route, Routes } from 'react-router-dom';
 import NavigableLayout from '@components/layers/NavigableLayout';
 import { PATH_NAME } from '@constants/routes';
-import About from '@pages/About';
 import Home from '@pages/Home';
 import ProductDetail from '@pages/Products/ProductDetail';
 import ProductList from '@pages/Products/ProductList';
 import Login from '@/pages/Login';
+import { selectAuth } from '@/store/slices/auth.slyce';
+import { useAppSelector } from '@/hooks/redux..hook';
+import UserPanel from '@/pages/UserPanel';
+import CartShop from '@pages/CartShop';
+import { FC } from 'react';
 
-const AppRouter: React.FC = () => {
+const AppRouter: FC = () => {
+	const auth = useAppSelector(selectAuth);
+
 	return (
 		<>
 			<Routes>
 				<Route path='/' element={<NavigableLayout />}>
 					<Route index element={<Home />} />
-					<Route path={PATH_NAME.ABOUT} element={<About />} />
+					<Route path={PATH_NAME.ABOUT} element={<CartShop />} />
 					<Route path={PATH_NAME.PRODUCTS}>
 						<Route index element={<ProductList />} />
 						<Route
@@ -29,6 +35,11 @@ const AppRouter: React.FC = () => {
 						<Route path={PATH_NAME.LOGIN} element={<Login />} />
 						<Route path={PATH_NAME.SIGNUP} element={<h1>Register</h1>} />
 					</Route>
+					<Route path={PATH_NAME.CART} element={<CartShop />} />
+					<Route
+						path='user'
+						element={auth.isAuthenticate ? <UserPanel /> : <h1>401</h1>}
+					/>
 					<Route path='*' element={<h1>404</h1>} />
 				</Route>
 			</Routes>

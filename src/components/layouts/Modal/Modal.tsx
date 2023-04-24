@@ -1,15 +1,19 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
-import { Modal } from 'react-responsive-modal';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
 import 'react-responsive-modal/styles.css';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+	closeModalAuth,
+	IModalModalState,
+	selectModalState,
+} from '@store/slices/modalAuth.slyce';
 import Tabs from '@components/layouts/Tabs';
+import Modal from 'react-responsive-modal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Modals: React.FC = () => {
-	const [open, setOpen] = useState(false);
-
-	const onCloseModal = (): void => setOpen(false);
-
-	const onOpenModal = (): void => setOpen(true);
+	const showModal = useSelector(selectModalState) as IModalModalState;
+	const dispatch = useDispatch();
 
 	const closeIcon = (
 		<FontAwesomeIcon
@@ -20,14 +24,16 @@ const Modals: React.FC = () => {
 	);
 
 	return (
-		<>
-			<button className='btn btn-primary' onClick={onOpenModal}>
-				<FontAwesomeIcon icon='user' />
-			</button>
-			<Modal open={open} onClose={onCloseModal} center closeIcon={closeIcon}>
-				<Tabs />
-			</Modal>
-		</>
+		<Modal
+			open={showModal.isOpen}
+			onClose={() => {
+				dispatch(closeModalAuth());
+			}}
+			center
+			closeIcon={closeIcon}
+		>
+			<Tabs />
+		</Modal>
 	);
 };
 export default Modals;

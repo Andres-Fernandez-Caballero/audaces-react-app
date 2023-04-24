@@ -8,6 +8,6 @@ describe('FeatureProductsCarousel', () => {
 		const { asFragment, queryByText } = render(<FeatureProductsCarousel />);
 
 		expect(asFragment()).toMatchSnapshot();
-		expect(queryByText('Feature Products Carousel')).toBeTruthy();
+		expect(queryByText('Productos Destacados')).toBeTruthy();
 	});
 });

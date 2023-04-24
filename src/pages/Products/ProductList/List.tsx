@@ -1,35 +1,37 @@
-import { useEffect, useState } from 'react';
+import { FC, ReactElement, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { URL } from '@constants/routes';
-import { IProduct } from '@interfaces/IProduct';
-import JumboBanner from '@components/layouts/JumboBanner';
-import banner from '@assets/imgs/banners/bermuda.banner.png';
-import api from '@tests/api/products.mock.json';
-import tshirt from '@assets/imgs/remera_frente.png';
-import { consultaProducto } from '@/interceptors/product.interceptor';
+import { getAllProducts } from '@/service/products';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { getCartItemsFromLocalStorage } from '@/utils/cartItemsStorage';
+import { loadingOff, loadingOn } from '@slices/loading.slyce';
+import Product from '@/models/product';
 
-const List: React.FunctionComponent = () => {
-	const [products, setProducts] = useState([] as IProduct[]);
+const List: FC = (): ReactElement => {
+	const dispatch = useDispatch();
+	const [products, setProducts] = useState([] as Product[]);
 	useEffect(() => {
-		// TODO: Get products from API
-		consultaProducto()
-			.then(res => {
-				console.log(res); // lista de productos
+		console.log('local storage', getCartItemsFromLocalStorage());
+		dispatch(loadingOn());
+		getAllProducts()
+			.then(apiProducts => {
+				setProducts(apiProducts);
 			})
 			.catch(err => {
-				console.error(err);
+				console.log(err);
+				toast.error('Error al cargar los productos');
+			})
+			.finally(() => {
+				dispatch(loadingOff());
 			});
-
-		const apiProducts: IProduct[] = api.results;
-		setProducts(apiProducts);
 	}, []);
 
 	return (
 		<>
-			<JumboBanner src={banner} />
 			<section className='container h-100 d-flex justify-content-center align-items-center'>
 				<ul className='row row-cols-1 row-cols-md-2 g-4'>
-					{products.map((product: IProduct) => (
+					{products.map((product: Product) => (
 						<div key={product.id} className='col-12 col-6 col-lg-3 mb-3'>
 							<div
 								className='card border border-secondary'
@@ -46,11 +48,11 @@ const List: React.FunctionComponent = () => {
 								>
 									<img
 										className='card-img-top'
-										src={tshirt}
+										src={product.frontImage()}
 										alt={product.title.titulo}
 									/>
 								</Link>
-								<div className='card-body'>
+								<article className='card-body'>
 									<h4
 										className='card-title'
 										style={{
@@ -75,7 +77,7 @@ const List: React.FunctionComponent = () => {
 										</span>
 										{product.price}
 									</p>
-								</div>
+								</article>
 							</div>
 						</div>
 					))}
