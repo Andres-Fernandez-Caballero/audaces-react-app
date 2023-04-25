@@ -10,6 +10,7 @@ RUN pnpm install
 COPY . .
 ARG ENV=production
 ENV NODE_ENV=$ENV
+
 RUN pnpm run build
 
 FROM nginx

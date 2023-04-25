@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { redirect, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getProductById } from '@/service/products';
 import { URL } from '@constants/routes';
@@ -14,6 +14,7 @@ import { FAQ } from '@pages/Products/ProductDetail/FAQ';
 import { addToCart } from '@slices/cart/cart.slyce';
 
 const Detail: React.FunctionComponent = () => {
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const {
 		chosenProduct,
@@ -29,7 +30,7 @@ const Detail: React.FunctionComponent = () => {
 
 	useEffect(() => {
 		if (id === undefined) {
-			redirect(URL.PRODUCTS);
+			navigate(URL.PRODUCTS);
 			return;
 		}
 		dispatch(loadingOn());
