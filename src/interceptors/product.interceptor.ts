@@ -7,11 +7,15 @@ const APIKit = axios.create({
 	timeout: 10000,
 });
 
-export const getProducts = async (): Promise<IProductListResponse> => {
-	const response: AxiosResponse<IProductListResponse> = await APIKit.get('');
+export const getProducts = async (page = 1): Promise<IProductListResponse> => {
+	const response: AxiosResponse<IProductListResponse> = await APIKit.get(
+		`?page=${page}`
+	);
 	const productsMapped = response.data.results.map(remapProduct);
 
-	return { ...response.data, results: productsMapped };
+	const { count, next, previous } = response.data;
+
+	return { ...response.data, results: productsMapped, count, next, previous };
 };
 
 export const productById = async (id: string): Promise<IProduct> => {
