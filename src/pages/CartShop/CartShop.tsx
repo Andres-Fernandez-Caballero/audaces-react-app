@@ -1,7 +1,7 @@
 import { CartItem } from '@pages/CartShop/CartItem/CartItem';
 import { CartResume } from '@pages/CartShop/CartResume/CartResume';
 import { useAppSelector } from '@hooks/redux..hook';
-import { selectCart } from '@slices/cart.slyce';
+import { selectCart } from '@slices/cart/cart.slyce';
 import { ICartItem } from '@interfaces/ICartItem';
 
 export const CartShop = (): JSX.Element => {

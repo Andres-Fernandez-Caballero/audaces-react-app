@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { URL } from '@constants/routes';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppSelector } from '@hooks/redux..hook';
-import { selectCart } from '@slices/cart.slyce';
+import { selectCart } from '@slices/cart/cart.slyce';
 import styles from './CartIcon.module.scss';
 
 export const CartIcon = (): ReactElement => {

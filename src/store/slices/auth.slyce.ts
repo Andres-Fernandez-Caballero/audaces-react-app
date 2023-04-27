@@ -30,7 +30,7 @@ const initState = (): IAuthState => {
 		return {
 			user: null,
 			isAuthenticate: false,
-			loading: false,
+			isLoading: false,
 			error: null,
 		};
 	}
@@ -38,7 +38,7 @@ const initState = (): IAuthState => {
 	return {
 		user: credentials,
 		isAuthenticate: true,
-		loading: false,
+		isLoading: false,
 		error: null,
 	};
 };
@@ -67,7 +67,7 @@ const authSlice = createSlice({
 		},
 
 		setLoading(state: IAuthState, action: PayloadAction<boolean>) {
-			state.loading = action.payload;
+			state.isLoading = action.payload;
 		},
 	},
 });

@@ -1,0 +1,14 @@
+@import "@sass/theme/_variables.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  &__spinner {
+    font-size: 7.5rem;
+    color: $info;
+  }
+}
+

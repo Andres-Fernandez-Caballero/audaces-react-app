@@ -1,11 +1,11 @@
 import { URL } from '@/constants/routes';
-import { IProduct } from '@/interfaces/IProduct';
 import { getAllProducts } from '@/service/products';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import tshirt from '@assets/imgs/remera_frente.png';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import Product from '@/models/product';
+
 const responsive = {
 	superLargeDesktop: {
 		// the naming can be any, depends on you.
@@ -27,7 +27,7 @@ const responsive = {
 };
 
 const FeatureProductsCarousel: React.FunctionComponent = () => {
-	const [products, setProducts] = useState([] as IProduct[]);
+	const [products, setProducts] = useState([] as Product[]);
 	useEffect(() => {
 		getAllProducts()
 			.then(apiProducts => {
@@ -43,7 +43,7 @@ const FeatureProductsCarousel: React.FunctionComponent = () => {
 				<h2>Productos Destacados</h2>
 			</article>
 			<Carousel responsive={responsive}>
-				{products.map((product: IProduct) => (
+				{products.map((product: Product) => (
 					<div className='carousel-item active' key={product.id}>
 						<div
 							className='card border border-0'
@@ -60,12 +60,7 @@ const FeatureProductsCarousel: React.FunctionComponent = () => {
 							>
 								<img
 									className='card-img-top'
-									src={
-										product.subproducto[0].images.length > 0 &&
-										product.subproducto[0].images[1].image !== undefined
-											? product.subproducto[0].images[1].image
-											: tshirt
-									}
+									src={product.frontImage()}
 									alt={product.title.titulo}
 								/>
 							</Link>

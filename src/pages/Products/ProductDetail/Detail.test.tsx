@@ -2,6 +2,7 @@ import { cleanup, render } from '@testing-library/react';
 import Detail from './Detail';
 import { Provider } from 'react-redux';
 import store from '@/store';
+import { BrowserRouter } from 'react-router-dom';
 
 describe('Detail', () => {
 	afterEach(cleanup);
@@ -11,9 +12,11 @@ describe('Detail', () => {
 			asFragment,
 			// queryByText
 		} = render(
-			<Provider store={store}>
-				<Detail />
-			</Provider>
+			<BrowserRouter>
+				<Provider store={store}>
+					<Detail />
+				</Provider>
+			</BrowserRouter>
 		);
 
 		expect(asFragment()).toMatchSnapshot();
