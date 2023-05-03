@@ -6,3 +6,4 @@ const API_URL = SERVER_URL + '/api' ?? 'https://hidrasport.com.ar/api';
 
 export const PRODUCTS = `${API_URL}/store/products/`;
 export const AUTH = `${API_URL}/accounts/`;
+export const CART = `${API_URL}/sessions/cart/`;

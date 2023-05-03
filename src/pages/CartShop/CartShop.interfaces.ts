@@ -1,4 +1,4 @@
-import { ICartItem } from '@interfaces/ICartItem';
+import { ICart } from '@slices/cart/cart.interface';
 
 export interface CartItemAmountHook {
 	amount: number;
@@ -8,7 +8,7 @@ export interface CartItemAmountHook {
 }
 
 export interface CartItemProps {
-	item: ICartItem;
+	item: ICart;
 }
 
 export interface CartItemCountProps {

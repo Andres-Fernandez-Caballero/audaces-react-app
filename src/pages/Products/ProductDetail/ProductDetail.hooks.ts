@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import SubProduct from '@/models/subProduct';
-import { ICartItem } from '@interfaces/ICartItem';
 import Product from '@/models/product';
+import { ICartSubProductRequest } from '@slices/cart/cart.interface';
 
 export interface useProductDetailHook {
 	chosenSubProduct: SubProduct | undefined;
@@ -10,7 +10,7 @@ export interface useProductDetailHook {
 	chosenSize: string | undefined;
 	setChosenSize: (size: string) => void;
 	changeChosenSubProduct: (subProduct: SubProduct) => void;
-	generateItemCart: () => ICartItem;
+	generateItemCart: () => ICartSubProductRequest;
 	chosenProduct: Product | undefined;
 	setChosenProduct: (product: Product) => void;
 	getSize: () => string | undefined;
@@ -44,7 +44,7 @@ export const useProductDetail = (): useProductDetailHook => {
 			: undefined;
 	};
 
-	const generateItemCart = (): ICartItem => {
+	const generateItemCart = (): ICartSubProductRequest => {
 		if (chosenSubProduct === undefined)
 			throw new Error('No subproduct selected');
 
@@ -52,12 +52,9 @@ export const useProductDetail = (): useProductDetailHook => {
 
 		if (getSize() === undefined) throw new Error('No size selected');
 
-		const itemCart: ICartItem = {
-			product: chosenProduct.getProduct(),
-			subProduct: chosenSubProduct.getSubProduct(),
-			quantity: 1,
-			color: chosenSubProduct.color,
-			talle: chosenSize,
+		const itemCart: ICartSubProductRequest = {
+			subProductId: chosenSubProduct.id,
+			size: getSize() ?? '',
 		};
 		console.log(itemCart);
 		return itemCart;

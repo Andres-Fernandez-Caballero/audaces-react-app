@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { getProductById } from '@/service/products';
 import { URL } from '@constants/routes';
 import { loadingOff, loadingOn } from '@slices/loading.slyce';
@@ -11,11 +10,12 @@ import { useProductDetail } from '@pages/Products/ProductDetail/ProductDetail.ho
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { FAQ } from '@pages/Products/ProductDetail/FAQ';
-import { addToCart } from '@slices/cart/cart.slyce';
+import { useAppDispatch } from '@hooks/redux..hook';
+import { addItemToCart } from '@slices/cart/cart.slyce';
 
 const Detail: React.FunctionComponent = () => {
 	const navigate = useNavigate();
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const {
 		chosenProduct,
 		setChosenProduct,
@@ -27,6 +27,41 @@ const Detail: React.FunctionComponent = () => {
 		getSize,
 	} = useProductDetail();
 	const { id } = useParams();
+
+	const handleAddToCart = (): void => {
+		const toastAction = toast.loading('Agregando al carrito...');
+
+		try {
+			const itemCart = generateItemCart();
+			dispatch(addItemToCart(itemCart))
+				.then(() => {
+					toast.update(toastAction, {
+						render: 'Producto agregado al carrito',
+						isLoading: false,
+						autoClose: 2000,
+						type: 'success',
+					});
+				})
+				.catch(e => {
+					toast.update(toastAction, {
+						render: e.message,
+						isLoading: false,
+						autoClose: 2000,
+						type: 'error',
+						closeButton: true,
+					});
+				});
+		} catch (e: unknown) {
+			const error = e as Error;
+			toast.update(toastAction, {
+				render: error.message,
+				isLoading: false,
+				autoClose: 2000,
+				closeButton: true,
+				type: 'error',
+			});
+		}
+	};
 
 	useEffect(() => {
 		if (id === undefined) {
@@ -86,18 +121,8 @@ const Detail: React.FunctionComponent = () => {
 										<span>$</span>
 										{chosenProduct.price}
 									</p>
-									<button
-										className='btn btn-info'
-										onClick={() => {
-											try {
-												dispatch(addToCart(generateItemCart()));
-												toast.success('Producto agregado al carrito 👍');
-											} catch (err) {
-												toast.error('Error al agregar al carrito');
-												console.log(err);
-											}
-										}}
-									>
+
+									<button className='btn btn-info' onClick={handleAddToCart}>
 										Agregar al carrito
 									</button>
 								</div>
