@@ -6,7 +6,7 @@ export const ButtonPagination = (
 ): ReactElement => (
 	<li className='page-item'>
 		<button
-			className='page-link border border-info text-bg-info'
+			className='page-link border border-info text-bg-info m-2 p-2'
 			onClick={props.onClick}
 			disabled={!props.disabled}
 		>

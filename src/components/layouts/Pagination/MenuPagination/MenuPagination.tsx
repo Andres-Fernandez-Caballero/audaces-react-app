@@ -10,13 +10,13 @@ export const MenuPagination = ({
 	hasPreviousPage,
 }: MenuPaginationProps): ReactElement => (
 	<nav>
-		<menu className='pagination pagination-sm justify-content-center'>
+		<menu className='pagination pagination-sm justify-content-center m-auto'>
 			<ButtonPagination
 				onClick={previousPage}
 				disabled={hasPreviousPage}
 				title={'<<'}
 			/>
-			<p className='page-link border border-info'>{page}</p>
+			<p className='page-link border border-info m-2 p-2'>{page}</p>
 			<ButtonPagination
 				onClick={nextPage}
 				disabled={hasNextPage}
