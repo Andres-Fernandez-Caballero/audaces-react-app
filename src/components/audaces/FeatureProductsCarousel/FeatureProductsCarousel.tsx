@@ -64,7 +64,7 @@ const FeatureProductsCarousel: React.FunctionComponent = () => {
 									alt={product.title.titulo}
 								/>
 							</Link>
-							<div className='card-body'>
+							<div className='card-body d-flex flex-column'>
 								<h4
 									className='card-title'
 									style={{
