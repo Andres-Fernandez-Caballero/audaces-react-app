@@ -1,6 +1,8 @@
 import './Footer.module.scss';
 import BlackLabelBar from '@components/audaces/BlackLaberBar';
 import AFIP from '../AFIP';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMessage, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 const Footer: React.FC = () => (
 	<nav className='container-fluid' style={{ padding: '2rem' }}>
@@ -10,9 +12,13 @@ const Footer: React.FC = () => (
 					<h3>Contactenos</h3>
 					<ul style={{ listStyleType: 'none' }}>
 						<li>Direccion: </li>
-						<li>Telefono(Linea):011 47252855 </li>
+						<li>
+							<FontAwesomeIcon icon={faPhone} /> Telefono(Linea):011 47252855{' '}
+						</li>
 						<li>Whatsapp: </li>
-						<li>email: </li>
+						<li>
+							<FontAwesomeIcon icon={faMessage} /> Email:{' '}
+						</li>
 					</ul>
 				</section>
 				<section className='col-sm-6'>
