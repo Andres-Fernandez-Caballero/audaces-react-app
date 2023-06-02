@@ -7,12 +7,12 @@ export interface SearchBarProps {
 export const SearchBar = ({ onSearch }: SearchBarProps): ReactElement => {
 	const [search, setSearch] = useState<string>('');
 
-	function valueText(event: any): void {
+	function valueText(event: React.ChangeEvent<HTMLInputElement>): void {
 		const text = event.target.value;
 		setSearch(text);
 	}
 
-	function onSubmit(event: any): void {
+	function onSubmit(event: React.FormEvent<HTMLFormElement>): void {
 		event.preventDefault();
 		onSearch(search);
 	}
